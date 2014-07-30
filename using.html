@@ -25,8 +25,6 @@
             </li>
             <li class="main-nav__entry is-active"><a href="using.html" title="Using" class="main-nav__link">Using</a>
             </li>
-            <li class="main-nav__entry"><a href="images.html" title="Images" class="main-nav__link">Images</a>
-            </li>
             <li class="main-nav__entry"><a href="sass.html" title="Sass" class="main-nav__link">Sass</a>
             </li>
           </ul>
@@ -68,14 +66,15 @@
           </li>
           <li><a href="#extend">Extend Kittn</a>
           </li>
+          <li><a href="#image">Image preparing</a>
+          </li>
           </ul>
         </div>
         <article class="article">
           <h2 id="setup">Setup</h2>
           <p>After the installation is complete, the project must be <strong>initialized</strong>.</p>
-          <pre class="language-bash"><p><code>
-gulp init
-</code></p></pre>
+          <pre class="language-bash"><code>gulp init
+</code></pre>
           <p><em>Init Process:</em>
           </p>
 
@@ -131,18 +130,16 @@ gulp init
             <p>Important! You will always work in the <code>src</code> directory. There, all source data are stored, which are then processed on Gulp task on.</p>
           </div>
           <p>In order now to begin the work activate the <code>default task</code>:</p>
-          <pre class="language-bash"><p><code>
-gulp
-</code></p></pre>
+          <pre class="language-bash"><code>gulp
+</code></pre>
           <p>Gulp will activate the server that provides a preview in realtime on the browser - the browser is automatically refreshed after every change on the filesystem. Within the <code>src</code> directory <code>js</code>, <code>Jade</code> and <code>Sass</code> files
             are monitored for a change in the compiler is active - in the case of Javascript JSHint will check code quality.</p>
           <div class="alert-box">
             <p>I deliberately use no CoffeeScript because it has just performed in teamwork to confusion. If you still want to use CoffeeScript, only the corresponding plugin must install.</p>
           </div>
           <p>Those who want to extend the file monitoring to images, can use the <code>extended default task</code>:</p>
-          <pre class="language-bash"><p><code>
-gulp extended
-</code></p></pre>
+          <pre class="language-bash"><code>gulp extended
+</code></pre>
           <p>A modification of files, as well as adding or deleting will activate the task, eg is from SVG files automatically generates a PNG fallback.</p>
           <div class="alert-box--info">
             <p>It may be that the Extend task is not responding at the beginning of changes in the image (<code>src/stash/images/</code>) directory. Since no images at the beginning exist that can <code>Gulp</code> watch. Preparing in this case the images
@@ -238,49 +235,37 @@ gulp extended
             </li>
           </ul>
           <h3 id="tasks">Tasks</h3>
-          <pre class="language-bash"><p><code>
-gulp init
-</code></p></pre>
+          <pre class="language-bash"><code>gulp init
+</code></pre>
           <p>For the first initialization of the project.</p>
-          <pre class="language-bash"><p><code>
-gulp
-</code></p></pre>
+          <pre class="language-bash"><code>gulp
+</code></pre>
           <p>Default Task</p>
-          <pre class="language-bash"><p><code>
-gulp extended
-</code></p></pre>
+          <pre class="language-bash"><code>gulp extended
+</code></pre>
           <p>Extended default task - monitors image data</p>
-          <pre class="language-bash"><p><code>
-gulp rebuild-js
-</code></p></pre>
+          <pre class="language-bash"><code>gulp rebuild-js
+</code></pre>
           <p>All the Javascript files are rebuilded (combined, copied, checked)</p>
-          <pre class="language-bash"><p><code>
-gulp publish
-</code></p></pre>
+          <pre class="language-bash"><code>gulp publish
+</code></pre>
           <p>The project data is prepared for production. CSS, JS and image data are compressed. The documenation with <code>sassdoc</code> is generated.</p>
-          <pre class="language-bash"><p><code>
-gulp jade-rebuild
-</code></p></pre>
+          <pre class="language-bash"><code>gulp jade-rebuild
+</code></pre>
           <p>Rebuild all Jade Files</p>
-          <pre class="language-bash"><p><code>
-gulp bump
-</code></p></pre>
+          <pre class="language-bash"><code>gulp bump
+</code></pre>
           <p>Patch the Version Number from <code>package.json</code> and <code>bower.json</code> (0.0.1)</p>
-          <pre class="language-bash"><p><code>
-gulp bump-minor
-</code></p></pre>
+          <pre class="language-bash"><code>gulp bump-minor</code></pre>
           <p>Extend the Minor Version Number from <code>package.json</code> and <code>bower.json</code> (0.1.0)</p>
-          <pre class="language-bash"><p><code>
-gulp bump-major
-</code></p></pre>
+          <pre class="language-bash"><code>gulp bump-major
+</code></pre>
           <p>Extend to the next Release Number from <code>package.json</code> and <code>bower.json</code> (1.0.0)</p>
-          <pre class="language-bash"><p><code>
-gulp grunt-rebuild-images
-</code></p></pre>
+          <pre class="language-bash"><code>gulp grunt-rebuild-images
+</code></pre>
           <p>Rebuild all Image Files.</p>
-          <pre class="language-bash"><p><code>
-gulp grunt-responsive-images
-</code></p></pre>
+          <pre class="language-bash"><code>gulp grunt-responsive-images
+</code></pre>
           <p>Build different Sizes from HTML Images</p>
 
           <hr/>
@@ -405,27 +390,23 @@ gulp grunt-responsive-images
           <p>Let us turn to the external script files, this can be either <a href="http://bower.io/">Bower</a> load in the package, if they are not found there, one can integrate over the <code>scripts</code> folder.</p>
 
           <p>If you want to, for example, Add an additional scripts, you will first search for it - sometimes the packages are stored under a different name.</p>
-          <pre class="language-bash"><p><code>
-bower search package-name
-</code></p></pre>
+          <pre class="language-bash"><code>bower search package-name
+</code></pre>
           <p>If you have the appropriate package found, it is installed with the following command:</p>
-          <pre class="language-bash"><p><code>
-bower install package-name --save
-</code></p></pre>
+          <pre class="language-bash"><code>bower install package-name --save
+</code></pre>
           <p>Das entsprechende Paket wird in <code>src/stash/bower/</code> installiert und zusätzlich in der <code>bower.json</code> notiert. Möchte man ein installiertes Package wieder deinstallieren:</p>
 
           <p>The appropriate package is installed in <code>src/stash/bower/</code> and also listed in the <code>bower.json</code>. If you want to uninstall an installed package again:</p>
-          <pre class="language-bash"><p><code>
-bower uninstall package-name --save
-</code></p></pre>
+          <pre class="language-bash"><code>bower uninstall package-name --save
+</code></pre>
           <div class="alert-box--warn">
             <p>The contents of the <code>bower</code> Folders is not transferred to the external Git repo. Developers who work on the project, download the Dependencies Bower over <code>bower install</code>. Therefore, it is important to note each dependency
               in the<code> bower.json</code>.</p>
           </div>
           <p>Of course it can happen that you can not find certain packages via Bower, you can register then either yourself:</p>
-          <pre class="language-bash"><p><code>
-bower register https://url.to-the.git.repo package-name
-</code></p></pre>
+          <pre class="language-bash"><code>bower register https://url.to-the.git.repo package-name
+</code></pre>
           <p>Or you can load the package in <code>src/stash/scripts/</code> where it is available for further use.</p>
 
           <p>To use JS files, they must first be processed with <code>Gulp</code>. JS files are then either in the JS directory <code>dist/assets/js/</code> copied or they are combined and copied to the JS directory.</p>
@@ -437,9 +418,8 @@ bower register https://url.to-the.git.repo package-name
           </p>
 
           <p>Everything was listed under <code>copyjs</code> is simply copied, <code>combinejs</code> identifies the files to be combined. To activate the process:</p>
-          <pre class="language-bash"><p><code>
-gulp rebuild-js
-</code></p></pre>
+          <pre class="language-bash"><code>gulp rebuild-js
+</code></pre>
           <div class="alert-box--info">
             <p>Combined JS files are saved under the filename <code>scripts.js</code>
             </p>
@@ -450,16 +430,64 @@ gulp rebuild-js
             be missing that some other feature.</p>
 
           <p>To expand Kittn you should list the new plugins on the <code>package.json</code>, as the <code>node_modules</code> directory is not transmitted to the git repo.</p>
-          <pre class="language-bash"><p><code>
-npm install packagename --save-dev
-</code></p></pre>
+          <pre class="language-bash"><code>npm install packagename --save-dev
+</code></pre>
           <p>This is a package about NPM Network, installed into the project directory and listed in the <code>package.json</code>. Thus, the subsequent Developer installed exactly the packages that are needed for the project. It understood then you then
             the <code>gulpfile.js</code> and / or <code>gruntfile.js</code> must modify file.</p>
 
           <p>To uninstall packages:</p>
-          <pre class="language-bash"><p><code>
-npm uninstall packagename --save-dev
-</code></p></pre>
+          <pre class="language-bash"><code>npm uninstall packagename --save-dev
+</code></pre>
+          <hr/>
+          <h3 id="image">Image preparing</h3>
+          <p>The directory structure is particularly important for the preparation and processing of the images files.</p>
+
+          <p>In the directory <code>src/stash/images/</code> there are two subfolders <code>css-images/</code> and <code>html-images</code> - for the record differs &quot;Kittn&quot; between CSS and HTML embedded images. Within this folder, there are empty PSD
+            files, they own but only for users who already work with Photoshop or Photoshop CC CC2014, because here is only the <a href="http://blogs.adobe.com/photoshopdotcom/2013/09/introducing-adobe-generator-for-photoshop-cc.html">generator</a>.</p>
+
+          <p>
+            <img alt="Generator in Action" src="http://i.imgur.com/WQo9hGf.gif" />
+          </p>
+
+          <ul>
+            <li><code>src/stash/images/css-images/sprite.psd</code> Asset file for all sprite images (retina &amp; nonRetina)</li>
+            <li><code>src/stash/images/css-images/single.psd</code> Asset file for all single images</li>
+            <li><code>src/stash/images/css-images/texture.psd</code> Asset file for all texture images</li>
+            <li><code>src/stash/images/html-images/html.psd</code> Asset file for HTML Images</li>
+          </ul>
+
+          <p>
+            <img alt="Generator Syntax Schema" src="http://i.imgur.com/8J36h63.jpg" />
+          </p>
+
+          <p>The syntax is relatively easy to handle:</p>
+
+          <ul>
+            <li><code>filename.png</code> Generates a PNG</li>
+            <li><code>200% filename.gif</code> Generates a gif with a 200% scaling</li>
+            <li><code>filename.jpg70%</code> Generates a JPG with 70% quality</li>
+            <li><code>200% filename@2x.png, filename.png</code> Generates two PNG files, one in Double resolution (retina)</li>
+          </ul>
+
+          <p>Please note the sprites file name of the retina Qualifying ends with @ 2x in NonRetina eliminates the postfix.</p>
+
+          <p>More <a href="http://pixelhusten.tumblr.com/post/77743297904/let-photoshop-do-the-dirty-work">information to the generator</a> (German) - also how you can create with Photoshop SVG.</p>
+          <div class="alert-box--info">
+            <p>The generator will then generate new assets if something in the PSD file changes (eg move a Layer), but you do not even save the file. Once you <code>gulp extended</code> can run on the possibly be disturbing, because the processes are then
+              started as well.</p>
+          </div>
+          <p>
+            <img alt="Execution example with Sprite" src="http://i.imgur.com/lMSzjU6.jpg" />
+          </p>
+
+          <p>The PSDs are all already connected to the generator. Once you labeled Layer/ groups according to the generator syntax and stores, the assets are stored in their respective folders (with the suffix <code>assets</code>).</p>
+
+          <p>Work with the generator is optional if one should be too cumbersome to work or if you have no Photoshop CC at your disposal, which can also its assets as he is used to generate. The important thing is that always end up the image files in the
+            appropriate directories.</p>
+          <div class="alert-box">
+            <p>It is very important to make sure that the PSDs (or any other File) can not be more than 100 MB in size, so before committing the file size should be controlled. Github responding when you push very &#39;allergic&#39; to files over 100 MB,
+              which often leads to termination.</p>
+          </div>
         </article>
       </div>
     </div>

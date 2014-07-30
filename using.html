@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>kittndoc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Inconsolata" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="assets/css/kittn.css">
+  <link rel="shortcut icon" href="assets/img/system/favicon.png">
+  <link rel="icon" href="assets/img/system/favicon.png">
+  <script src="assets/js/modernizr.js"></script>
+</head>
+
+<body>
+  <header role="banner" class="_HEADER">
+    <div class="container">
+      <div class="row">
+        <h1 class="logo"><a href="index.html" class="logo__inner">Kittn</a>
+          </h1>
+        <nav role="navigation" class="main-nav">
+          <ul class="main-nav__list">
+            <li class="main-nav__entry"><a href="started.html" title="Getting Started" class="main-nav__link">Getting Started</a>
+            </li>
+            <li class="main-nav__entry"><a href="using.html" title="Using" class="main-nav__link">Using</a>
+            </li>
+            <li class="main-nav__entry"><a href="images.html" title="Images" class="main-nav__link">Images</a>
+            </li>
+            <li class="main-nav__entry"><a href="sass.html" title="Sass" class="main-nav__link">Sass</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="_MAIN">
+    <header class="main-header">
+      <div class="container">
+        <div class="row">
+          <h1 class="h3">Using</h1>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="jump-nav">
+          <ul>
+            <li><a href="#setup">Setup
+                  <ul>
+                    <li><a href="#dependencies">Dependencies</a>
+            </li>
+            <li><a href="#installkittn">Install Kittn</a>
+            </li>
+            <li><a href="#">Link</a>
+            </li>
+            <li><a href="#">Link</a>
+            </li>
+          </ul>
+          </a>
+          </li>
+          </ul>
+        </div>
+        <article class="article">
+          <h2 id="setup">Setup</h2>
+          <p>After the installation is complete, the project must be <strong>initialized</strong>.</p>
+          <pre class="language-bash"><p><code>
+gulp init
+</code></p></pre>
+          <p><em>Init Process:</em>
+          </p>
+
+          <ul>
+            <li>Build a individual Modernizr Build and Copy to <code>dist</code>
+            </li>
+            <li>Copy System Files to <code>dist</code>
+            </li>
+            <li>Copy JS Files to <code>dist</code>
+            </li>
+            <li>Copy HTML Images from <code>src/stash/images/html-images/html-assets/</code> to <code>dist/images</code>
+            </li>
+            <li>Start the <code>grunt</code> Build Image Task
+              <ul>
+                <li>Copy to <code>dist/assets/img/sprite/</code>
+                </li>
+                <li>Copy to <code>dist/assets/img/sprite_2x/</code>
+                </li>
+                <li>Build Retina Sprite <code>src/sass/maps/</code>
+                </li>
+                <li>Build NonRetina Sprite <code>src/sass/maps/</code>
+                </li>
+                <li>Rebuild Retina Sprite Map <code>dist/assets/img/</code>
+                </li>
+                <li>Rebuild NonRetina Sprite Map <code>dist/assets/img/</code>
+                </li>
+                <li>SVG Minify and Copy to <code>dist/assets/img/svg/</code>
+                </li>
+                <li>Build PNG Fallback Image <code>dist/assets/img/svg</code>
+                </li>
+                <li>SVG Minify and Copy to <code>dist/assets/img/svgonly/</code>
+                </li>
+                <li>Copy Texture Image to <code>dist/assets/img/texture/</code>
+                </li>
+                <li>Copy Single Images to <code>dist/assets/img/single/</code>
+                </li>
+                <li>Build Image Map <code>src/sass/maps/</code>
+                </li>
+              </ul>
+            </li>
+            <li>Compile Sass Files from <code>src/sass/</code> into <code>dist/assets/css/</code>
+            </li>
+            <li>Compile Jade Files from <code>src/jade/</code> into <code>dist/</code>
+            </li>
+            <li>Check JS File from <code>src/js/</code> and copy it to <code>dist/assets/js/</code>
+            </li>
+            <li>Combine some JS Files and copy it to <code>dist/assets/js/scripts.js</code>
+            </li>
+          </ul>
+
+          <p>When initializing, different files from <code>scr</code> directory will be copied to the distribution <code>dist</code> directory. In addition, <code>js</code> files are combined, <code>html</code> and <code>css</code> would be compiled.</p>
+          <div class="alert-box--warn">
+            <p>Important! You will always work in the <code>src</code> directory. There, all source data are stored, which are then processed on Gulp task on.</p>
+          </div>
+          <p>In order now to begin the work activate the <code>default task</code>:</p>
+          <pre class="language-bash"><p><code>
+gulp
+</code></p></pre>
+          <p>Gulp will activate the server that provides a preview in realtime on the browser - the browser is automatically refreshed after every change on the filesystem. Within the <code>src</code> directory <code>js</code>, <code>Jade</code> and <code>Sass</code> files
+            are monitored for a change in the compiler is active - in the case of Javascript JSHint will check code quality.</p>
+
+          <blockquote>
+            <p>I deliberately use no CoffeeScript because it has just performed in teamwork to confusion. If you still want to use CoffeeScript, only the corresponding plugin must install.</p>
+          </blockquote>
+
+          <p>Those who want to extend the file monitoring to images, can use the <code>extended default task</code>:</p>
+
+          <p><code>bash
+gulp extended
+</code>
+          </p>
+
+          <p>A modification of files, as well as adding or deleting will activate the task, eg is from SVG files automatically generates a PNG fallback.</p>
+
+          <blockquote>
+            <p>It may be that the Extend task is not responding at the beginning of changes in the image (<code>src/stash/images/</code>) directory. Since no images at the beginning exist that can <code>Gulp</code> watch. Preparing in this case the images
+              on <code>gulp grunt-rebuild-images</code> and then activate the extended task.</p>
+          </blockquote>
+
+          <p><em>Process for the extended default task:</em>
+          </p>
+
+          <p><strong><code>src/stash/images/css-images/svg/</code></strong>
+          </p>
+
+          <ul>
+            <li>Watch Directory</li>
+            <li>On File Change
+              <ul>
+                <li>Clean SVG Directory <code>dist/assets/img/svg/</code>
+                </li>
+                <li>SVG Minify and Copy to <code>dist/assets/img/svg/</code>
+                </li>
+                <li>Build PNG Fallback Image</li>
+                <li>Rebuild Image Map</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p><strong><code>src/stash/images/css-images/svgonly/</code></strong>
+          </p>
+
+          <ul>
+            <li>Watch Directory</li>
+            <li>On File Change
+              <ul>
+                <li>Clean SVG Directory <code>dist/assets/img/svgonly/</code>
+                </li>
+                <li>SVG Minify and Copy to <code>dist/assets/img/svgonly/</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <p><strong><code>src/stash/images/css-images/single-assets/</code></strong>
+          </p>
+
+          <ul>
+            <li>Watch Directory</li>
+            <li>On File Change
+              <ul>
+                <li>Clean Single Directory <code>dist/assets/img/single/</code>
+                </li>
+                <li>Copy to <code>dist/assets/img/single/</code>
+                </li>
+                <li>Rebuild Image Map</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p><strong><code>src/stash/images/css-images/texture-assets/</code></strong>
+          </p>
+
+          <ul>
+            <li>Watch Directory</li>
+            <li>On File Change
+              <ul>
+                <li>Clean Texture Directory <code>dist/assets/img/texture/</code>
+                </li>
+                <li>Copy to <code>dist/assets/img/texture/</code>
+                </li>
+                <li>Rebuild Image Map</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p><strong><code>src/stash/images/css-images/sprite-assets/</code></strong>
+          </p>
+
+          <ul>
+            <li>Watch Directory</li>
+            <li>On File Change
+              <ul>
+                <li>Clean Texture Directory <code>dist/assets/img/sprite/</code>
+                </li>
+                <li>Clean Texture Directory <code>dist/assets/img/sprite_2x/</code>
+                </li>
+                <li>Copy to <code>dist/assets/img/sprite/</code>
+                </li>
+                <li>Copy to <code>dist/assets/img/sprite_2x/</code>
+                </li>
+                <li>Build Retina Sprite</li>
+                <li>Build NonRetina Sprite</li>
+                <li>Rebuild Retina Sprite Map</li>
+                <li>Rebuild NonRetina Sprite Map</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Tasks</h3>
+
+          <p><strong><code>gulp init</code></strong>&lt;br&gt; For the first initialization of the project.</p>
+
+          <p><strong><code>gulp</code></strong>&lt;br&gt; Default Task</p>
+
+          <p><strong><code>gulp extended</code></strong>&lt;br&gt; Extended default task - monitors image data</p>
+
+          <p><strong><code>gulp rebuild-js</code></strong>&lt;br&gt; All the Javascript files are rebuilded (combined, copied, checked)</p>
+
+          <p><strong><code>gulp publish</code></strong>&lt;br&gt; The project data is prepared for production. CSS, JS and image data are compressed. The documenation with <code>sassdoc</code> is generated.</p>
+
+          <p><strong><code>gulp jade-rebuild</code></strong>&lt;br&gt; Rebuild all Jade Files</p>
+
+          <p><strong><code>gulp bump</code></strong>&lt;br&gt; Patch the Version Number from <code>package.json</code> and <code>bower.json</code> (0.0.1)</p>
+
+          <p><strong><code>gulp bump-minor</code></strong>&lt;br&gt; Extend the Minor Version Number from <code>package.json</code> and <code>bower.json</code> (0.1.0)</p>
+
+          <p><strong><code>gulp bump-major</code></strong>&lt;br&gt; Extend to the next Release Number from <code>package.json</code> and <code>bower.json</code> (1.0.0)</p>
+
+          <p><strong><code>gulp grunt-rebuild-images</code></strong>&lt;br&gt; Rebuild all Image Files.</p>
+
+          <p><strong><code>gulp grunt-responsive-images</code></strong>&lt;br&gt; Build different Sizes from HTML Images</p>
+
+          <hr/>
+
+          <h2>Structure</h2>
+
+          <p>As already explained, one will usually always work in <code>src</code> directory.</p>
+
+          <p><code>root</code>&lt;br&gt;
+            <code>.. dist/</code> distribution&lt;br&gt;
+            <code>.. src/</code> source</p>
+
+          <p>The internal structure of the <code>dist /</code> directory looks like this:</p>
+
+          <p><code>dist/</code>&lt;br&gt;
+            <code>.. assets/</code>&lt;br&gt;
+            <code>.... css/</code> CSS files&lt;br&gt;
+            <code>.... img/</code> CSS included images&lt;br&gt;
+            <code>...... system/</code> Systemimages like favicon&lt;br&gt;
+            <code>...... single/</code> CSS single images&lt;br&gt;
+            <code>...... textures/</code> CSS texture images&lt;br&gt;
+            <code>.... js/</code> JS files&lt;br&gt;
+            <code>.... fonts/</code> Webfonts &amp; iconfonts&lt;br&gt;
+            <code>.. images/</code> HTML included images</p>
+
+          <p>If you therefore should not be satisfied, you can change the structure of the <code>package.json</code>:</p>
+
+          <p>
+            <img alt="" src="http://i.imgur.com/NfKvIcv.png" />
+          </p>
+
+          <blockquote>
+            <p>If the paths are changed, the paths must be in the Sass setup file (<code>src/sass/_setup.scss -&gt; $kittn-directorys</code>) also be changed accordingly</p>
+          </blockquote>
+
+          <p>This should happen before the <code>gulp init</code> of course, otherwise you have to rename the directories manually, or you delete <code>dist</code> simple and then starts the <code>gulp init</code> again.</p>
+
+          <p>The internal structure of the <code>src /</code> directory:</p>
+
+          <p><code>src/</code> &lt;br&gt;
+            <code>.. jade/</code> Jade files&lt;br&gt;
+            <code>.. js/</code> JS files&lt;br&gt;
+            <code>.. markdown/</code> External texts in Markdown format&lt;br&gt;
+            <code>.. sass/</code> Sass framework&lt;br&gt;
+            <code>.. stash/</code> filing&lt;br&gt;
+            <code>.... .sytem/</code> Internal system files&lt;br&gt;
+            <code>.... bower/</code> Bower dependencies&lt;br&gt;
+            <code>.... fonts/</code> Font files&lt;br&gt;
+            <code>.... images/</code> Image sources&lt;br&gt;
+            <code>...... css-images/</code> CSS included images&lt;br&gt;
+            <code>........ single-assets/</code> Place for each single assets&lt;br&gt;
+            <code>........ sprite-assets/</code> Place for each sprite assets&lt;br&gt;
+            <code>........ svg-assets/</code> Place for each svg assets with a generated png fallback&lt;br&gt;
+            <code>........ svgonly-assets/</code> Place for each svg assets without fallbacks&lt;br&gt;
+            <code>........ texture-assets/</code> Place for each texture asset&lt;br&gt;
+            <code>...... html-images/</code>&lt;br&gt;
+            <code>........ html-assets/</code> HTML included images&lt;br&gt;
+            <code>.... scripts/</code> Script files that are not installed on Bower&lt;br&gt;</p>
+        </article>
+      </div>
+    </div>
+  </main>
+  <footer class="_FOOTER">
+    <div class="container">
+      <div class="row"></div>
+      <div class="row copyright">
+        <p>Hand-Made by Sascha Fuchs. Endorsed by Wire Communications. Licensed under MIT.</p>
+        <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/conditionizr.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/eq.js"></script>
+  <script src="assets/js/prism.js"></script>
+  <script type="text/javascript">
+    <!--<![CDATA[
+    ;
+    document.write("<script defer src='//HOST:3000/socket.io/socket.io.js'><\\/script><script defer src='//HOST:3001/client/browser-sync-client.0.9.1.js'><\/script>".replace(/HOST/g, location.hostname));
+     //]]>
+     -->
+  </script>
+</body>
+
+</html>

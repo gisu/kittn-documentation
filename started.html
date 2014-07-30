@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>kittndoc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Inconsolata" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="assets/css/kittn.css">
+  <link rel="shortcut icon" href="assets/img/system/favicon.png">
+  <link rel="icon" href="assets/img/system/favicon.png">
+  <script src="assets/js/modernizr.js"></script>
+</head>
+
+<body>
+  <header role="banner" class="_HEADER">
+    <div class="container">
+      <div class="row">
+        <h1 class="logo"><a href="index.html" class="logo__inner">Kittn</a>
+          </h1>
+        <nav role="navigation" class="main-nav">
+          <ul class="main-nav__list">
+            <li class="main-nav__entry is-active"><a href="started.html" title="Getting Started" class="main-nav__link">Getting Started</a>
+            </li>
+            <li class="main-nav__entry"><a href="using.html" title="Using" class="main-nav__link">Using</a>
+            </li>
+            <li class="main-nav__entry"><a href="images.html" title="Images" class="main-nav__link">Images</a>
+            </li>
+            <li class="main-nav__entry"><a href="sass.html" title="Sass" class="main-nav__link">Sass</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="_MAIN">
+    <header class="main-header">
+      <div class="container">
+        <div class="row">
+          <h1 class="h3">Getting Started</h1>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="jump-nav">
+          <ul>
+            <li><a href="#introduction">Introduction
+                  <ul>
+                    <li><a href="#dependencies">Dependencies</a>
+            </li>
+            <li><a href="#installkittn">Install Kittn</a>
+            </li>
+            <li><a href="#">Link</a>
+            </li>
+            <li><a href="#">Link</a>
+            </li>
+          </ul>
+          </a>
+          </li>
+          </ul>
+          <ul>
+            <li><a href="#">Link
+                  <ul>
+                    <li><a href="#">Link</a>
+            </li>
+            <li><a href="#">Link</a>
+            </li>
+            <li><a href="#">Link</a>
+            </li>
+            <li><a href="#">Link</a>
+            </li>
+          </ul>
+          </a>
+          </li>
+          </ul>
+        </div>
+        <article class="article">
+          <h2 id="introduction">Introduction</h2>
+          <p class="lead">"Kittn" is a toolkit designed to support mainly the construction of frontends. Anyone looking for a colorful mixture of prefabricated elements, as one would expect from bootstrap and co, will not be happy with Kittn. Here rather the methods
+            are offered to those elements on a simple way to generate and expand.</p>
+          <p>Around the CSS part, there are still many automatic functions installed that help the developer. For example, to generate image assets and distribute, to build HTML mockups, to make sprites to generate fallbacks for SVG files. That's why I also
+            avoid the term framework.</p>
+          <blockquote>
+            <p>Against the terminal you should have no fear :p</p>
+          </blockquote>
+          <h3 id="dependencies">Dependencies</h3>
+          <p>In order to work with &quot;Kittn&quot;, you need to install some extensions and environments. Anyone who has installed these tools, which can skip the step.</p>
+
+          <h4>Environments</h4>
+          <div class="alert-box">
+            <p>The toolkit has been tested so far on Mac systems! On Windows systems, there can be problems.</p>
+          </div>
+          <ul>
+            <li>Ruby &gt;= 1.9.0</li>
+            <li>Node &gt;= 0.10.10</li>
+          </ul>
+
+          <p>On Mac systems, Ruby is already installed, this step would be omitted. But if you like you can update on Ruby v.2.12. To install Ruby on Windows, simply use the <a href="http://rubyinstaller.org/downloads/">One Click Installer</a>.</p>
+          <div class="alert-box">
+            <p>Currently Sass is compiled with <code>Ruby-Sass</code>. When <code>Libsass</code> is 100% productive usable, the Ruby dependency is omitted.</p>
+          </div>
+          <p>Node can be installed on Mac systems either <a href="http://brew.sh">Brew</a> or you can use the <a href="http://nodejs.org/">Installer</a>, then for both systems.</p>
+
+          <h5>Extensions &amp; Compiler</h5>
+
+          <ul>
+            <li>Sass 3.4.0 rc.1</li>
+            <li>Jade 1.3.0</li>
+            <li>Gulp 3.8.5</li>
+            <li>Grunt 0.4.5</li>
+            <li>Bower 1.3.0</li>
+            <li>Yeoman 1.2.0</li>
+            <li>Git</li>
+          </ul>
+
+          <blockquote>
+            <p>The generator installed automatically <code>Grunt</code>, <code>Bower</code> and <code>Yeoman</code>.</p>
+          </blockquote>
+
+          <h6>Sass</h6>
+
+          <p>The current version 3.4.0 RC1 must be installed because the framework makes use of the extended scripted Ampersand.</p>
+          <pre class="language-bash"><p><code>
+gem install sass --pre
+</code></p></pre>
+          <h6>Jade</h6>
+
+          <p>After the first <code>gulp init</code>, so the first HTML files will be compiled with the Jade compiler. Later you can decide whether to write native HTML or wants to continue working with Jade.</p>
+          <pre class="language-bash"><p><code>
+npm install -g jade
+</code></p></pre>
+          <h6>Gulp</h6>
+
+          <p>All tasks - even <code>Grunt</code> tasks - can be started with <code>Gulp</code>.</p>
+          <pre class="language-bash"><p><code>
+npm install -g gulp
+</code></p></pre>
+          <h6>Git</h6>
+
+          <p>Those who have not yet installed Git, this should please do so now, as <code>Bower</code> directly accessing Github. <a href="http://git-scm.com/download">Download</a>
+          </p>
+
+          <hr/>
+          <h3 id="installkittn">Install Kittn</h3>
+          <p>Once the dependencies are installed, the generator is installed.</p>
+          <pre class="language-bash"><p><code>
+npm install -g generator-kittn
+</code></p></pre>
+          <p>The generator will automatically install <code>Yeoman</code>, <code>Grunt</code> and <code>Bower</code>, when they not installed on the system. Kittn is now available as a globally installed package.</p>
+
+          <p>To use Kittn, you created a project directory itself and activates the generator:</p>
+          <pre class="language-bash"><p><code>
+yo kittn
+</code></p></pre>
+          <p>The generator will now ask a series of questions with which the <code>package.json</code> and bower.json` be configured.</p>
+
+          <p>
+            <img alt="" src="http://i.imgur.com/6h8SwsC.gif" />
+          </p>
+
+          <p>Of greater importance are the last three questions:</p>
+
+          <p><strong>CSS Filename</strong> : Determines the general file name of the CSS file.</p>
+
+          <p><strong>Do you need IE8 compatibility?</strong> : If this question is answered with <code>y</code>, two CSS files are generated. In HTML files, calling the two files is then also available (otherwise only one CSS file is called).</p>
+
+          <p><strong>Do you want to use Jade as HTML Compiler?</strong> : If this question is answered with <code>y</code> the Jade compiler is running permanently. When <code>n</code>, Jade is used only for the first compilation of the HTML files and then shut
+            off.</p>
+
+          <p>After answering the last question, Yeoman will download all the project-related dependencies with <code>Bower</code> and <code>NPM</code>.</p>
+
+          <hr/>
+          <pre class="language-scss"><p><code>
+body {
+  color: red;
+}
+</code></p></pre>
+          <pre class="language-markup"><p><code>
+&lt;body&gt;
+  &lt;h1&gt;hello&lt;/h1&gt;
+&lt;/body&gt;
+</code></p></pre>
+        </article>
+      </div>
+    </div>
+  </main>
+  <footer class="_FOOTER">
+    <div class="container">
+      <div class="row"></div>
+      <div class="row copyright">
+        <p>Hand-Made by Sascha Fuchs. Endorsed by Wire Communications. Licensed under MIT.</p>
+        <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/conditionizr.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/eq.js"></script>
+  <script src="assets/js/prism.js"></script>
+  <script type="text/javascript">
+    <!--<![CDATA[
+    ;
+    document.write("<script defer src='//HOST:3000/socket.io/socket.io.js'><\\/script><script defer src='//HOST:3001/client/browser-sync-client.0.9.1.js'><\/script>".replace(/HOST/g, location.hostname));
+     //]]>
+     -->
+  </script>
+</body>
+
+</html>

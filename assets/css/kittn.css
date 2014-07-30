@@ -1391,6 +1391,9 @@ ol {
   padding-left: 22px;
   margin-bottom: 1.470588rem; }
 
+li, dt, dd {
+  line-height: 1.838235rem; }
+
 li > ul, li > ol {
   margin-bottom: 0; }
 
@@ -1743,12 +1746,28 @@ table {
 .f-icon--love:before {
   content: ""; }
 
-.article > p > code, .article > blockquote code, .article li code {
+.article > p > strong code, .article > p > code, .article > blockquote code, .article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code, .article li code {
   background-color: #f0f0f0;
-  padding: 2px 5px;
+  padding: 3px 5px;
   display: inline-block;
   border: 1px solid #d6d6d6;
-  border-radius: 2px; }
+  border-radius: 2px;
+  color: #636363;
+  line-height: 1; }
+
+.article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code {
+  border-color: transparent; }
+
+.article > .alert-box--info code,
+.article > .alert-box--warn code {
+  border-color: transparent;
+  color: #fff; }
+
+.article > .alert-box--info code {
+  background-color: #126a8b; }
+
+.article > .alert-box--warn code {
+  background-color: #d5640d; }
 
 pre[class*="language-"] {
   -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
@@ -1906,6 +1925,10 @@ pre[class*="language-"] {
 blockquote {
   border-left: 5px solid #23baf2;
   padding-left: 20px; }
+
+hr {
+  height: 2px;
+  border: 1px solid #dcdcdc; }
 
 /**
  * Alert Boxes
@@ -2180,17 +2203,19 @@ blockquote {
   list-style-type: none;
   padding-left: 0;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-.jump-nav > ul > li > a {
-  font-size: 1.323529rem;
-  line-height: 1.588235rem;
-  display: block;
-  font-weight: 700;
-  padding-bottom: 5px; }
-.jump-nav > ul > li > ul > li > a {
-  display: block;
-  padding-left: 10px;
-  font-size: 1.176471rem;
-  line-height: 1.764706rem; }
+.jump-nav > ul > li {
+  margin-bottom: 20px; }
+  .jump-nav > ul > li > a {
+    font-size: 1.323529rem;
+    line-height: 1.588235rem;
+    display: block;
+    font-weight: 700;
+    padding-bottom: 5px; }
+  .jump-nav > ul > li > ul > li > a {
+    display: block;
+    padding-left: 10px;
+    font-size: 1.176471rem;
+    line-height: 1.764706rem; }
 
 .article img {
   width: 100%;

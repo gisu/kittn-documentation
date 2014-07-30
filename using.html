@@ -23,7 +23,7 @@
           <ul class="main-nav__list">
             <li class="main-nav__entry"><a href="started.html" title="Getting Started" class="main-nav__link">Getting Started</a>
             </li>
-            <li class="main-nav__entry"><a href="using.html" title="Using" class="main-nav__link">Using</a>
+            <li class="main-nav__entry is-active"><a href="using.html" title="Using" class="main-nav__link">Using</a>
             </li>
             <li class="main-nav__entry"><a href="images.html" title="Images" class="main-nav__link">Images</a>
             </li>
@@ -48,16 +48,25 @@
           <ul>
             <li><a href="#setup">Setup
                   <ul>
-                    <li><a href="#dependencies">Dependencies</a>
+                    <li><a href="#tasks">Tasks</a>
             </li>
-            <li><a href="#installkittn">Install Kittn</a>
-            </li>
-            <li><a href="#">Link</a>
-            </li>
-            <li><a href="#">Link</a>
+            <li><a href="#structure">Structure</a>
             </li>
           </ul>
           </a>
+          </li>
+          <li><a href="#jade">Build HTML with Jade</a>
+          </li>
+          <li><a href="#js">JS Files
+                  <ul>
+                    <li><a href="#internal">Internal Files</a>
+          </li>
+          <li><a href="#external">External Files</a>
+          </li>
+          </ul>
+          </a>
+          </li>
+          <li><a href="#extend">Extend Kittn</a>
           </li>
           </ul>
         </div>
@@ -127,29 +136,22 @@ gulp
 </code></p></pre>
           <p>Gulp will activate the server that provides a preview in realtime on the browser - the browser is automatically refreshed after every change on the filesystem. Within the <code>src</code> directory <code>js</code>, <code>Jade</code> and <code>Sass</code> files
             are monitored for a change in the compiler is active - in the case of Javascript JSHint will check code quality.</p>
-
-          <blockquote>
+          <div class="alert-box">
             <p>I deliberately use no CoffeeScript because it has just performed in teamwork to confusion. If you still want to use CoffeeScript, only the corresponding plugin must install.</p>
-          </blockquote>
-
+          </div>
           <p>Those who want to extend the file monitoring to images, can use the <code>extended default task</code>:</p>
-
-          <p><code>bash
+          <pre class="language-bash"><p><code>
 gulp extended
-</code>
-          </p>
-
+</code></p></pre>
           <p>A modification of files, as well as adding or deleting will activate the task, eg is from SVG files automatically generates a PNG fallback.</p>
-
-          <blockquote>
+          <div class="alert-box--info">
             <p>It may be that the Extend task is not responding at the beginning of changes in the image (<code>src/stash/images/</code>) directory. Since no images at the beginning exist that can <code>Gulp</code> watch. Preparing in this case the images
               on <code>gulp grunt-rebuild-images</code> and then activate the extended task.</p>
-          </blockquote>
-
+          </div>
           <p><em>Process for the extended default task:</em>
           </p>
 
-          <p><strong><code>src/stash/images/css-images/svg/</code></strong>
+          <p><strong>Folder:</strong>  <code>src/stash/images/css-images/svg/</code>
           </p>
 
           <ul>
@@ -166,7 +168,7 @@ gulp extended
             </li>
           </ul>
 
-          <p><strong><code>src/stash/images/css-images/svgonly/</code></strong>
+          <p><strong>Folder:</strong>  <code>src/stash/images/css-images/svgonly/</code>
           </p>
 
           <ul>
@@ -181,7 +183,7 @@ gulp extended
             </li>
           </ul>
 
-          <p><strong><code>src/stash/images/css-images/single-assets/</code></strong>
+          <p><strong>Folder:</strong>  <code>src/stash/images/css-images/single-assets/</code>
           </p>
 
           <ul>
@@ -197,7 +199,7 @@ gulp extended
             </li>
           </ul>
 
-          <p><strong><code>src/stash/images/css-images/texture-assets/</code></strong>
+          <p><strong>Folder:</strong>  <code>src/stash/images/css-images/texture-assets/</code>
           </p>
 
           <ul>
@@ -213,7 +215,7 @@ gulp extended
             </li>
           </ul>
 
-          <p><strong><code>src/stash/images/css-images/sprite-assets/</code></strong>
+          <p><strong>Folder:</strong>  <code>src/stash/images/css-images/sprite-assets/</code>
           </p>
 
           <ul>
@@ -235,87 +237,229 @@ gulp extended
               </ul>
             </li>
           </ul>
-
-          <h3>Tasks</h3>
-
-          <p><strong><code>gulp init</code></strong>&lt;br&gt; For the first initialization of the project.</p>
-
-          <p><strong><code>gulp</code></strong>&lt;br&gt; Default Task</p>
-
-          <p><strong><code>gulp extended</code></strong>&lt;br&gt; Extended default task - monitors image data</p>
-
-          <p><strong><code>gulp rebuild-js</code></strong>&lt;br&gt; All the Javascript files are rebuilded (combined, copied, checked)</p>
-
-          <p><strong><code>gulp publish</code></strong>&lt;br&gt; The project data is prepared for production. CSS, JS and image data are compressed. The documenation with <code>sassdoc</code> is generated.</p>
-
-          <p><strong><code>gulp jade-rebuild</code></strong>&lt;br&gt; Rebuild all Jade Files</p>
-
-          <p><strong><code>gulp bump</code></strong>&lt;br&gt; Patch the Version Number from <code>package.json</code> and <code>bower.json</code> (0.0.1)</p>
-
-          <p><strong><code>gulp bump-minor</code></strong>&lt;br&gt; Extend the Minor Version Number from <code>package.json</code> and <code>bower.json</code> (0.1.0)</p>
-
-          <p><strong><code>gulp bump-major</code></strong>&lt;br&gt; Extend to the next Release Number from <code>package.json</code> and <code>bower.json</code> (1.0.0)</p>
-
-          <p><strong><code>gulp grunt-rebuild-images</code></strong>&lt;br&gt; Rebuild all Image Files.</p>
-
-          <p><strong><code>gulp grunt-responsive-images</code></strong>&lt;br&gt; Build different Sizes from HTML Images</p>
+          <h3 id="tasks">Tasks</h3>
+          <pre class="language-bash"><p><code>
+gulp init
+</code></p></pre>
+          <p>For the first initialization of the project.</p>
+          <pre class="language-bash"><p><code>
+gulp
+</code></p></pre>
+          <p>Default Task</p>
+          <pre class="language-bash"><p><code>
+gulp extended
+</code></p></pre>
+          <p>Extended default task - monitors image data</p>
+          <pre class="language-bash"><p><code>
+gulp rebuild-js
+</code></p></pre>
+          <p>All the Javascript files are rebuilded (combined, copied, checked)</p>
+          <pre class="language-bash"><p><code>
+gulp publish
+</code></p></pre>
+          <p>The project data is prepared for production. CSS, JS and image data are compressed. The documenation with <code>sassdoc</code> is generated.</p>
+          <pre class="language-bash"><p><code>
+gulp jade-rebuild
+</code></p></pre>
+          <p>Rebuild all Jade Files</p>
+          <pre class="language-bash"><p><code>
+gulp bump
+</code></p></pre>
+          <p>Patch the Version Number from <code>package.json</code> and <code>bower.json</code> (0.0.1)</p>
+          <pre class="language-bash"><p><code>
+gulp bump-minor
+</code></p></pre>
+          <p>Extend the Minor Version Number from <code>package.json</code> and <code>bower.json</code> (0.1.0)</p>
+          <pre class="language-bash"><p><code>
+gulp bump-major
+</code></p></pre>
+          <p>Extend to the next Release Number from <code>package.json</code> and <code>bower.json</code> (1.0.0)</p>
+          <pre class="language-bash"><p><code>
+gulp grunt-rebuild-images
+</code></p></pre>
+          <p>Rebuild all Image Files.</p>
+          <pre class="language-bash"><p><code>
+gulp grunt-responsive-images
+</code></p></pre>
+          <p>Build different Sizes from HTML Images</p>
 
           <hr/>
+          <h3 id="structure">Structure</h3>
+          <p>As already explained, one will usually always work in `src` directory.</p>
+          <p>
+            <code>root</code>
+            <br>
+            <code>.. dist/</code> distribution
+            <br>
+            <code>.. src/</code> source
 
-          <h2>Structure</h2>
-
-          <p>As already explained, one will usually always work in <code>src</code> directory.</p>
-
-          <p><code>root</code>&lt;br&gt;
-            <code>.. dist/</code> distribution&lt;br&gt;
-            <code>.. src/</code> source</p>
-
+          </p>
           <p>The internal structure of the <code>dist /</code> directory looks like this:</p>
+          <p>
+            <code>dist/</code>
+            <br>
+            <code>.. assets/</code>
+            <br>
+            <code>.... css/</code> CSS files
+            <br>
+            <code>.... img/</code> CSS included images
+            <br>
+            <code>...... system/</code> Systemimages like favicon
+            <br>
+            <code>...... single/</code> CSS single images
+            <br>
+            <code>...... textures/</code> CSS texture images
+            <br>
+            <code>.... js/</code> JS files
+            <br>
+            <code>.... fonts/</code> Webfonts & iconfonts
+            <br>
+            <code>.. images/</code> HTML included images
 
-          <p><code>dist/</code>&lt;br&gt;
-            <code>.. assets/</code>&lt;br&gt;
-            <code>.... css/</code> CSS files&lt;br&gt;
-            <code>.... img/</code> CSS included images&lt;br&gt;
-            <code>...... system/</code> Systemimages like favicon&lt;br&gt;
-            <code>...... single/</code> CSS single images&lt;br&gt;
-            <code>...... textures/</code> CSS texture images&lt;br&gt;
-            <code>.... js/</code> JS files&lt;br&gt;
-            <code>.... fonts/</code> Webfonts &amp; iconfonts&lt;br&gt;
-            <code>.. images/</code> HTML included images</p>
-
+          </p>
           <p>If you therefore should not be satisfied, you can change the structure of the <code>package.json</code>:</p>
 
           <p>
             <img alt="" src="http://i.imgur.com/NfKvIcv.png" />
           </p>
-
-          <blockquote>
+          <div class="alert-box">
             <p>If the paths are changed, the paths must be in the Sass setup file (<code>src/sass/_setup.scss -&gt; $kittn-directorys</code>) also be changed accordingly</p>
-          </blockquote>
-
+          </div>
           <p>This should happen before the <code>gulp init</code> of course, otherwise you have to rename the directories manually, or you delete <code>dist</code> simple and then starts the <code>gulp init</code> again.</p>
 
           <p>The internal structure of the <code>src /</code> directory:</p>
+          <p>
+            <code>src/</code> 
+            <br>
+            <code>.. jade/</code> Jade files
+            <br>
+            <code>.. js/</code> JS files
+            <br>
+            <code>.. markdown/</code> External texts in Markdown format
+            <br>
+            <code>.. sass/</code> Sass framework
+            <br>
+            <code>.. stash/</code> filing
+            <br>
+            <code>.... .sytem/</code> Internal system files
+            <br>
+            <code>.... bower/</code> Bower dependencies
+            <br>
+            <code>.... fonts/</code> Font files
+            <br>
+            <code>.... images/</code> Image sources
+            <br>
+            <code>...... css-images/</code> CSS included images
+            <br>
+            <code>........ single-assets/</code> Place for each single assets
+            <br>
+            <code>........ sprite-assets/</code> Place for each sprite assets
+            <br>
+            <code>........ svg-assets/</code> Place for each svg assets with a generated png fallback
+            <br>
+            <code>........ svgonly-assets/</code> Place for each svg assets without fallbacks
+            <br>
+            <code>........ texture-assets/</code> Place for each texture asset
+            <br>
+            <code>...... html-images/</code>
+            <br>
+            <code>........ html-assets/</code> HTML included images
+            <br>
+            <code>.... scripts/</code> Script files that are not installed on Bower
+            <br>
 
-          <p><code>src/</code> &lt;br&gt;
-            <code>.. jade/</code> Jade files&lt;br&gt;
-            <code>.. js/</code> JS files&lt;br&gt;
-            <code>.. markdown/</code> External texts in Markdown format&lt;br&gt;
-            <code>.. sass/</code> Sass framework&lt;br&gt;
-            <code>.. stash/</code> filing&lt;br&gt;
-            <code>.... .sytem/</code> Internal system files&lt;br&gt;
-            <code>.... bower/</code> Bower dependencies&lt;br&gt;
-            <code>.... fonts/</code> Font files&lt;br&gt;
-            <code>.... images/</code> Image sources&lt;br&gt;
-            <code>...... css-images/</code> CSS included images&lt;br&gt;
-            <code>........ single-assets/</code> Place for each single assets&lt;br&gt;
-            <code>........ sprite-assets/</code> Place for each sprite assets&lt;br&gt;
-            <code>........ svg-assets/</code> Place for each svg assets with a generated png fallback&lt;br&gt;
-            <code>........ svgonly-assets/</code> Place for each svg assets without fallbacks&lt;br&gt;
-            <code>........ texture-assets/</code> Place for each texture asset&lt;br&gt;
-            <code>...... html-images/</code>&lt;br&gt;
-            <code>........ html-assets/</code> HTML included images&lt;br&gt;
-            <code>.... scripts/</code> Script files that are not installed on Bower&lt;br&gt;</p>
+          </p>
+          <hr/>
+          <h3 id="jade">Build HTML with Jade</h3>
+          <p><a href="http://jade-lang.com/">Jade</a> is a HTML compiler that is in principle used for the first generation of the HTML files, then it is the developer free to decide for themselves whether they want to use Jade on. For example, who works
+            directly with WordPress will not need Jade.</p>
+
+          <p>The Jade Files can also be found under <code>src/</code>:</p>
+          <p>
+            <code>src/</code> 
+            <br>
+            <code>.. jade/</code> Jade files
+            <br>
+            <code>.... components/</code> Jade componenten
+            <br>
+            <code>.... mixins/</code> Jade Mixins
+            <br>
+            <code>.... templatepart/</code> Template segments, eg HTML Header
+            <br>
+            <code>.... templates/</code> Different template types
+            <br>
+
+          </p>
+          <div class="alert-box--info">
+            <p>The Jade part is more like a little boilerplate. It&#39;s up to you how much you want to segment the Jade code.</p>
+          </div>
+          <hr/>
+          <h3 id="js">Working with JS Files</h3>
+          <h4 id="internal">Internal Files</h4>
+          <p>Internal JS files are in the directory <code>src/js/</code> saved, there will be discover <code>app.js</code> file - regularly it can be considered sufficient one file.</p>
+          <div class="alert-box">
+            <p>The <code>app.js</code> will load in HTML always at the end.</p>
+          </div>
+          <p>Once the default Gulp task is active, all files will be monitored in <code>src/js/</code>, at a change through this one JSHint test and are stored in <code>dist/assets/js/</code> (with the same filename).</p>
+          <h4 id="external">External Files</h4>
+          <p>Let us turn to the external script files, this can be either <a href="http://bower.io/">Bower</a> load in the package, if they are not found there, one can integrate over the <code>scripts</code> folder.</p>
+
+          <p>If you want to, for example, Add an additional scripts, you will first search for it - sometimes the packages are stored under a different name.</p>
+          <pre class="language-bash"><p><code>
+bower search package-name
+</code></p></pre>
+          <p>If you have the appropriate package found, it is installed with the following command:</p>
+          <pre class="language-bash"><p><code>
+bower install package-name --save
+</code></p></pre>
+          <p>Das entsprechende Paket wird in <code>src/stash/bower/</code> installiert und zusätzlich in der <code>bower.json</code> notiert. Möchte man ein installiertes Package wieder deinstallieren:</p>
+
+          <p>The appropriate package is installed in <code>src/stash/bower/</code> and also listed in the <code>bower.json</code>. If you want to uninstall an installed package again:</p>
+          <pre class="language-bash"><p><code>
+bower uninstall package-name --save
+</code></p></pre>
+          <div class="alert-box--warn">
+            <p>The contents of the <code>bower</code> Folders is not transferred to the external Git repo. Developers who work on the project, download the Dependencies Bower over <code>bower install</code>. Therefore, it is important to note each dependency
+              in the<code> bower.json</code>.</p>
+          </div>
+          <p>Of course it can happen that you can not find certain packages via Bower, you can register then either yourself:</p>
+          <pre class="language-bash"><p><code>
+bower register https://url.to-the.git.repo package-name
+</code></p></pre>
+          <p>Or you can load the package in <code>src/stash/scripts/</code> where it is available for further use.</p>
+
+          <p>To use JS files, they must first be processed with <code>Gulp</code>. JS files are then either in the JS directory <code>dist/assets/js/</code> copied or they are combined and copied to the JS directory.</p>
+
+          <p>In the <code>gulpfile.js</code> you will find the following block:</p>
+
+          <p>
+            <img alt="JS Config in Gulpfile" src="http://i.imgur.com/OVTiI2k.png" />
+          </p>
+
+          <p>Everything was listed under <code>copyjs</code> is simply copied, <code>combinejs</code> identifies the files to be combined. To activate the process:</p>
+          <pre class="language-bash"><p><code>
+gulp rebuild-js
+</code></p></pre>
+          <div class="alert-box--info">
+            <p>Combined JS files are saved under the filename <code>scripts.js</code>
+            </p>
+          </div>
+          <hr/>
+          <h3 id="extend">Extend Kittn</h3>
+          <p>Kittn is designed to give the developer a skeleton in his hand, with which he can already work. Nevertheless, it will happen that not enough a the default plugins. One or the other would take the native <code>js</code> might use <code>CoffeeScript</code> might
+            be missing that some other feature.</p>
+
+          <p>To expand Kittn you should list the new plugins on the <code>package.json</code>, as the <code>node_modules</code> directory is not transmitted to the git repo.</p>
+          <pre class="language-bash"><p><code>
+npm install packagename --save-dev
+</code></p></pre>
+          <p>This is a package about NPM Network, installed into the project directory and listed in the <code>package.json</code>. Thus, the subsequent Developer installed exactly the packages that are needed for the project. It understood then you then
+            the <code>gulpfile.js</code> and / or <code>gruntfile.js</code> must modify file.</p>
+
+          <p>To uninstall packages:</p>
+          <pre class="language-bash"><p><code>
+npm uninstall packagename --save-dev
+</code></p></pre>
         </article>
       </div>
     </div>

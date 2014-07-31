@@ -92,6 +92,8 @@
           </li>
           <li><a href="#grid">Grid</a>
           </li>
+          <li><a href="#grid-generator">Base Grid Generator</a>
+          </li>
           <li><a href="#iconfont">Iconfont</a>
           </li>
           <li><a href="#images">Images</a>
@@ -223,6 +225,8 @@
             <code>$kittn-iconfont</code> Iconfont Configuration
             <br>
             <code>$kittn-breakpoint-map</code> Map off all Breakpoints and Behaviors
+            <br>
+            <code>$kittn-grid-setup</code> Base configuration for a whole grid config
             <br>
             <code>$kittn-fontface-map</code> Load and integrate all FontFaces
             <br>
@@ -2440,6 +2444,41 @@ $kittn-breakpoint-map: (
   float: none;
   width: 100%; }
   </code></pre>
+          <h3 id="grid-generator">Base Grid Generator</h3>
+          <p><strong>File:</strong>  <code>scr/sass/framework/modules/_grid-generator.scss</code>
+          </p>
+
+          <p>Who would not want to build with the individual mixins his grids, which can be used with the base grid generator. With its help, a complete grid system with all the necessary features can be generated.</p>
+
+          <ul>
+            <li>@requires <code>$kittn-grid-setup</code>, <code>$kittn-breakpoint-map</code>
+            </li>
+          </ul>
+          <h4>gridprefix <small>(f)</small></h4>
+          <p>Setup the Prefix for the Grid Classes</p>
+
+          <ul>
+            <li>@requires <code>$kittn-grid-setup</code>
+            </li>
+            <li>@access private</li>
+            <li>@returns {*}</li>
+          </ul>
+          <h4>ext-container <small>(m)</small></h4>
+          <p>Extend with the Base Container Class</p>
+          <h4>ext-row <small>(m)</small></h4>
+          <p>Extend with the base row class</p>
+          <h4>ext-colum <small>(m)</small></h4>
+          <p>Extend with the base colum class</p>
+          <h4>ext-size <small>(m)</small></h4>
+          <p>Extend with the width class</p>
+          <h4>ext-ol <small>(m)</small></h4>
+          <p>Extend with offset-left class</p>
+          <h4>ext-or <small>(m)</small></h4>
+          <p>Extend with offset-right class</p>
+          <h4>ext-push <small>(m)</small></h4>
+          <p>Extend with push class</p>
+          <h4>ext-pull <small>(m)</small></h4>
+          <p>Extend with pull class</p>
           <h3 id="iconfont">Iconfont</h3>
           <p><strong>File:</strong>  <code>scr/sass/framework/modules/_iconfont.scss</code>
           </p>
@@ -2507,7 +2546,7 @@ $kittn-font-icons: (
 }
 </code></pre>
           <h4>icon-font-generator <small>(m)</small></h4>
-          <p>Generates the base icon font style.</p>
+          <p>Generates the base icon font style. Generate also a Silent Class.</p>
 
           <ul>
             <li>@requires <code>$kittn-iconfont</code>, <code>$kittn-bem</code>
@@ -2520,7 +2559,8 @@ $kittn-font-icons: (
 // Result
 [class^="f-icon__"]:before,
 [class*=" f-icon__"]:before,
-[data-icon]:before {
+[data-icon]:before,
+%iconfontface:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3611,6 +3651,8 @@ $kittn-font-icons: (
             </li>
             <li>@param {*|number|bool} <code>$horz</code> (false) - Horizontal Position from the Pivot Point. Values: <code>left</code>, <code>center</code>, <code>right</code>
             </li>
+            <li>@param {*} $type - Position Type. Values <code>absolute</code>, <code>relative</code>, <code>fixed</code>
+            </li>
           </ul>
           <pre class="language-scss"><code>// Example
 .slide-1 {
@@ -3639,8 +3681,22 @@ $kittn-font-icons: (
   left: 50%;
 }
 </code></pre>
+          <h4>pivot-middle <small>(m)</small></h4>
+          <p>Moves an item to absolute the middle.</p>
+          <pre class="language-scss"><code>// Example
+.center {
+  @include pivot-middle;
+}
+
+// Result
+.center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+</code></pre>
           <h4>pivot-center <small>(m)</small></h4>
-          <p>Moves an item to the absolute middle.</p>
+          <p>Moves an item to the absolute middle and center.</p>
           <pre class="language-scss"><code>// Example
 .center {
   @include pivot-center;

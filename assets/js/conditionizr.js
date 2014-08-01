@@ -1,7 +1,203 @@
-/**
- * generator-kittn - A Yeoman Generator for the Kittn Toolkit
- * @version v0.6.3
- * @link https://github.com/gisu/generator-kittn
- * @license MIT
+/*!
+ *  Conditionizr v3.0.0
+ *  Browser vendor, touch and retina conditional loading.
+ *  http://conditionizr.com
+ *  Authors: @toddmotto and @markgdyr
+ *  Copyright 2013 Conditionizr. MIT licensed.
  */
-!function(e,r){"use strict";e.conditionizr=function(t){function i(e,r){for(var t in r)try{e[t]=r[t].constructor===Object?i(e[t],r[t]):r[t]}catch(s){e[t]=r[t]}return e}function s(){for(var e in v){var t=v[e],i=r.getElementsByTagName("head")[0];if(t)switch(e){case"classes":r.documentElement.className+=" "+u;break;case"scripts":var s=r.createElement("script");s.src=n.scriptSrc+u+".js",i.appendChild(s);break;case"styles":var a=r.createElement("link");a.rel="stylesheet",a.href=n.styleSrc+u+".css",i.appendChild(a);break;case"customScript":for(var c=v.customScript.replace(/\s/g,""),o=c.split(","),l=0;l<o.length;l++){var f=r.createElement("script");f.src=o[l],i.appendChild(f)}}}}var a={scripts:!1,styles:!1,classes:!0,customScript:!1};r.documentElement.id="conditionizr";var n={debug:!1,scriptSrc:"js/conditionizr/",styleSrc:"css/conditionizr/",ieLessThan:{active:!1,version:"9",scripts:!1,styles:!1,classes:!0,customScript:!1},chrome:a[0],safari:a[0],opera:a[0],firefox:a[0],ie10:a[0],ie9:a[0],ie8:a[0],ie7:a[0],ie6:a[0],retina:a[0],mac:!0,win:!0,x11:!0,linux:!0};t&&i(n,t);for(var c="",o=["chrome","safari","firefox","opera"],l=0;l<o.length;l++){var u=o[l];if(navigator.userAgent.toLowerCase().indexOf(u)>-1){var v=n[u];s(),c=u;break}}var f=function(){for(var e=3,t=r.createElement("b"),i=t.all||[];t.innerHTML="<!--[if gt IE "+ ++e+"]><i><![endif]-->",i[0];);return e>4?e:r.documentMode}();if(f<n.ieLessThan.version+".0"){var u="lt-ie"+n.ieLessThan.version,v=n.ieLessThan;s()}for(var l=6;11>l;l++)if(f===l){var u="ie"+l,v=n[u];s(),c=u}var m="";if(e.devicePixelRatio>=1.5){var v=n.retina,u="retina";s(),m+=" "+u,u=c}else r.documentElement.className+=" no-retina";if("ontouchstart"in e||e.navigator.msMaxTouchPoints){var v=n.touch,u="touch";s(),m+=" "+u,u=c}else r.documentElement.className+=" no-touch";for(var d=["Win","Mac","X11","Linux"],l=0;l<d.length;l++){var p=d[l];if(navigator.appVersion.indexOf(p)>-1){var h=n[p.toLowerCase()],g=p;h&&(r.documentElement.className+=" "+p.toLowerCase());break}}n.debug&&console.log("Conditionizr Debug\nScripts: "+n.scriptSrc+"\nStyles: "+n.styleSrc+"\nBrowser: "+u+"\nOS: "+g+"\nExtras: "+m+"\n")}}(window,document);
+(function ( window, document, undefined ) {
+
+	'use strict';
+
+	window.conditionizr = function ( options ) {
+
+		var baseSettings = {
+			scripts: false,
+			styles: false,
+			classes: true,
+			customScript: false
+		};
+		
+		document.documentElement.id = 'conditionizr';
+		
+		var settings = {
+			debug     : false,
+			scriptSrc : 'js/conditionizr/',
+			styleSrc  : 'css/conditionizr/',
+			ieLessThan: {
+				active: false,
+				version: '9',
+				scripts: false,
+				styles: false,
+				classes: true,
+				customScript: false
+			},
+			chrome    : baseSettings[0],
+			safari    : baseSettings[0],
+			opera     : baseSettings[0],
+			firefox   : baseSettings[0],
+			ie10      : baseSettings[0],
+			ie9       : baseSettings[0],
+			ie8       : baseSettings[0],
+			ie7       : baseSettings[0],
+			ie6       : baseSettings[0],
+			retina    : baseSettings[0],		
+			mac       : true,
+			win       : true,
+			x11       : true,
+			linux     : true
+		};
+
+		function conditionizrMerge( obj1, obj2 ) {
+			for ( var p in obj2 ) {
+				try {
+					if ( obj2[p].constructor === Object ) {
+						obj1[p] = conditionizrMerge( obj1[p], obj2[p] );
+					} else {
+						obj1[p] = obj2[p];
+					}
+				} catch ( e ) {
+					obj1[p] = obj2[p];
+				}
+			}
+			return obj1;
+		}
+
+		if ( options ) {
+			conditionizrMerge( settings, options );
+		}
+
+		function conditionizrLoader() {
+
+			for ( var resourceType in browserSettings ) {
+				var val = browserSettings[resourceType];
+				var head = document.getElementsByTagName( 'head' )[0];
+
+				if ( val ) {
+					switch ( resourceType ) {
+						case 'classes':
+							document.documentElement.className += ' ' + theBrowser;
+						break;
+						case 'scripts':
+							var scriptTag = document.createElement( 'script' );
+							scriptTag.src = settings.scriptSrc + theBrowser + '.js';
+							head.appendChild( scriptTag );
+						break;
+						case 'styles':
+							var linkTag = document.createElement( 'link' );
+							linkTag.rel = 'stylesheet';
+							linkTag.href = settings.styleSrc + theBrowser + '.css';
+							head.appendChild( linkTag );
+						break;
+						case 'customScript':
+							var strip = browserSettings.customScript.replace(/\s/g, '');
+							var customSplit = strip.split( ',' );
+							for( var i = 0; i < customSplit.length; i++ ) {
+								var customScriptTag = document.createElement( 'script' );
+								customScriptTag.src = customSplit[i];
+								head.appendChild( customScriptTag );
+							}
+						break;
+					}
+				}
+			}
+		}
+
+		var actualBrowser = '';
+
+		var browsers = [ 'chrome', 'safari', 'firefox', 'opera' ];
+		
+		for ( var i = 0; i < browsers.length; i++ ) {
+			var theBrowser = browsers[i];
+
+			if ( navigator.userAgent.toLowerCase().indexOf( theBrowser ) > -1 ) {
+				var browserSettings = settings[theBrowser];	
+				conditionizrLoader();
+				actualBrowser = theBrowser;
+				break;
+			}
+		}
+		
+		var ie = (function () {
+		    for ( var v = 3, 
+		    	  el = document.createElement( 'b' ),
+		    	  all = el.all || []; el.innerHTML = '<!--[if gt IE ' + (++v) + ']><i><![endif]-->',
+		    	  all[0]; );
+		    return v > 4 ? v : document.documentMode;
+		})();
+		
+		if ( ie < settings.ieLessThan.version + '.0' ) {
+			var theBrowser = 'lt-ie' + settings.ieLessThan.version;
+			var browserSettings = settings.ieLessThan;
+			conditionizrLoader();
+		}
+			
+		for( var i = 6; i < 11; i++ ) {
+			if ( ie === i ) {
+				var theBrowser	= 'ie'+i;
+				var browserSettings = settings[theBrowser];
+				conditionizrLoader();
+				actualBrowser = theBrowser;
+			}
+		}
+		
+		var browserExtras = '';
+
+		if ( window.devicePixelRatio >= 1.5 ) {
+
+			var browserSettings = settings.retina;
+			var theBrowser = 'retina';
+
+			conditionizrLoader();
+
+			browserExtras += ' ' + theBrowser;
+			theBrowser = actualBrowser;
+
+		} else {
+			document.documentElement.className += ' no-retina';
+		}
+
+		if ( 'ontouchstart' in window || window.navigator.msMaxTouchPoints ) {
+
+			var browserSettings = settings.touch;
+			var	theBrowser = 'touch';
+
+			conditionizrLoader();
+
+			browserExtras += ' ' + theBrowser;
+			theBrowser = actualBrowser;
+
+		} else {
+			document.documentElement.className += ' no-touch';
+		}
+
+		var oSystems = [ 'Win', 'Mac', 'X11', 'Linux' ];
+
+		for ( var i = 0; i < oSystems.length; i++ ) {
+
+			var currentPlatform = oSystems[i]
+				
+			if ( navigator.appVersion.indexOf( currentPlatform ) > -1 ) {
+				var osSettings = settings[currentPlatform.toLowerCase()];
+				var theOS = currentPlatform;
+				
+				if (osSettings) {
+					document.documentElement.className += ' ' + currentPlatform.toLowerCase();
+				}
+				break;
+			}
+		}
+
+		if ( settings.debug ) {
+			console.log(
+			    'Conditionizr Debug' + 
+			    '\nScripts: ' + settings.scriptSrc + 
+			    '\nStyles: ' + settings.styleSrc + 
+			    '\nBrowser: ' + theBrowser + 
+			    '\nOS: ' + theOS + 
+			    '\nExtras: ' + browserExtras + '\n'
+			);
+		}
+	};
+
+})( window, document );

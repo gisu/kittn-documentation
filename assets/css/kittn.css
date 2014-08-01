@@ -1,243 +1,2322 @@
-/**
- * generator-kittn - A Yeoman Generator for the Kittn Toolkit
- * @version v0.6.3
- * @link https://github.com/gisu/generator-kittn
- * @license MIT
- */
 @charset "UTF-8";
-@font-face{font-family:kittn;src:url(/assets/fonts/kittn.eot);src:url(/assets/fonts/kittn.eot?#iefix) format("eot"),url(/assets/fonts/kittn.woff) format("woff"),url(/assets/fonts/kittn.ttf) format("truetype"),url(/assets/fonts/kittn.svg#kittn) format("svg");font-weight:400;font-style:normal}
-@media screen and (-webkit-min-device-pixel-ratio:0){@font-face{font-family:kittn;src:url(/assets/fonts/kittn.svg) format("svg");font-weight:400;font-style:normal}}
-html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background:0 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:70%}
-@media screen and (min-width:480px){html{font-size:80%}}
-@media screen and (min-width:768px){html{font-size:85%}}
-@media screen and (min-width:960px){html{font-size:90%}}
-@media screen and (min-width:1180px){html{font-size:110%}}
-*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-*,:after,:before{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}
-body,html{min-height:100%}
-body{margin:0;position:relative;color:#3c3c3c;font-size:1.176471rem;line-height:1.544118rem;background-color:#f8f8f8}
-blockquote,dd,dl,h1,h2,h3,h4,h5,h6,ol,p,pre,ul{margin-top:0}
-article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
-audio,canvas,video{display:inline-block}
-body,button,input,select,textarea{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
-audio:not([controls]){display:none;height:0}
-button,input,input[type=button],input[type=reset],input[type=submit],label,option,select,textarea{cursor:pointer}
-[hidden],template{display:none}
-.h1,.h2,.h3,.h4,.h5,.h6,.hero__headline,h1,h2,h3,h4,h5,h6{text-rendering:optimizeLegibility;margin-bottom:0;font-weight:400;font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#636363}
-.h1,h1{font-size:2.647059rem;line-height:1;margin-bottom:.735294rem}
-.h2,h2{font-size:2.352941rem;line-height:2.917647rem;margin-bottom:.735294rem}
-.h3,h3{font-size:2.132353rem;line-height:2.644118rem;margin-bottom:.735294rem}
-.h4,.hero__headline,h4{font-size:1.838235rem;line-height:2.279412rem;margin-bottom:.735294rem}
-.h5,h5{font-size:1.617647rem;line-height:2.005882rem;margin-bottom:.735294rem}
-.h6,h6{font-size:1.25rem;line-height:1.55rem;margin-bottom:.735294rem}
-.lead{font-size:1.397059rem;line-height:1.732353rem;margin-bottom:1.470588rem}
-.headerStack,.headerStack>*{margin-bottom:0}
-p+.headerStack{margin-top:1.838235rem}
-.brand,.brand--logo{font-size:inherit!important;line-height:1!important;margin-bottom:0!important}
-.brand--logo>a,.brand>a{display:block;text-decoration:none!important}
-.brand--logo>a:hover,.brand>a:hover{text-decoration:none!important}
-.brand--logo>a{background-color:transparent;border:0;color:transparent;font:0/0 a;text-shadow:none}
-p{margin-bottom:1.470588rem}
-p+h1,p+h2,p+h3,p+h4,p+h5,p+h6{margin-top:2.647059rem}
-a{outline:0;line-height:inherit;background:0 0;color:#23baf2;text-decoration:none}
-a.link-hover,a:hover{color:#0b8dbd;text-decoration:none}
-a.link-active,a:active{color:#08698d}
-a:active,a:focus,a:hover{outline:0}
-abbr{font-variant:small-caps;text-transform:lowercase}
-abbr[title]{border-bottom:1px dotted}
-abbr[title]:hover{cursor:help}
-strong{font-weight:700}
-dfn,em{font-style:italic}
-.hightlight,::-moz-selection,mark{background:#9be0f9;color:#0d9fd5}
-.hightlight,::selection,mark{background:#9be0f9;color:#0d9fd5}
-.lined{border-bottom:1px solid #797979}
-dl,ul{list-style-type:disc;padding-left:20px;margin-bottom:1.470588rem}
-nav>dl,nav>ul{list-style-type:none;margin-bottom:0;padding-left:0}
-ol{padding-left:22px;margin-bottom:1.470588rem}
-dd,dt,li{line-height:1.838235rem}
-dd>dl,dt>dl,li>ol,li>ul{margin-bottom:0}
-hr{position:relative;margin-bottom:1.470588rem;margin-top:1.470588rem}
-code,kbd,pre,samp{font-weight:400;font-family:Inconsolata,"DejaVu Sans Mono",Menlo,Monaco,Consolas,Courier,monospace}
-pre{white-space:pre;margin-bottom:1.470588rem}
-pre>code{word-wrap:normal;white-space:pre-wrap}
-code{white-space:pre}
-q{quotes:"\201C" "\201D" "\2018" "\2019"}
-q:after,q:before{content:'';content:none}
-small{font-size:80%}
-sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
-sup{top:-.5em}
-sub{bottom:-.25em}
-i{font-style:normal;display:inline-block}
-img{border:0;max-width:100%;height:auto}
-img[height],img[width]{max-width:none}
-figure{margin:0}
-figure>img{display:block;max-width:none;width:100%}
-#map_canvas embed,#map_canvas img,#map_canvas object,.map_canvas embed,.map_canvas img,.map_canvas object{max-width:none!important}
-video{width:100%!important;height:auto!important}
-.video-box{position:relative;padding-bottom:54%;padding-top:15px;height:0;overflow:hidden;margin-bottom:20px}
-.video-box>iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-svg:not(:root){overflow:hidden}
-blockquote{margin-left:0;margin-right:0;margin-bottom:1.470588rem}
-blockquote p{font-size:1.323529rem;line-height:1.985294rem}
-blockquote cite{font-style:normal;font-size:1.102941rem;line-height:1.544118rem}
-blockquote cite:before{content:'\2014 \0020'}
-blockquote :last-child{margin-bottom:0}
-blockquote,cite,q{color:#636363}
-fieldset{border:0;padding:0}
-legend{border:0;padding:0;white-space:normal}
-optgroup{font-weight:700}
-button,input,select,textarea{font-size:100%;margin:0;vertical-align:middle}
-button,input{line-height:normal}
-button,select{text-transform:none}
-button,input[type=button],input[type=reset],input[type=submit]{background:0 0;border:0;color:inherit;font:inherit;outline:0;padding:0;width:auto;cursor:pointer;-webkit-appearance:none;-webkit-font-smoothing:antialiased}
-button[disabled],input[disabled]{cursor:default}
-input[type=checkbox],input[type=radio]{cursor:pointer;padding:0}
-input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}
-input[type=search]{-webkit-appearance:textfield}
-input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
-button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
-button:focus{outline:0}
-textarea{overflow:auto;vertical-align:top;resize:vertical}
-table{border-collapse:collapse;border-spacing:0;width:100%}
-.is-active .main-nav__link,.key-features__icon>i{color:#23baf2}
-.hero,.main-header{background-color:#23baf2}
-.main-footer .build-with--icons i{color:#188cb8}
-.copyright p,.main-footer .build-with--text,.main-nav__link{color:#636363}
-._HEADER{background-color:#f0f0f0}
-.hero p,.hero__button--secondary:hover,.hero__headline,.main-header h1{color:#fff}
-.main-footer .build-with--icons .f-icon--love{color:#ef462a}
-.hidden-to--1,.hidden-to--2,.visible-from--1,.visible-from--2{display:none}
-@media screen and (max-width:321px){.hidden-to--1{display:inherit}}
-@media screen and (min-width:320px){.hidden-from--1{display:none}}
-@media screen and (max-width:321px){.visible-to--1{display:none}}
-@media screen and (min-width:320px){.visible-from--1{display:inherit}}
-@media screen and (max-width:481px){.hidden-to--2{display:inherit}}
-@media screen and (min-width:480px){.hidden-from--2{display:none}}
-@media screen and (max-width:481px){.visible-to--2{display:none}}
-@media screen and (min-width:480px){.visible-from--2{display:inherit}}
-.alert-box--info:before,.alert-box--warn:before,.alert-box:before,[class*=" f-icon--"]:before,[class^=f-icon--]:before,[data-icon]:before{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;display:inline-block;font-family:kittn;font-style:normal;font-weight:400!important;speak:none;text-decoration:inherit;line-height:1}
-[data-icon]:before{content:attr(data-icon)}
-.f-icon--check:before{content:""}
-.f-icon--times:before{content:""}
-.f-icon--home:before{content:""}
-.f-icon--lock:before{content:""}
-.f-icon--lightbulb:before{content:""}
-.f-icon--left:before{content:""}
-.f-icon--right:before{content:""}
-.f-icon--up:before{content:""}
-.f-icon--down:before{content:""}
-.f-icon--code:before{content:""}
-.f-icon--github:before{content:""}
-.f-icon--git:before{content:""}
-.f-icon--android:before{content:""}
-.f-icon--windows:before{content:""}
-.f-icon--apple:before{content:""}
-.f-icon--linux:before{content:""}
-.f-icon--js:before{content:""}
-.f-icon--node:before{content:""}
-.f-icon--npm:before{content:""}
-.f-icon--firefox:before{content:""}
-.f-icon--opera:before{content:""}
-.f-icon--safari:before{content:""}
-.f-icon--css:before{content:""}
-.f-icon--markdown:before{content:""}
-.f-icon--sass:before{content:""}
-.f-icon--grunt:before{content:""}
-.f-icon--bower:before{content:""}
-.f-icon--gulp:before{content:""}
-.f-icon--yeoman:before{content:""}
-.f-icon--chrome:before{content:""}
-.f-icon--explorer:before{content:""}
-.f-icon--html:before{content:""}
-.f-icon--love:before{content:""}
-.container{margin-left:auto;margin-right:auto;width:100%;min-width:320px;max-width:1180px;padding-left:10px;padding-right:10px}
-.row:after{content:'';display:table;clear:both}
-.row .row{margin-left:-10px;margin-right:-10px}
-.article,.hero__image,.hero__text,.jump-nav,.key-features,.logo,.main-nav{padding-left:10px;padding-right:10px}
-@media screen and (min-width:768px){.article,.hero__image,.hero__text,.jump-nav,.key-features,.logo,.main-nav{padding-left:10px;padding-right:10px;display:block;float:left}
-.article:last-child,.hero__image:last-child,.hero__text:last-child,.jump-nav:last-child,.key-features:last-child,.logo:last-child,.main-nav:last-child{float:right}}
-@media screen and (min-width:768px){.jump-nav,.logo{width:25%}
-.key-features{width:33.333333%}
-.hero__image,.hero__text{width:50%}
-.main-nav{width:66.666667%}
-.article{width:75%}}
-.article li code,.article>.alert-box code,.article>.alert-box--info code,.article>.alert-box--warn code,.article>blockquote code,.article>p>code,.article>p>strong code{background-color:#f0f0f0;padding:3px 5px;display:inline-block;border:1px solid #d6d6d6;border-radius:2px;color:#636363;line-height:1}
-.article>.alert-box code,.article>.alert-box--info code,.article>.alert-box--warn code{border-color:transparent}
-.article>.alert-box--info code,.article>.alert-box--warn code{border-color:transparent;color:#fff}
-.article>.alert-box--info code{background-color:#126a8b}
-.article>.alert-box--warn code{background-color:#d5640d}
-pre[class*=language-]{-webkit-box-shadow:inset 0 0 2px rgba(0,0,0,.1);box-shadow:inset 0 0 2px rgba(0,0,0,.1);border-radius:3px}
-code[class*=language-],pre[class*=language-]{color:#3c3c3c;text-shadow:0 1px #fff;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}
-code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background-color:#f0f0f0}
-code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background-color:#f0f0f0}
-@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}
-pre[class*=language-]{padding:1em;overflow:auto}
-:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#f0f0f0}
-:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}
-.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}
-.token.punctuation{color:#999}
-.namespace{opacity:.7}
-.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#905}
-.token.attr-name,.token.builtin,.token.selector,.token.string{color:#690}
-.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#a67f59;background:rgba(255,255,255,.5)}
-.token.atrule,.token.attr-value,.token.keyword{color:#07a}
-.token.function{color:#DD4A68}
-.token.important,.token.regex{color:#e90}
-.token.important{font-weight:700}
-.token.entity{cursor:help}
-blockquote{border-left:5px solid #23baf2;padding-left:20px}
-hr{height:2px;border:1px solid #dcdcdc}
-.alert-box,.alert-box--info,.alert-box--warn{background-color:#dcdcdc;padding:20px;margin-bottom:20px;position:relative;border-radius:3px;-webkit-box-shadow:inset 0 0 1px rgba(0,0,0,.3);box-shadow:inset 0 0 1px rgba(0,0,0,.3)}
-.alert-box--info:before,.alert-box--warn:before,.alert-box:before{color:#636363;content:"";-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);position:absolute;top:50%;font-size:2.941176rem;line-height:3.529412rem}
-.alert-box p,.alert-box--info p,.alert-box--warn p{color:#636363;font-size:1.176471rem;line-height:1.764706rem;padding-left:60px}
-.alert-box p:last-child,.alert-box--info p:last-child,.alert-box--warn p:last-child{margin-bottom:0}
-.alert-box--info{background-color:#188cb8}
-.alert-box--info p,.alert-box--info:before{color:#fff}
-.alert-box--warn{background-color:#f27d23}
-.alert-box--warn p,.alert-box--warn:before{color:#fff}
-._HEADER{padding-top:15px;padding-bottom:15px}
-.main-nav__list{text-align:center}
-@media screen and (min-width:768px){.main-nav__list{text-align:right}}
-.main-nav__entry{padding-top:10px;padding-right:5px;display:inline-block}
-@media screen and (min-width:768px){.main-nav__entry{padding:5px}}
-.main-nav__link{height:40px;line-height:34px;font-weight:200;font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-transition:all 500ms ease-in-out;transition:all 500ms ease-in-out}
-@media screen and (min-width:768px){.main-nav__link{font-size:.808824rem;height:40px;line-height:34px}}
-.logo{height:80px;position:relative;margin-bottom:0}
-@media screen and (min-width:768px){.logo{height:40px}}
-.logo__inner{background-color:transparent;border:0;color:transparent;font:0/0 a;text-shadow:none;background-image:url(/assets/img/svgonly/kittn-small.svg);background-repeat:no-repeat;-webkit-background-size:100% 100%;background-size:100% 100%;width:100%;height:100%;display:block}
-@media screen and (min-width:768px){.logo__inner{background-image:url(/assets/img/svgonly/kittn-small.svg);background-repeat:no-repeat;-webkit-background-size:130px 40px;background-size:130px 40px;width:130px;height:40px}}
-.hero{padding-top:50px;padding-bottom:50px;margin-bottom:40px;-webkit-box-shadow:inset 0 0 50px rgba(11,141,189,.9);box-shadow:inset 0 0 50px rgba(11,141,189,.9)}
-@media screen and (min-width:768px){.hero .row{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}
-.hero__image img{margin:0 auto 20px;display:block;width:30%}
-@media screen and (min-width:768px){.hero__image img{width:40%}}
-.hero__button,.hero__button--secondary{background-color:#fff;padding:10px 20px 10px 15px;display:inline-block;margin-right:10px;cursor:pointer;font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;-webkit-transition:300ms all ease-in-out;transition:300ms all ease-in-out;-webkit-box-shadow:0 4px 14px rgba(0,0,0,.2);box-shadow:0 4px 14px rgba(0,0,0,.2);width:100%}
-.hero__button--secondary:hover,.hero__button:hover{-webkit-box-shadow:0 0 7px rgba(0,0,0,.1);box-shadow:0 0 7px rgba(0,0,0,.1)}
-@media screen and (min-width:768px){.hero__button,.hero__button--secondary{width:inherit}}
-.hero__button i,.hero__button--secondary i{position:absolute;top:8px;left:15px;font-size:1.838235rem;line-height:2.205882rem;display:inline-block;text-align:center;width:30px}
-.hero__button span,.hero__button--secondary span{font-size:.882353rem;padding-left:40px}
-.hero__button--secondary{background-color:#188cb8;color:#fff;margin-top:20px}
-@media screen and (min-width:768px){.hero__button--secondary{margin-top:0}}
-.hero p{font-size:1.176471rem;line-height:1.411765rem}
-.hero p:last-child{margin-bottom:0}
-.key-features__icon{text-align:center;position:relative}
-.key-features__icon>i{display:inline-block;font-size:5.882353rem;line-height:7.058824rem}
-.key-features__content{padding:10px}
-.key-features__content p{font-size:.955882rem;line-height:1.544118rem}
-.main-header{padding-top:50px;padding-bottom:50px;margin-bottom:40px;-webkit-box-shadow:inset 0 0 50px rgba(11,141,189,.9);box-shadow:inset 0 0 50px rgba(11,141,189,.9)}
-.main-header h1{margin-bottom:0}
-._FOOTER,.main-footer{padding-top:40px;padding-bottom:40px;border-top:2px solid #f0f0f0}
-.main-footer .build-with--text{text-align:center;font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif}
-.main-footer .build-with--text p{font-size:1.470588rem;line-height:1.764706rem}
-.main-footer .build-with--icons{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;text-align:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
-.main-footer .build-with--icons i{font-size:5.147059rem;line-height:1;display:block;float:left}
-.main-footer .build-with--icons span{display:none}
-@media screen and (min-width:768px){.main-footer .build-with--icons span{color:#dcdcdc;font-size:2.205882rem;display:inline-block;font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif}}
-.jump-nav ul{list-style-type:none;padding-left:0;font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif}
-.jump-nav>ul>li{margin-bottom:20px}
-.jump-nav>ul>li>a{font-size:1.176471rem;line-height:1.411765rem;display:block;font-weight:700;padding-bottom:5px}
-.jump-nav>ul>li>ul>li>a{display:block;padding-left:10px;font-size:.955882rem;line-height:1.470588rem}
-.article img{width:100%;max-width:inherit}
-._FOOTER{margin-top:40px}
-.copyright{text-align:center}
-.copyright p{font-size:.882353rem;line-height:1.058824rem}
-.copyright p:last-child{margin-bottom:0}
+/**
+ * A Map for predefined Fontstacks
+ *
+ * @type Map
+ */
+/**
+ * This map hold all Images files
+ *
+ * @type Map
+ */
+/**
+ * This map hold all nonretina sprites
+ *
+ * @type Map
+ */
+/**
+ * This map hold all retina sprites
+ *
+ * @type Map
+ */
+/**
+ * All Icons from a Icon-Font are listet in this Map
+ *
+ * @type Map
+ */
+/**
+ * A Map for connectable styles
+ *
+ * @type Map
+ */
+/**
+ * This Map hold all defined Z Indexes
+ *
+ * @type Map
+ */
+/**
+ * Checks if a Value is included
+ *
+ * @param  {*}  $value - Included value to check
+ *
+ * @returns {Bool}
+ */
+/**
+ * Checks if Value is a map
+ *
+ * @param  {*}  $value - Included value to check
+ *
+ * @returns {Bool}
+ */
+/**
+ * Checks if Value is a list
+ *
+ * @param  {*}  $value - Included value to check
+ *
+ * @returns {Bool}
+ */
+/**
+ * Checks if Value is a number
+ *
+ * @param  {*}  $value - Included value to check
+ *
+ * @returns {Bool}
+ */
+/**
+ * Checks if Value is a string
+ *
+ * @param  {*}  $value - Included value to check
+ *
+ * @returns {Bool}
+ */
+/**
+ * Checks if Value is not a string
+ *
+ * @param  {*}  $value - Included value to check
+ *
+ * @returns {Bool}
+ */
+/**
+ * Check if the Selector is nested
+ *
+ * @returns {Bool}
+ */
+/**
+ * Check if a map has entrys
+ *
+ * @returns {Bool}
+ */
+/**
+ * Function for including Font Families from the Fontstack list.
+ * It is also possible to prepand own Fonts to the Stack
+ *
+ * @param  {*}    $family - Font-Family from the Stack
+ * @param  {list} $append - The extra Fontfaces that prepanded to the stack
+ *
+ * @throws 'Not Availalbe' when the Font is not in the stack
+ */
+/**
+ * Include Font-Familys based on the FontStack
+ *
+ * @param {string} $family - Font-Family from the Stack
+ * @param {list}   $append - The extra Fontfaces that prepanded to the stack
+ */
+/**
+ * Generate the Font-Face
+ *
+ * @param {string}  $filename            - The Filename of the Fontname
+ * @param {string}  $fontname            - The Desired Fontname
+ * @param {string}  $fontweight (normal) - Fontweight
+ * @param {string}  $fontstyle (normal)  - Fontstyle
+ * @param {bool}    $svgoption (true)    - Activate the addition route to the SVG Font
+ */
+/**
+ * Include all Font Faces from the Font Face Map
+ * Will be activated with Internal Functions
+ *
+ * @access private
+ */
+/**
+ * Strip Units from Values
+ *
+ * @param  {Number}  $number - Value
+ *
+ * @returns {Number}       - Unitless Value
+ */
+/**
+ * Add the Default Unit on unitless Values
+ *
+ * @param  {Number}  $value - Value
+ *
+ * @returns {Number}
+ */
+/**
+ * Shorthand for the CSS3 Calc function
+ *
+ * @param  {*}  $property   - Property that calculated
+ * @param  {*}  $expression - Formula
+ */
+/**
+ * Clamp a Number between a min and max values,
+ * Perfect for percentage
+ *
+ * @param  {Number}  $value - The Value that need to be clamped
+ * @param  {Number}  $min   - The posible minimal value
+ * @param  {Number}  $max   - The possible max Value
+ *
+ * @returns {Number}        - Clamped Value
+ */
+/**
+ * Pick the Color Values from the Color Map
+ *
+ * @param  {*}  $target - Desired color
+ * @param  {*}  $map    - Color Map
+ *
+ * @returns {Color}
+ *
+ * @throws Color is not included in the map
+ */
+/**
+ * Multiply the Spacing Value to generate Spacings
+ *
+ * @param  {Number}  $lines - Multiplicator for Spacing
+ * @param  {Bool}    $hard (false) - For including an !important
+ * @param  {Number}  $size ($kittn-global-spacing) - Connection to the Base Spacing
+ *
+ * @returns {Value}
+ */
+/**
+ * Multiply the Spacing Value to generate Spacings
+ * Calculates Spacings in a other Way - needed for map values
+ *
+ * @param  {Number}  $lines - Multiplicator for Spacing
+ * @param  {Bool}    $imp (false) - For including an !important
+ * @param  {*}       $u (false) - Unit
+ * @param  {Number}  $size ($kittn-global-spacing) - Connection to the Base Spacing
+ *
+ * @returns {Value}
+ */
+/**
+ * Build a BEM Element
+ *
+ * @param  {string}  $name - The selector name
+ */
+/**
+ * Build a BEM Modifier, with extend functionality
+ *
+ * @param  {*}      $name           - The selector name
+ * @param  {bool}   $extend (false) - If the Modifier need to be extended with parent
+ */
+/**
+ * Setup the Root Element for the following chained Modifers
+ *
+ * @param  {*}  $name - The selector name
+ *
+ * @example
+ *  .test {
+ *    @include chainroot {
+ *     content: hello;
+ *    }
+ *  }
+ *
+ */
+/**
+ * Chain the Modifiers
+ *
+ * @param  {string} $name - The selector name, only the name
+ *
+ * @example
+ *  .test {
+ *    @include chainroot {
+ *      font-size: 20px;
+ *      line-height: 24px;
+ *      @include chain('wider') {
+ *        width: 300px;
+ *      }
+ *    }
+ *  }
+ */
+/**
+ * Global spacing unit, used for Spacer and Lines Mixins.
+ *
+ * @type Number
+ */
+/**
+ * Default unit for unitless values.
+ *
+ * @type Number
+ */
+/**
+ * BEM Prefixes for Elements and Modifiers
+ *
+ * @type Map
+ */
+/**
+ * Kittn Directory Organisation
+ *
+ * @type Map
+ */
+/**
+ * Activate Base Features
+
+   - 'debugging' {Bool} - Activate the CSS Debugging Features
+   - 'box-sizing' {Bool} - Activate the new old Box Model ;P
+   - 'baseline' {Bool} - Activate Baseline Features
+   - 'hyphens' {Bool} - All Words would be breaked with Hyphens
+   - 'viewport-fix' {Bool} - Activate Viewport-Fixes for Windows Mobile 8
+   - 'mobile-first' {Bool} - Grid and Breakpoints oriented from Smallest to Biggest Size
+   - 'ie8-fallback' {Bool} - Integrate some IE8 Fallbacks
+
+ *
+ * @type Map
+ */
+/**
+ * Sprite Configuration
+
+   - 'name' {*|Bool} - Sprite Name
+   - 'retina-capable' {Bool} - Integrate an additional Retina Sprite
+ *
+ * @type Map
+ */
+/**
+ * Iconfont Configuration
+
+   - 'name' {*|Bool} - Iconfont Name
+   - 'prefix' {*} - Icon Prefix
+ *
+ * @type Map
+ */
+/**
+ * Map off all Breakpoints and Behaviors
+
+   - 'Name' {*} - Breakpoint Name
+     - 'size' {Number} - The width that activate the Trigger
+     - 'visibility' {Bool} - Set it on true to activate the visibility classes
+     - 'step' {Bool} - Set the threshold for the grid-stepper mixin
+     - 'fontsize' {bool|number} - Rewrite the Basefontsize for this breakpoint
+ *
+ * @type Map
+ */
+/**
+ * Setup the Base Grid
+
+   - 'activate' {Bool} - Activates the Generator
+   - 'silent' {Book} - Generated classes are silent [%]
+   - 'container-name' {*} - Name of the container class
+   - 'row-name' {*} - Name of the row class
+   - 'colum-name' {*} - Name of the colums
+   - 'size-name' {*} - Name of the size classes [prefix]
+   - 'offset-name' {*} - Name of the offset classes [prefix]
+   - 'pushpull-name' {*} - Name of the pushpull classes [prefix]
+   - 'breakpoint' {*} - This breakpoint will modifiy the grid [$kittn-breakpoint-map]
+   - 'colums' {Number} - Maximum colums
+   - 'spacing' {Number} - Padding of the colums
+   - 'layouttype' {*} - `inline`, `table`, `flex`, `block`
+   - 'valign' {*} - `top`, `bottom`, `baseline`, `middle`
+   - 'container-adaptive' {Bool} - adaptive or fluid
+   - 'container-width' {List} - Main Width off the Grid
+   - 'container-position' {*} - `center`, `left`, `right`
+   - 'container-offset' {Number} - The Size of the Outer Gutter
+   - 'container-ie8-style' {Bool|Number} - When is set on 'true' IE8 get a static Container
+   - 'colum-extras' {Bool} - Want to include the additional colum classes
+   - 'size-extend' {Bool|*} - Size classes can be extended with other classes
+   - 'size-select' {Bool|List} - You can select the size classes
+   - 'offset-activate' {Bool} - Activate the offset classes
+   - 'pushpull-activate' {Bool} - Activate the push&pull classes
+ *
+ * @type Map
+ */
+/**
+ * Load and integrate all FontFaces.
+
+   - 'fontname' {*}
+     - 'filename' {Bool|*} - Filename, when 'false' the Fontname will be used
+     - 'weight' {*} - The associated Fontweight
+     - 'style' {*} - The associated Font Style
+     - 'svgoption' {Bool} - Activate the addition route to the SVG Font
+ *
+ * @type Map
+ */
+/**
+ * Base Typo Setup
+
+   - 'unit' {*} - 'px' or 'rem'
+   - 'base-scale' {Number} - Fontsize on &lt;html&gt;
+   - 'base-size' {Number} - Base Fontsize in Px
+   - 'line-height' {Number} - Base Line-Height
+ *
+ * @type Map
+ */
+/**
+ * Activates the Responsive Fontsize Generator
+ *
+ * @type Bool | Number
+ */
+/**
+ * Default Margin for Typographic Elements (set on '0' when not needed)
+
+   - 'top' {Number} - Top Margin Size
+   - 'botton' {Number} - Bottom Margin Size
+ *
+ * @type Map
+ */
+/**
+ * Base Typo and Font Styling
+ *
+ * @type Map
+ */
+/**
+ * Base Typo Sizes
+ *
+ * @type Map
+ */
+/**
+ * Global Heading Stylings
+
+   - 'lineheight' {Bool|*} - 'false' or 'd' (for line-height:1) or a unitless number
+   - 'marginbottom' {Bool|Number} - 'false' or 'number'
+   - 'fontweight' {Bool|*} - 'false' or 'number'
+ *
+ * @type Map
+ */
+/**
+ * All possible Typostyles in a Map.
+
+   - 'Stylename' {*} - Fontstyle Name
+    - 'font-size' {Number}
+    - 'line-height' {*|bool| Number} - `d`: line-height = 1, `c`: sass calculated, `number`
+    - 'margin-bottom' {*|Number} - 'number'
+    - 'font-weight' {*|Number} - 'number'
+    - 'tag' {Bool} - On `true` it generates also tags, with 'false' only classes
+    - 'extend' {*} - When you want to Extend the Style you can enter here the Extend Classname like `%myclass`
+ *
+ * @type Map
+ */
+/**
+ * Generate all Fontstyles with classes
+ *
+ * @type Bool
+ */
+/**
+ * Color Definition Map. This is a collection from all used Colors. Use only use HEX Colors, when you enter a Opacity Value (between 0 to 1), Sass convert it to RGBA with a Fallback for old Browsers.
+
+   - 'Colorname' {*} - Name for the Colorstyle, quoted
+    - 'color' {Color} - Color
+    - 'opacity' {Bool|Number} - Opacity Value
+    - 'type' {*} - 'bc': background & textcolor, 'c': textcolor, 'b': background-color
+ *
+ * @type Map
+ */
+/**
+ * Generate the Color Classes from the Color Array
+
+   - 'generate' {Bool} - Activate the Generator
+   - 'type' {*} - 'class' or 'silent'
+ *
+ * @type Map
+ */
+/**
+ * Route the Colors to the Elements
+ *
+ * @type Map
+ */
+/**
+ * Hairline Styling
+
+   - 'height' {Number}
+   - 'style' {*} - Line Styles
+   - 'color' {Color}
+ *
+ * @type Map
+ */
+/**
+ * Table Styling
+ *
+ * @type Map
+ */
+/**
+ * Micro Clearfix without IE7 the fix is smarter
+ */
+/**
+ * Shorthand for centering Elements
+ */
+/**
+ * Compatible Mixin for Word-Wrap
+ */
+/**
+ * Mixin for truncating Text
+ */
+/**
+ * Vertical Center Elements
+ */
+/**
+ * Method for Text Replacement
+ */
+/**
+ * Text Replacement Method from HTML5 Boilerplate
+ */
+/**
+ * Text Replacement without 'overflow:hidden'
+ */
+/**
+ * Helper to prevent collapsing Margins
+ */
+/**
+ * Activate the Hardware Acceleration on Webkit Browsers
+ */
+/**
+ * Activate Antialias on Webkit Browsers
+ */
+/**
+ * REM Calculator
+ *
+ * @param  {Number}  $px   - The Size in PX
+ * @param  {Number}  $base - The Base for the calculation
+ *
+ * @return {Number}  Return the size in rem
+ */
+/**
+ * Recalculate the heightvalues to rem
+ *
+ * @param   {*}       $arg   - Attribute
+ * @param   {Number}  $size  - Value
+ */
+/**
+ * Recalculate the heightvalues to px
+ *
+ * @param   {*}       $arg   - Attribute
+ * @param   {Number}  $size  - Value
+ */
+/**
+ * Calculate the heightvalues
+ *
+ * @param  {*}       $arg      - Attribute
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Lineheight from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Margin Bottom from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Margin Top from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Margin Left from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Margin Right from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Padding Top from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Padding Bottom from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Padding Left from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Padding Right from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Calculate the Height from PX to REM, provides a px Fallback
+ *
+ * @param  {Number}  $size     - Size
+ * @param  {Bool}    $baseline - When 'true', the Value follow the Baselinerule
+ */
+/**
+ * Caluclate the Font Size in PX to REM with Fallback
+ *
+ * @param  {Number}  $size - Font Size
+ */
+/**
+ * Calculate Fontsize and Lineheight
+ *
+ * @param   {Number}       $fontsize   - Font Size
+ * @param   {Bool|Number}  $lineheight (false) - Lineheight for the Font - can be false than used the factor
+ * @param   {Number}       $factor (1.2)    - The Calculationfactor
+ */
+/**
+ * Walks trough the Typo Map and get the Values
+ *
+ * @param   {*} $entry     - Key
+ * @param   {*} $attribute - Attribute to get
+ *
+ * @returns {*}
+ */
+/**
+ * Generate the Typo based on the Typo-Map
+ */
+/**
+ * Generate Responsive Fonts, based on the Breakpoint Map
+ *
+ * @param {number} $base - The Base Font Size in percent
+ */
+/**
+ * Include a Fontsize from the Fontstyle Map
+ *
+ * @param   {*} $entry     - Key
+ */
+/**
+ * Connect a Element with a established Typostyle
+ *
+ * @param {*} $entry - Key
+ */
+/**
+ * For include Element Dimensions in Width, Height and Lineheight. When '$size' have only one Value will height and width the same (square)
+ *
+ * @param  {List}  $size - Width and or Height
+ * @param  {Bool}  $lineheight (false) - On 'true' lineheight will be set to the same $size, otherwise use a Number
+ */
+/**
+ * Mixin to Insert Height and Lineheight on a Simple Way
+ *
+ * @param  {Number}  $height - Heightvalue
+ * @param  {Number}  $factor - The multiply factor
+ */
+/**
+ * Mixin to Insert Height and Lineheight on a Simple Way
+ *
+ * @param  {Number}  $size - Fontsize
+ * @param  {Number}  $factor - The multiply factor
+ */
+/**
+ * Center and Middle a Element in a box
+ *
+ * @param  {number}  $size - Width and or Height
+ */
+/**
+ * Build a perfect Circle
+ *
+ * @param  {value}  $size - The Size of the Circle
+ */
+/**
+ * A Floating Grid System
+ *
+ * @param  {list}    $ratio (1)        - The Ratio between width and height
+ * @param  {string}  $selector (false) - Target selector
+ */
+/**
+ * Remove Ratio Values
+ *
+ * @param  {string}  $selector (false) - Target selector
+ */
+/**
+ * Span a Element in the Height and Width absolute positioned
+ */
+/**
+ * Put Text Elements in the Middle
+ */
+/**
+ * Get the Named Z-Index from the z-map
+ *
+ * @param   {*}   $layer - The layer to use
+ * @param   {Map} $z-layers ($kittn-zlayer-map) - Connection through Z-Map
+ *
+ * @returns {Number}
+ */
+/**
+ * Get the associated Z-Index from the Map,
+ * build the Z-Index
+ *
+ * @param  {*}       $layer - The layer to use
+ * @param  {number}  $offset - Add or substract an offset
+ */
+/**
+ * Gives a Layer a new Z-Index
+ *
+ * @param  {number}   $index    - Z-index
+ * @param  {number}   $offset   - Offset
+ * @param  {string}   $position - Position. Values: 'bool', 'r' relative, 'a' absolute, 'f' fixed
+ */
+/**
+ * Set the Position for the Position Mixins
+ *
+ * @access private
+ *
+ * @param {list} $position - Position Values. one value = top, two values = top left, four values = top right bottom left. For Zero Position (0) set the value to 'z'
+ */
+/**
+ * Shorthand for Relative positioning
+ *
+ * @param {list} $position - Position Values. one value = top, two values = top left, four values = top right bottom left. For Zero Position (0) set the value to 'z'
+ */
+/**
+ * Shorthand for Absolute positioning
+ *
+ * @param {list} $position - Position Values. one value = top, two values = top left, four values = top right bottom left. For Zero Position (0) set the value to 'z'
+ */
+/**
+ * Shorthand for Fixed positioning
+ *
+ * @param {List} $position - Position Values. one value = top, two values = top left, four values = top right bottom left. For Zero Position (0) set the value to 'z'
+ */
+/**
+ * Shorthand for Static positioning reset all position values
+ */
+/**
+ * Setup a Bar Element
+ *
+ * @param  {*}  $variant  - 'f' for fixed, 'a' for absolute
+ * @param  {*}  $position - 't' Top, 'b' Bottom, 'l' Left, 'r' Right
+ * @param  {*}  $z-index (9999)  - The Z-Index
+ */
+/**
+ * Define a Top Bar at the Top of the Viewport
+ *
+ * @param {value}  $z       - The Z-Index
+ * @param {*}      $variant - 'f' for fixed, 'a' for absolute
+ */
+/**
+ * Define a Bottom Bar at the Bottom of the Viewport
+ *
+ * @param {value}  $z       - The Z-Index
+ * @param {*}      $variant - 'f' for fixed, 'a' for absolute
+ */
+/**
+ * Transform named Positions to number
+ *
+ * @access private
+ *
+ * @param  {*}  $pos - Position Value. Values: `left`, `center`, `right`, `top`, `middle`, `bottom`, `number`, `bool`
+ * @param  {*}  $axis - The Position Axis. Values: `vert`, `horz`
+ */
+/**
+ * Move the Pivot Point from a Element, based on 2D CSS Transform
+ *
+ * @param {*} $vert (middle) - Vertical Position from the Pivot Point. Values: 'top' ,'middle' ,'bottom' ,'number' ,'bool'
+ * @param {*} $horz (false)  - Horizontal Position from the Pivot Point. Values: 'left', 'center', 'right', 'number', 'bool'
+ */
+/**
+ * Move an Element
+ *
+ * @param {Number} $vert - Vertical Position
+ * @param {Number} $horz - Horizontal Position
+ */
+/**
+ * Center a absolute positioned Element in the middle
+ */
+/**
+ * Middle Elements
+ */
+/**
+ * Moving an absolute position element in the Center - optional in the Middle (with Height)
+ *
+ * @param  {List}  $element - Width and the Height of the Element
+ */
+/**
+ * Overlapps a Element over the Side Padding
+ *
+ * @param  {list}  $size - The Sidevalues, one value can be used for two sides, two values first for left second for right
+ */
+/**
+ * Calculate the Size in Percent
+ *
+ * @param  {Number}  $colums         - Colums
+ * @param  {Number}  $maxColums (12) - Max Colums
+ *
+ * @returns {Number}                 - Percentage Value
+ */
+/**
+ * Setup the Grid Size in Steps based on the Breakpoints
+ *
+ * @access private
+ */
+/**
+ * Generate the Page Container, Size and Float Direction
+ *
+ * @param  {Map}  $container - Setup Vars
+ *                            :width [list]
+ *                              => The Max and Min Width of the container.
+ *                              => One Value only the Container is static
+ *                            :pos [value]
+ *                              => (values: center | left | right) The Position of the Container,
+ *                              => default is centered container
+ *                            :gutter [number]
+ *                              => The Size of the Outer Gutter - only active with $pos left or right
+ *                            :spacing [number]
+ *                              => Side Padding of the Container
+ *                            :static-ie [boolean]
+ *                              => When is set on 'true' IE8 get a static Container
+ */
+/**
+ * Build the outer Container that hold the Grid-Columns
+ *
+ * @param  {Map}  $row - Setup Vars
+ *                      :spacing [number]
+ *                        => To reset the margin off a nested rows.
+ *                        => Set it to the Colum Guttersize.
+ *                      :layout [value]
+ *                        => The type from the Layout
+ *                        => values: inline | table | flex | block (default)
+ *                      :valign [string]
+ *                        => Vertical Align
+ *                        => values: top (default), bottom, baseline, middle
+ *                      :align [value]
+ *                        => Horizontal align
+ *                        => values: justify | center | right | left (default)
+ */
+/**
+ * Build the Base Style for all Colums. Include the Mixin in your Colum Class
+ *
+ * @param  {Map}  $colums - Setup Vars
+ *                         :spacing [number]
+ *                           => The Sidespacing off every Colum
+ *                         :layout [value]
+ *                           => The type from the Layout
+ *                           => values: inline | table | flex | block (default)
+ *                         :extras [boolean]
+ *                           => For include additional classes for the colums
+ *                         :valign [string]
+ *                           => Vertical Align
+ *                           => values: top (default), bottom, baseline, middle
+ *                         :align [value]
+ *                           => Horizontal align
+ *                           => values: justify | center | right | left (default)
+ */
+/**
+ * Generate a Grid Colum Size
+ *
+ * @param  {Map}  $grid - Setup Vars
+ *                       :size [number]
+ *                         => The targeted Columsize
+ *                       :max [number]
+ *                         => The Max available columssizes. Default are 12 Colums per row
+ *                       :flex [boolean]
+ *                         => Flexbox Option - when active it uses only the $size
+ */
+/**
+ * Generate a Pixel Based Grid Colums
+ *
+ * @param  {Map}  $grid - Setup Vars
+ *                       :size [number]
+ *                         => The targeted Columsize
+ *                       :max [number]
+ *                         => The Max available columssizes. Default are 12 Colums per row
+ *                       :margin [number]
+ *                         => Margin on the left and right side
+ *                       :space [number]
+ *                         => Max Width in Px from the outer Container
+ */
+/**
+ * Generate all Colum Sizes, it can be also preselected
+ *
+ * @param  {map}  $generator - Setup Vars
+ *                            :colums [number]
+ *                              => Maximum Colums
+ *                            :select [boolean|list]
+ *                              => Include a List with the Sizes that you want.
+ *                              => Duplicate will be removed
+ *                            :name [boolean|string]
+ *                              => Classname when the Mixin is not nested in a class.
+ *                            :extend [boolean|string]
+ *                              => Connect the generated classes with a other class.
+ */
+/**
+ * Scales down a used Grid
+ *
+ * @param  {map}  $devide - Setup Vars
+ *                         :colums [number]
+ *                           => Maximum Colums
+ *                         :name [boolean|string]
+ *                           => Classname when the Mixin is not nested in a class.
+ *                         :devide [number]
+ *                           => Devide the Grid and rearange the sizes
+ */
+/**
+ * Generate the Offset Width for a Colum
+ *
+ * @param  {map}  $offset - Setup Vars
+ *                         :size [number]
+ *                           => The required colum size
+ *                         :max [number]
+ *                           => Max Colums
+ *                         :direction [value]
+ *                           => The Direction off the Offset (default: left)
+ */
+/**
+ * Generate a set off Offsets (left and right)
+ *
+ * @param  {map}  $offset - Setup Vars
+ *                         :max [number]
+ *                           => The Maximum Colums (default: 12)
+ *                         :name [bool|string]
+ *                           => You can include a classname (non nested mixin), default name is '.offset',
+ *                           => Otherwise set it to 'false', the parent Classname will be used as base name
+ */
+/**
+ * Move a Colum with Position:Relative to left or right -
+ * Elements can move out off the container or it change the order
+ *
+ * @param  {map}  $pushpull - Setup Vars
+ *                           :size [number]
+ *                             => The required colum size
+ *                           :max [number]
+ *                             => Max Colums
+ *                           :direction [value]
+ *                             => The Direction off the Offset (default: push)
+ *                             => values: push | pull
+ *                           :extend [bool]
+ *                             => With 'true' the class will connected with a other class.
+ */
+/**
+ * Generate the Push&Pull Classes
+ *
+ * @param  {map}  $pushpull - Setup Vars
+ *                           :max [number]
+ *                             => The Maximum Colums (default: 12)
+ *                           :name [bool|string]
+ *                             => You can include a classname (non nested mixin), default name is '.move',
+ *                             => Otherwise set it to 'false', the parent Classname will be used as base name
+ *                           :extend [bool]
+ *                             => With 'true' the class will connected with a other class.
+ */
+/**
+ * Normalize all Grid Classes
+ *
+ * @param  {map}  $normalize - Setup Vars
+ *                            :name [string]
+ *                              => Desired Name off the Selector that need to remodified
+ *                            :option [value]
+ *                              => The style Type
+ *                              => values: blockgrid (default), inlinetable, offset, pushpull
+ *                            :important [bool]
+ *                              => Add an Important to the Attribute
+ */
+/**
+ * Private Mixin for build easy margin and paddings
+ *
+ * @access private
+ *
+ * @param {map}  $options - Settings
+ *                          :value {Bool|List} (false) - It generate all four sides, with different length of values.
+ *                          :type {*} (padding) - Margin or Padding Type
+ *                          :important {Bool} (false) - When the Values need hard overwritten. Otherwise set it to 'false', the parent Classname will be used as base name
+ *
+ * @example
+ *   .box {
+ *     @include _margin-padding((
+ *       value: 10 20em
+ *     ));
+ *   }
+ */
+/**
+ * Generate Paddings for all four sides off a box.
+ *
+ * @param {map}  $options - Settings
+ *                          :value {Bool|List} (false) - It generate all four sides, with different length of values.
+ *                          :important {Bool} (false) - When the Values need hard overwritten. Otherwise set it to 'false', the parent Classname will be used as base name
+ *
+ * @example
+ *   .box {
+ *     @include padding(10 30 4rem 5%);
+ *   }
+ */
+/**
+ * Generate Margins for all four sides off a box.
+ *
+ * @param {map}  $options - Settings
+ *                          :value {Bool|List} (false) - It generate all four sides, with different length of values.
+ *                          :important {Bool} (false) - When the Values need hard overwritten. Otherwise set it to 'false', the parent Classname will be used as base name
+ *
+ * @example
+ *   .box {
+ *     @include margin(10 30 4rem 5%);
+ *   }
+ */
+/**
+ * Generate Spacing based on the Global Spacing
+ *
+ * @param {List}    $options           - Spacing Type
+ *                                       values: w = width, h = height, lh = line-height, pt = padding-top
+ *                                       pb = padding-bottom, pl = padding-left, pr = padding-right
+ *                                       mt = margin-top, mb = margin-bottom, ml = margin-left
+ *                                       mr = margin-right, mv = margin-vertical, mh = margin-horizontal,
+ *                                       pv = padding-vertical, ph = padding-horizontal
+ * @param {Number}  $lines (1)         - Spacing Multiplicator
+ * @param {Bool}    $important (false) - Overwrite Values with !important
+ * @param {Number}  $size ($kittn-global-spacing)   - Global Size Value
+ */
+/**
+ * Reset Spacing
+ *
+ * @param {List}    $options           - Spacing Type
+ *                                       values: w = width, h = height, lh = line-height, pt = padding-top
+ *                                       pb = padding-bottom, pl = padding-left, pr = padding-right
+ *                                       mt = margin-top, mb = margin-bottom, ml = margin-left
+ *                                       mr = margin-right, mv = margin-vertical, mh = margin-horizontal,
+ *                                       pv = padding-vertical, ph = padding-horizontal
+ * @param {Bool}    $important (false) - Overwrite Values with !important
+ */
+/**
+ * Get the Icon from the Map
+ *
+ * @param  {*}  $name - Key to the Map Entry
+ *
+ * @returns {*}
+ */
+/**
+ * Build the Base Attributes for all Font Icons
+ *
+ * @access private
+ *
+ * @param  {*}  $iconFontName - Name off the Icon Font
+ */
+/**
+ * Build the Base Icon Font Behavior
+ *
+ * @param  {*}  $iconFontName - Name off the Icon Font
+ */
+/**
+ * Generate the Icon Classes
+ *
+ * @param {Map}  $kittn-font-icons - Icon Font Map
+ */
+/**
+ * Insert the Icon Value as Content
+ *
+ * @param  {*}   $name    - Key to the Map Entry
+ * @param  {Map} $options - Setup
+ *                          :extend (false)
+ *                           - When the Icon need Extend with a Class
+ *                          :font (false)
+ *                           - When the Icon need the Iconfont Attributes
+ *                             Needed when sitting in a Media Query
+ */
+/**
+ * Extend a Class with a Icon Font Class
+ *
+ * @param  {*}  $name - Name off the Icon (from the Map)
+ */
+/**
+ * Write the dimension off a Image in the CSS
+ *
+ * @access private
+ *
+ * @param  {*}  $width   - The Width of the Image
+ * @param  {*}  $height  - The Height of the Image
+ * @param  {*}  $option  - both = height & width | width = width | height = height
+ */
+/**
+ * Including Single Images from the Single Directory as Background Image.
+ *
+ * @param  {*}    $image       - Name of the Image
+ * @param  {*}    $dimensions  - 'both' = height & width | 'width' = width | 'height' = height
+ * @param  {*}    $pos         - The Image Position - can be 'false'
+ * @param  {Bool} $retina      - With set on 'true' the retina fallback will be included
+ */
+/**
+ * Include the SVG Background Image with a PNG Fallback.
+ *
+ * @param  {*}    $image       - Name of the Image - the SVG File must be in the Same directory
+ * @param  {*}    $dimensions  - 'both' = height & width | 'width' = width | 'height' = height
+ * @param  {List} $pos         - The Image Position - can be 'false'
+ */
+/**
+ * Including Textures Images from the textures Directory as Background Image.
+ *
+ * @param  {*}     $image  - Name of the Image
+ * @param  {*}     $repeat - How the Image would be repeated. 'x' = repeat-x | 'y' = repeat-y
+ * @param  {List}  $pos    - The Image Position - can be 'false'
+ * @param  {Bool}  $retina - With set on 'true' the retina fallback will be included
+ */
+/**
+ * Include a SVG Background Image - without a PNG Fallback Image
+ *
+ * @param  {*}     $image       - The Name of the SVG Image
+ * @param  {List}  $dimensions  - The Dimensions of the Image Container - can be 100%
+ * @param  {List}  $pos         - Native CSS Image Positions
+ * @param  {Bool}  $repeat      - Image Repeat - native CSS Declaration
+ */
+/**
+ * Generate the Sprite Container - retina and nonRetina
+ *
+ * @param  {*}  $spritename - The Master Sprite name
+ */
+/**
+ * Include the targeted Sprite from a Spritemap
+ *
+ * @param  {*}       $name       - Name of the Sprite
+ * @param  {Bool}    $retina     - With set on 'true' the retina fallback will be included
+ * @param  {*}       $dimensions - 'both' = height & width | 'width' = width | 'height' = height
+ * @param  {Number}  $offset-x   - Offset the Background Position on the x axis
+ * @param  {Number}  $offset-y   - Offset the Background Position on the y axis
+ * @param  {*}       $display    - The display mode
+ */
+/**
+ * Tint up the Color - normally mix with white
+ *
+ * @param  {Color}   $color             - The Color value
+ * @param  {Number}  $amount            - The Mix Value
+ * @param  {color}   $tint-color (#fff) - Color for Tint
+ *
+ * @returns {Color}
+ */
+/**
+ * Shade down the Color - normally mix with black
+ *
+ * @param  {Color}  $color              - The Color value
+ * @param  {Number} $amount             - The Mix Value
+ * @param  {Color}  $shade-color (#000) - Color for Tint
+ *
+ * @returns {Color}
+ */
+/**
+ * Calculate the Luma Value from a Color
+ *
+ * @param  {Color}  $color - Color Value
+ *
+ * @returns {Number}
+ */
+/**
+ * Check if Color1 is greater than Color2, return true
+ *
+ * @param  {Color}  $color1 - Color Value
+ * @param  {Color}  $color2 - Color Value
+ *
+ * @returns {Bool}
+ */
+/**
+ * Check if Color1 is smaller than Color2, return true
+ *
+ * @param  {Color}  $color1 - Color Value
+ * @param  {Color}  $color2 - Color Value
+ *
+ * @returns {Bool}
+ */
+/**
+ * Calculate the Luma Difference between Color1 and Color2
+ *
+ * @param  {Color}  $color1 - Color Value
+ * @param  {Color}  $color2 - Color Value
+ *
+ * @returns {Number}
+ */
+/**
+ * Mixin to get Color Values from the Color Map
+ *
+ * @access private
+ *
+ * @param  {*}     $target            - Color Key from Map
+ * @param  {*}     $attrib (color)    - The Color Attribute
+ * @param  {Bool}  $imp (false)       - For !important setting
+ * @param  {Map}   $map (stylecolors) - Color Map
+ */
+/**
+ * Use the desired Color Value from the Map an build a Color Value
+ *
+ * @param  {*}    $target - The Color Key
+ * @param  {Bool} $hard   - For !important setting
+ */
+/**
+ * Use the desired Color Value from the Map an build a Background-Color Value
+ *
+ * @param  {*}     $target - The Color Key
+ * @param  {Bool}  $hard   - For !important setting
+ */
+/**
+ * Generate Color Classes (or Silent) with all Colors from the Color Map.
+ *
+ * @access private
+ *
+ * @type {Map}  $colors - The Desired Map
+ */
+/**
+ * Extend the Element with existing Color Classes
+ *
+ * @param  {*}  $name - Color Key
+ */
+/**
+ * Extend the Element with existing Background-Color Classes
+ *
+ * @param  {*}  $name - Color Key
+ */
+/**
+ * Pick the Values from the Breakpoint Map
+ *
+ * @param   {*}   $target - The required Breakpoint
+ * @param   {Map} $entrys ($kittn-breakpoint-map) - Connection to the Breakpoint Map
+ *
+ * @returns {Number}
+ */
+/**
+ * [$mode description]
+ *
+ * @param  {*}  $target - The required Breakpoint
+ * @param  {*}  $mode - The Media Querie Mode. Values: 'between', 'max', 'min' ,'auto' (default - setup with mobile-first:true/false)
+ * @param  {Map} $list ($kittn-breakpoint-map) - Connection to the Breakpoint Map
+ */
+/**
+ * Mixin for using Element Queries
+ *
+ * @link https://github.com/snugug/eq.js
+ *
+ * @param {List} $states - The Different Querie Types
+ *
+ * @example
+ *   .test {
+ *     @include eq('small', 'medium', 'large') {
+ *       color: red;
+ *     }
+ *     @include eq('small') {
+ *       p {
+ *         @include fontcalc(300);
+ *       }
+ *     }
+ *   }
+ *
+ *   <!-- The HTML -->
+ *   <div data-eq-pts="small: 480, medium: 700, large: 800" class="test">
+ *     <p>Test Block</p>
+ *   </div>
+ */
+/**
+ * Generate Visibility Classes
+ *
+ * @access private
+ */
+/**
+ * Build simple Triangles with the Border Trick
+ *
+ * @param {map}  $values - Setup Vars
+ *                         :color {color} (#fff)
+ *                           => Triangle Color
+ *                         :width {number} (15px)
+ *                           => Width
+ *                         :height {number} (15px)
+ *                           => Height
+ *                         :angle {*}
+ *                           => Values: number | 'top' | 'top left' | 'right' |
+ *                                     'bottom right' | 'bottom' | 'bottom left'
+ *                                     'left' | 'top left'
+ */
+/**
+ * Generate a chained class list off modernizr classes
+ *
+ * @access private
+ *
+ * @param  {List}  $features - The checked features
+ * @param  {Bool}  $supports - Internal yep nope routing
+ */
+/**
+ * Route the Yep Styling
+ *
+ * @param  {List}  $features - The checked features
+ */
+/**
+ * Route the Nope Styling
+ *
+ * @param  {List}  $features - The checked features
+ */
+/**
+ * Setup the Prefix for the Grid Classes
+ *
+ * @access private
+ *
+ * @returns {*}
+ */
+/**
+ * Build a base grid with all features
+ *
+ * @param {map} $kittn-grid-setup - Map with the whole Config Data
+ */
+/**
+ * Extend with the Base Container Class
+ */
+/**
+ * Extend with the base row class
+ */
+/**
+ * Extend with the base colum class
+ */
+/**
+ * Extend with the width class
+ *
+ * @param {Number} $number - Size Number
+ */
+/**
+ * Extend with width class and colum
+ *
+ * @param {Number} $number - Size Number
+ */
+/**
+ * Extend with offset-left class
+ *
+ * @param {Number} $number - Size Number
+ */
+/**
+ * Extend with offset-left class
+ *
+ * @param {Number} $number - Size Number
+ */
+/**
+ * Extend with push class
+ *
+ * @param {Number} $number - Size Number
+ */
+/**
+ * Extend with push class
+ *
+ * @param {Number} $number - Size Number
+ */
+@font-face {
+  font-family: kittn;
+  src: url("/assets/fonts/kittn.eot");
+  src: url("/assets/fonts/kittn.eot?#iefix") format("eot"), url("/assets/fonts/kittn.woff") format("woff"), url("/assets/fonts/kittn.ttf") format("truetype"), url("/assets/fonts/kittn.svg#kittn") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: kittn;
+    src: url("/assets/fonts/kittn.svg") format("svg");
+    font-weight: normal;
+    font-style: normal; } }
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  background: transparent;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 70%; }
+  @media screen and (min-width: 480px) {
+    html {
+      font-size: 80%; } }
+  @media screen and (min-width: 768px) {
+    html {
+      font-size: 85%; } }
+  @media screen and (min-width: 960px) {
+    html {
+      font-size: 90%; } }
+  @media screen and (min-width: 1180px) {
+    html {
+      font-size: 110%; } }
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+       -moz-box-sizing: inherit;
+            box-sizing: inherit; }
+
+html,
+body {
+  min-height: 100%; }
+
+body {
+  margin: 0;
+  position: relative;
+  color: #3c3c3c;
+  font-size: 1.176471rem;
+  line-height: 1.544118rem;
+  background-color: #f8f8f8; }
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul {
+  margin-top: 0; }
+
+article, aside, details, figcaption, figure, footer,
+header, hgroup, main, nav, section, summary {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+body, button, input, select, textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+label, input, textarea, select, option, button,
+input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer; }
+
+[hidden], template {
+  display: none; }
+
+.h1, h1, .h2, h2, .h3, h3, .h4, .hero__headline, h4, .h5, h5, .h6, h6 {
+  text-rendering: optimizeLegibility;
+  margin-bottom: 0rem;
+  font-weight: 400;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #636363; }
+
+.h1, h1 {
+  font-size: 2.647059rem;
+  line-height: 1;
+  margin-bottom: 0.735294rem; }
+
+.h2, h2 {
+  font-size: 2.352941rem;
+  line-height: 2.917647rem;
+  margin-bottom: 0.735294rem; }
+
+.h3, h3 {
+  font-size: 2.132353rem;
+  line-height: 2.644118rem;
+  margin-bottom: 0.735294rem; }
+
+.h4, .hero__headline, h4 {
+  font-size: 1.838235rem;
+  line-height: 2.279412rem;
+  margin-bottom: 0.735294rem; }
+
+.h5, h5 {
+  font-size: 1.617647rem;
+  line-height: 2.005882rem;
+  margin-bottom: 0.735294rem; }
+
+.h6, h6 {
+  font-size: 1.25rem;
+  line-height: 1.55rem;
+  margin-bottom: 0.735294rem; }
+
+.lead {
+  font-size: 1.397059rem;
+  line-height: 1.732353rem;
+  margin-bottom: 1.470588rem; }
+
+.headerStack {
+  margin-bottom: 0rem; }
+  .headerStack > * {
+    margin-bottom: 0; }
+  p + .headerStack {
+    margin-top: 1.838235rem; }
+
+.brand, .brand--logo {
+  font-size: inherit !important;
+  line-height: 1 !important;
+  margin-bottom: 0 !important; }
+  .brand > a, .brand--logo > a {
+    display: block;
+    text-decoration: none !important; }
+    .brand > a:hover, .brand--logo > a:hover {
+      text-decoration: none !important; }
+
+.brand--logo > a {
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none; }
+
+p {
+  margin-bottom: 1.470588rem; }
+  p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+    margin-top: 2.647059rem; }
+
+a {
+  outline: 0;
+  line-height: inherit;
+  background: transparent;
+  color: #23baf2;
+  text-decoration: none; }
+  a:hover, a.link-hover {
+    color: #0b8dbd;
+    text-decoration: none; }
+  a:active, a.link-active {
+    color: #08698d; }
+  a:hover, a:active, a:focus {
+    outline: 0; }
+
+abbr {
+  font-variant: small-caps;
+  text-transform: lowercase; }
+  abbr[title] {
+    border-bottom: 1px dotted; }
+    abbr[title]:hover {
+      cursor: help; }
+
+strong {
+  font-weight: bold; }
+
+em, dfn {
+  font-style: italic; }
+
+mark, .hightlight, ::-moz-selection {
+  background: #9be0f9;
+  color: #0d9fd5; }
+
+mark, .hightlight, ::selection {
+  background: #9be0f9;
+  color: #0d9fd5; }
+
+.lined {
+  border-bottom: 1px solid #797979; }
+
+ul, dl {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 1.470588rem; }
+  nav > ul, nav > dl {
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 0; }
+
+ol {
+  padding-left: 22px;
+  margin-bottom: 1.470588rem; }
+
+li, dt, dd {
+  line-height: 1.838235rem; }
+
+li > ul, li > ol {
+  margin-bottom: 0; }
+
+dt > dl, dd > dl {
+  margin-bottom: 0; }
+
+hr {
+  height: 1px;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+  border-top: 1px dashed #f0f0f0;
+  position: relative;
+  margin-bottom: 1.470588rem;
+  margin-top: 1.470588rem; }
+
+code, kbd, pre, samp {
+  font-weight: normal;
+  font-family: "Inconsolata", "DejaVu Sans Mono", Menlo, Monaco, Consolas, Courier, monospace; }
+
+pre {
+  white-space: pre;
+  margin-bottom: 1.470588rem; }
+  pre > code {
+    word-wrap: normal;
+    white-space: pre-wrap; }
+
+code {
+  white-space: pre; }
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+  q:before, q:after {
+    content: '';
+    content: none; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+i {
+  font-style: normal;
+  display: inline-block; }
+
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto; }
+  img[width], img[height] {
+    max-width: none; }
+
+figure {
+  margin: 0; }
+  figure > img {
+    display: block;
+    max-width: none;
+    width: 100%; }
+
+#map_canvas img, #map_canvas embed, #map_canvas object,
+.map_canvas img,
+.map_canvas embed,
+.map_canvas object {
+  max-width: none !important; }
+
+video {
+  width: 100% !important;
+  height: auto !important; }
+
+.video-box {
+  position: relative;
+  padding-bottom: 54%;
+  padding-top: 15px;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 20px; }
+  .video-box > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.470588rem; }
+  blockquote p {
+    font-size: 1.323529rem;
+    line-height: 1.985294rem; }
+  blockquote cite {
+    font-style: normal;
+    font-size: 1.102941rem;
+    line-height: 1.544118rem; }
+    blockquote cite:before {
+      content: '\2014 \0020'; }
+  blockquote *:last-child {
+    margin-bottom: 0; }
+
+blockquote, q, cite {
+  color: #636363; }
+
+fieldset {
+  border: 0;
+  padding: 0; }
+
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal; }
+
+optgroup {
+  font-weight: bold; }
+
+button, input, select, textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: middle; }
+
+button, input {
+  line-height: normal; }
+
+button, select {
+  text-transform: none; }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+  width: auto;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased; }
+
+button[disabled],
+input[disabled] {
+  cursor: default; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"] {
+  -webkit-appearance: textfield; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+button:focus {
+  outline: none; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%; }
+
+.is-active .main-nav__link, .key-features__icon > i {
+  color: #23baf2; }
+
+.hero, .main-header {
+  background-color: #23baf2; }
+
+.main-footer .build-with--icons i {
+  color: #188cb8; }
+
+.main-nav__link, .main-footer .build-with--text, .copyright p {
+  color: #636363; }
+
+._HEADER {
+  background-color: #f0f0f0; }
+
+.hero p, .hero__headline, .hero__button--secondary:hover, .main-header h1 {
+  color: #fff; }
+
+.main-footer .build-with--icons .f-icon--love {
+  color: #ef462a; }
+
+.hidden-to--1 {
+  display: none; }
+  @media screen and (max-width: 321px) {
+    .hidden-to--1 {
+      display: inherit; } }
+
+@media screen and (min-width: 320px) {
+  .hidden-from--1 {
+    display: none; } }
+
+@media screen and (max-width: 321px) {
+  .visible-to--1 {
+    display: none; } }
+
+.visible-from--1 {
+  display: none; }
+  @media screen and (min-width: 320px) {
+    .visible-from--1 {
+      display: inherit; } }
+
+.hidden-to--2 {
+  display: none; }
+  @media screen and (max-width: 481px) {
+    .hidden-to--2 {
+      display: inherit; } }
+
+@media screen and (min-width: 480px) {
+  .hidden-from--2 {
+    display: none; } }
+
+@media screen and (max-width: 481px) {
+  .visible-to--2 {
+    display: none; } }
+
+.visible-from--2 {
+  display: none; }
+  @media screen and (min-width: 480px) {
+    .visible-from--2 {
+      display: inherit; } }
+
+[class^="f-icon--"]:before,
+[class*=" f-icon--"]:before,
+[data-icon]:before,
+.alert-box:before,
+.alert-box--info:before,
+.alert-box--warn:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: kittn;
+  font-style: normal;
+  font-weight: normal !important;
+  speak: none;
+  text-decoration: inherit;
+  line-height: 1; }
+
+[data-icon]:before {
+  content: attr(data-icon); }
+
+.f-icon--check:before {
+  content: ""; }
+
+.f-icon--times:before {
+  content: ""; }
+
+.f-icon--home:before {
+  content: ""; }
+
+.f-icon--lock:before {
+  content: ""; }
+
+.f-icon--lightbulb:before {
+  content: ""; }
+
+.f-icon--left:before {
+  content: ""; }
+
+.f-icon--right:before {
+  content: ""; }
+
+.f-icon--up:before {
+  content: ""; }
+
+.f-icon--down:before {
+  content: ""; }
+
+.f-icon--code:before {
+  content: ""; }
+
+.f-icon--github:before {
+  content: ""; }
+
+.f-icon--git:before {
+  content: ""; }
+
+.f-icon--android:before {
+  content: ""; }
+
+.f-icon--windows:before {
+  content: ""; }
+
+.f-icon--apple:before {
+  content: ""; }
+
+.f-icon--linux:before {
+  content: ""; }
+
+.f-icon--js:before {
+  content: ""; }
+
+.f-icon--node:before {
+  content: ""; }
+
+.f-icon--npm:before {
+  content: ""; }
+
+.f-icon--firefox:before {
+  content: ""; }
+
+.f-icon--opera:before {
+  content: ""; }
+
+.f-icon--safari:before {
+  content: ""; }
+
+.f-icon--css:before {
+  content: ""; }
+
+.f-icon--markdown:before {
+  content: ""; }
+
+.f-icon--sass:before {
+  content: ""; }
+
+.f-icon--grunt:before {
+  content: ""; }
+
+.f-icon--bower:before {
+  content: ""; }
+
+.f-icon--gulp:before {
+  content: ""; }
+
+.f-icon--yeoman:before {
+  content: ""; }
+
+.f-icon--chrome:before {
+  content: ""; }
+
+.f-icon--explorer:before {
+  content: ""; }
+
+.f-icon--html:before {
+  content: ""; }
+
+.f-icon--love:before {
+  content: ""; }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 320px;
+  max-width: 1180px;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both; }
+.row .row {
+  margin-left: -10px;
+  margin-right: -10px; }
+
+.main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
+  padding-left: 10px;
+  padding-right: 10px; }
+  @media screen and (min-width: 768px) {
+    .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
+      padding-left: 10px;
+      padding-right: 10px;
+      display: block;
+      float: left; }
+      .main-nav:last-child, .logo:last-child, .hero__image:last-child, .hero__text:last-child, .key-features:last-child, .jump-nav:last-child, .article:last-child {
+        float: right; } }
+
+@media screen and (min-width: 768px) {
+  .logo, .jump-nav {
+    width: 25%; }
+  .key-features {
+    width: 33.333333%; }
+  .hero__image, .hero__text {
+    width: 50%; }
+  .main-nav {
+    width: 66.666667%; }
+  .article {
+    width: 75%; } }
+
+.article > p > strong code, .article > p > code, .article > blockquote code, .article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code, .article li code {
+  background-color: #f0f0f0;
+  padding: 3px 5px;
+  display: inline-block;
+  border: 1px solid #d6d6d6;
+  border-radius: 2px;
+  color: #636363;
+  line-height: 1; }
+
+.article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code {
+  border-color: transparent; }
+
+.article > .alert-box--info code,
+.article > .alert-box--warn code {
+  border-color: transparent;
+  color: #fff; }
+
+.article > .alert-box--info code {
+  background-color: #126a8b; }
+
+.article > .alert-box--warn code {
+  background-color: #d5640d; }
+
+pre[class*="language-"] {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px; }
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #3c3c3c;
+  text-shadow: 0 1px white;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background-color: #f0f0f0; }
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background-color: #f0f0f0; }
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none; } }
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  overflow: auto; }
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: #f0f0f0; }
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em; }
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray; }
+
+.token.punctuation {
+  color: #999; }
+
+.namespace {
+  opacity: .7; }
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  color: #905; }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+  color: #690; }
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5); }
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a; }
+
+.token.function {
+  color: #DD4A68; }
+
+.token.regex,
+.token.important {
+  color: #e90; }
+
+.token.important {
+  font-weight: bold; }
+
+.token.entity {
+  cursor: help; }
+
+blockquote {
+  border-left: 5px solid #23baf2;
+  padding-left: 20px; }
+
+hr {
+  height: 2px;
+  border: 1px solid #dcdcdc; }
+
+/**
+ * Alert Boxes
+ *
+ * @example
+ *    <div class="alert-box">
+ *      ....
+ *    </div>
+ */
+.alert-box, .alert-box--info, .alert-box--warn {
+  background-color: #dcdcdc;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+  /**
+   * Alert Box Info
+   */
+  /**
+   * Alert Box Warn
+   */ }
+  .alert-box:before, .alert-box--info:before, .alert-box--warn:before {
+    color: #636363;
+    content: "";
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    font-size: 2.941176rem;
+    line-height: 3.529412rem; }
+  .alert-box p, .alert-box--info p, .alert-box--warn p {
+    color: #636363;
+    font-size: 1.176471rem;
+    line-height: 1.764706rem;
+    padding-left: 60px; }
+    .alert-box p:last-child, .alert-box--info p:last-child, .alert-box--warn p:last-child {
+      margin-bottom: 0; }
+  .alert-box--info {
+    background-color: #188cb8; }
+    .alert-box--info:before {
+      color: #fff; }
+    .alert-box--info p {
+      color: #fff; }
+  .alert-box--warn {
+    background-color: #f27d23; }
+    .alert-box--warn:before {
+      color: #fff; }
+    .alert-box--warn p {
+      color: #fff; }
+
+/**
+ * Header Layout Block
+ */
+._HEADER {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+/**
+ * Main Navigation Component
+ */
+.main-nav__list {
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .main-nav__list {
+      text-align: right; } }
+.main-nav__entry {
+  padding-top: 10px;
+  padding-right: 5px;
+  display: inline-block; }
+  @media screen and (min-width: 768px) {
+    .main-nav__entry {
+      padding-top: 5px;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px; } }
+.main-nav__link {
+  height: 40px;
+  line-height: 34px;
+  font-weight: 200;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out; }
+  @media screen and (min-width: 768px) {
+    .main-nav__link {
+      font-size: 0.808824rem;
+      line-height: 0.970588rem;
+      height: 40px;
+      line-height: 34px; } }
+
+/**
+ * Logo Component
+ */
+.logo {
+  height: 80px;
+  position: relative;
+  margin-bottom: 0;
+  /**
+   * Logo Component
+   */ }
+  @media screen and (min-width: 768px) {
+    .logo {
+      height: 40px; } }
+  .logo__inner {
+    background-color: transparent;
+    border: 0;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+    background-image: url("/assets/img/svgonly/kittn-small.svg");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    display: block; }
+    @media screen and (min-width: 768px) {
+      .logo__inner {
+        background-image: url("/assets/img/svgonly/kittn-small.svg");
+        background-repeat: no-repeat;
+        -webkit-background-size: 130px 40px;
+                background-size: 130px 40px;
+        width: 130px;
+        height: 40px; } }
+
+/**
+ * Hero Compontent for the Startpage holds a Image and text
+ */
+.hero {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+  -webkit-box-shadow: inset 0 0 50px rgba(11, 141, 189, 0.9);
+          box-shadow: inset 0 0 50px rgba(11, 141, 189, 0.9); }
+  @media screen and (min-width: 768px) {
+    .hero .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+  .hero__image img {
+    margin: 0 auto;
+    display: block;
+    width: 30%;
+    margin-bottom: 20px; }
+    @media screen and (min-width: 768px) {
+      .hero__image img {
+        width: 40%; } }
+  .hero__button, .hero__button--secondary {
+    background-color: #fff;
+    padding: 10px 20px 10px 15px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    -webkit-transition: 300ms all ease-in-out;
+            transition: 300ms all ease-in-out;
+    -webkit-box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    width: 100%; }
+    .hero__button:hover, .hero__button--secondary:hover {
+      -webkit-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
+              box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1); }
+    @media screen and (min-width: 768px) {
+      .hero__button, .hero__button--secondary {
+        width: inherit; } }
+    .hero__button i, .hero__button--secondary i {
+      position: absolute;
+      top: 8px;
+      left: 15px;
+      font-size: 1.838235rem;
+      line-height: 2.205882rem;
+      display: inline-block;
+      text-align: center;
+      width: 30px; }
+    .hero__button span, .hero__button--secondary span {
+      font-size: 0.882353rem;
+      padding-left: 40px; }
+    .hero__button--secondary {
+      background-color: #188cb8;
+      color: #fff;
+      margin-top: 20px; }
+      @media screen and (min-width: 768px) {
+        .hero__button--secondary {
+          margin-top: 0; } }
+  .hero p {
+    font-size: 1.176471rem;
+    line-height: 1.411765rem; }
+    .hero p:last-child {
+      margin-bottom: 0; }
+
+.key-features__icon {
+  text-align: center;
+  position: relative; }
+  .key-features__icon > i {
+    display: inline-block;
+    font-size: 5.882353rem;
+    line-height: 7.058824rem; }
+.key-features__content {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px; }
+  .key-features__content p {
+    font-size: 0.955882rem;
+    line-height: 1.544118rem; }
+
+.main-header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+  -webkit-box-shadow: inset 0 0 50px rgba(11, 141, 189, 0.9);
+          box-shadow: inset 0 0 50px rgba(11, 141, 189, 0.9); }
+  .main-header h1 {
+    margin-bottom: 0; }
+
+.main-footer, ._FOOTER {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 2px solid #f0f0f0; }
+
+.main-footer .build-with--text {
+  text-align: center;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .main-footer .build-with--text p {
+    font-size: 1.470588rem;
+    line-height: 1.764706rem; }
+.main-footer .build-with--icons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .main-footer .build-with--icons i {
+    font-size: 5.147059rem;
+    line-height: 1;
+    display: block;
+    float: left; }
+  .main-footer .build-with--icons span {
+    display: none; }
+    @media screen and (min-width: 768px) {
+      .main-footer .build-with--icons span {
+        color: #dcdcdc;
+        font-size: 2.205882rem;
+        display: inline-block;
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; } }
+
+/**
+ * Jump Navigation for the Article
+ */
+.jump-nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.jump-nav > ul > li {
+  margin-bottom: 20px; }
+  .jump-nav > ul > li > a {
+    font-size: 1.176471rem;
+    line-height: 1.411765rem;
+    display: block;
+    font-weight: 700;
+    padding-bottom: 5px; }
+  .jump-nav > ul > li > ul > li > a {
+    display: block;
+    padding-left: 10px;
+    font-size: 0.955882rem;
+    line-height: 1.470588rem; }
+
+/**
+ * Article Styling
+ */
+.article img {
+  width: 100%;
+  max-width: inherit; }
+
+._FOOTER {
+  margin-top: 40px; }
+
+.copyright {
+  text-align: center; }
+  .copyright p {
+    font-size: 0.882353rem;
+    line-height: 1.058824rem; }
+    .copyright p:last-child {
+      margin-bottom: 0; }

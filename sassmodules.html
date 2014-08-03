@@ -23,9 +23,13 @@
           <ul class="main-nav__list">
             <li class="main-nav__entry"><a href="started.html" title="Getting Started" class="main-nav__link">Getting Started</a>
             </li>
-            <li class="main-nav__entry"><a href="using.html" title="Using" class="main-nav__link">Using</a>
+            <li class="main-nav__entry"><a href="sassbasics.html" title="Basics" class="main-nav__link">Basics</a>
             </li>
-            <li class="main-nav__entry is-active"><a href="sass.html" title="Sass" class="main-nav__link">Sass</a>
+            <li class="main-nav__entry"><a href="sasshelper.html" title="Helper" class="main-nav__link">Helper</a>
+            </li>
+            <li class="main-nav__entry"><a href="sassmodules.html" title="Modules" class="main-nav__link">Modules</a>
+            </li>
+            <li class="main-nav__entry"><a href="sasspartials.html" title="Partials" class="main-nav__link">Partials</a>
             </li>
           </ul>
         </nav>
@@ -36,7 +40,7 @@
     <header class="main-header">
       <div class="container">
         <div class="row">
-          <h1 class="h3">Sass Framework</h1>
+          <h1 class="h3">Sass Modules</h1>
         </div>
       </div>
     </header>
@@ -44,1089 +48,44 @@
       <div class="row">
         <div class="jump-nav">
           <ul>
-            <li><a href="#coding">Coding Tips</a>
-            </li>
-            <li><a href="#sass">Sass Basics
-                  <ul>
-                    <li><a href="#structure">Structure</a>
-            </li>
-            <li><a href="#workfile">Workfile</a>
-            </li>
-            <li><a href="#loader">Loader</a>
-            </li>
-            <li><a href="#setup">Setup</a>
-            </li>
-            <li><a href="#maps">Maps</a>
-            </li>
-          </ul>
-          </a>
-          </li>
-          <li><a href="#Helper">Helper
-                  <ul>
-                    <li><a href="#bem">BEM</a>
-          </li>
-          <li><a href="#connect">Connect</a>
-          </li>
-          <li><a href="#fonts">Fonts</a>
-          </li>
-          <li><a href="#helperhelper">Helper</a>
-          </li>
-          <li><a href="#typechecks">Typechecks</a>
-          </li>
-          </ul>
-          </a>
-          </li>
-          <li><a href="#jacket">Jacket</a>
-          </li>
-          <li><a href="#sassylists">Sassylists</a>
-          </li>
-          <li><a href="#debug">Debug</a>
-          </li>
-          <li><a href="#modules">Modules
+            <li><a href="#modules">Modules
                   <ul>
                     <li><a href="#breakpoints">Breakpoints</a>
-          </li>
-          <li><a href="#colors">Colors</a>
-          </li>
-          <li><a href="#dimensions">Dimensions</a>
-          </li>
-          <li><a href="#grid">Grid</a>
-          </li>
-          <li><a href="#grid-generator">Base Grid Generator</a>
-          </li>
-          <li><a href="#iconfont">Iconfont</a>
-          </li>
-          <li><a href="#images">Images</a>
-          </li>
-          <li><a href="#lines">Lines</a>
-          </li>
-          <li><a href="#modernizr">Modernizr</a>
-          </li>
-          <li><a href="#positioning">Positioning</a>
-          </li>
-          <li><a href="#shorthands">Shorthands</a>
-          </li>
-          <li><a href="#spacer">Spacer</a>
-          </li>
-          <li><a href="#triangle">Triangle</a>
-          </li>
-          <li><a href="#typography">Typography</a>
-          </li>
-          </ul>
-          </a>
-          </li>
-          <li><a href="#partials">Partials
-                  <ul>
-                    <li><a href="#normalize">Normalize</a>
-          </li>
-          <li><a href="#tables">Tables</a>
-          </li>
-          <li><a href="#pregenerators">Pre Generators</a>
-          </li>
-          <li><a href="#normalize">Post Generators</a>
-          </li>
+            </li>
+            <li><a href="#colors">Colors</a>
+            </li>
+            <li><a href="#dimensions">Dimensions</a>
+            </li>
+            <li><a href="#grid">Grid</a>
+            </li>
+            <li><a href="#grid-generator">Base Grid Generator</a>
+            </li>
+            <li><a href="#iconfont">Iconfont</a>
+            </li>
+            <li><a href="#images">Images</a>
+            </li>
+            <li><a href="#lines">Lines</a>
+            </li>
+            <li><a href="#modernizr">Modernizr</a>
+            </li>
+            <li><a href="#positioning">Positioning</a>
+            </li>
+            <li><a href="#shorthands">Shorthands</a>
+            </li>
+            <li><a href="#spacer">Spacer</a>
+            </li>
+            <li><a href="#triangle">Triangle</a>
+            </li>
+            <li><a href="#typography">Typography</a>
+            </li>
+            <li><a href="#wireframes">Wireframes</a>
+            </li>
           </ul>
           </a>
           </li>
           </ul>
         </div>
         <article class="article">
-          <h2 id="coding">Coding Tip</h2>
-          <p>Class names that are generated by &quot;Kittn&quot;, follow the <a href="http://bem.info/">BEM</a> syntax. BEM is one of the easiest ways to write Oriented CSS object. Surely you can build a lot more delicate with <a href="https://smacss.com/">Smacss</a>,
-            but should not forget that the issue is simply a principle of object-oriented programming here. One should therefore not make a religion out of the topic - the final product will always be CSS with all its drawbacks.</p>
-
-          <p>The Develeloper is free to decide whether he wants his class named after the BEM build syntax, in which case you can rely on the BEM mixins, thus obtaining a central node to make global modifications to the syntax.</p>
-
-          <p>By default BEM elements marked with a double underscore <code>__</code> and BEM Modifier with a double hyphen <code>--</code>. Who does not agree, this may change the Sass Setup file (<code>src/sass/_setup.scss</code>) on the by adjusting the <code>$kittn-bem</code> Map
-            accordingly.</p>
-
-          <hr/>
-          <h2 id="sass">Sass Basics</h2>
-          <p>The centerpiece of the toolkit consists of the <a href="http://sass-lang.com">Sass</a> framework, the toolkit was built more around to replace the missing functions.</p>
-          <div class="alert-box">
-            <p>You not need to worry about CSS3 prefixes the <code>gulp-autoprefixer</code> will insert it on any Compile.</p>
-          </div>
-          <h3 id="structure">Structure</h3>
-          <p>In the directory <code>src/sat/</code> is the Framework:</p>
-          <p>
-            <code>sass/</code>
-            <br>
-            <code>.. framework/</code> Framework mixins and functions
-            <br>
-            <code>.... helper/</code> Helpers that need to included first
-            <br>
-            <code>.... modules/</code> Mixins, functions and generators
-            <br>
-            <code>.... partials/</code> Predefined snippets
-            <br>
-            <code>.. maps/</code> Extended Data Maps
-            <br>
-            <code>.. styles/</code> Possible place for your own partials
-            <br>
-            <code>.. _loader.scss</code> Loading the files (the order is predetermined)
-            <br>
-            <code>.. _setup.scss</code> The entire configuration
-            <br>
-            <code>.. _workfile.scss</code> The Workfile
-            <br>
-            <code>.. style.scss</code> Build the Stylesheet
-            <br>
-            <code>.. style-ie8.scss</code> Build the Stylesheet for IE8
-            <br>
-
-          </p>
-          <div class="alert-box--info">
-            <p>The name for the files <code>style.scss</code> may differ if you have specified a different name when you activate the toolkit, as it may be that there is no <code>xxxxi8.scss</code> file exists when the IE8 compatibility was turned off.</p>
-          </div>
-          <hr/>
-          <h3 id="workfile">Workfile</h3>
-          <p>
-            <img alt="" src="http://i.imgur.com/JSwYDZv.jpg" />
-          </p>
-
-          <p>Work always with <code>_workfile.scss</code> file and the contents of this file into the respective <code>style.scss</code> imported and converted by the compiler to a CSS file. We simply open one off the <code>style.scss</code> files:</p>
-
-          <p>
-            <img alt="" src="http://i.imgur.com/smb2mSe.png" />
-          </p>
-
-          <p>This file will import the content from the <code>_workfile</code>, but filter out this specific content. For example, Contents that are tagged with the variable <code>old</code>, will not include here.</p>
-
-          <p>Using <a href="https://github.com/Team-Sass/jacket">Jacket</a> the developers to work on a file, route-specific styles on different files.</p>
-          <div class="alert-box">
-            <p>In Kittn you work principally with two Jacket variables. <code>old</code> marked contents which migrate in IE8 stylesheet and <code>modern</code> is intended only for modern browsers. If you want you can of course still expand.</p>
-          </div>
-          <hr>
-          <h3 id="loader">Loader</h3>
-          <p><strong>File:</strong>  <code>src/sass/_loader.scss</code>
-          </p>
-
-          <p>With the <code>_loader.scss</code> file, all required files are loaded. The order is already given proof should not be changed.</p>
-
-          <hr/>
-          <h3 id="setup">Setup</h3>
-          <p><strong>File:</strong>  <code>src/sass/_setup.scss</code>
-          </p>
-
-          <p>Almost all settings can be changed and extended over <code>_setup.scss</code>.</p>
-          <p>
-            <code>$kittn-global-spacing</code> Global spacing unit, used for Spacer and Lines Mixins.
-            <br>
-            <code>$kittn-default-unit</code> Default unit for unitless values. Default <code>px</code>
-            <br>
-            <code>$kittn-bem</code> BEM Prefixes for Elements and Modifiers
-            <br>
-            <code>$kittn-directorys</code> Kittn Directory Organisation - when you change the structure from <code>dist/</code> you need to change here also.
-            <br>
-            <code>$kittn-activate</code> Activate Base Features
-            <br>
-            <code>$kittn-sprite</code> Sprite Configuration
-            <br>
-            <code>$kittn-iconfont</code> Iconfont Configuration
-            <br>
-            <code>$kittn-breakpoint-map</code> Map off all Breakpoints and Behaviors
-            <br>
-            <code>$kittn-grid-setup</code> Base configuration for a whole grid config
-            <br>
-            <code>$kittn-fontface-map</code> Load and integrate all FontFaces
-            <br>
-            <code>$kittn-typo</code> Base Typo Setup
-            <br>
-            <code>$kittn-active-responsive-fonts</code> Activates the Responsive Fontsize Generator
-            <br>
-            <code>$kittn-typo-margin</code> Default Margin for Typographic Elements
-            <br>
-            <code>$kittn-typo-style</code> Base Typo and Font Styling
-            <br>
-            <code>$kittn-typo-sizes</code> Base Typo Sizes
-            <br>
-            <code>$kittn-global-heading</code> Global Heading Stylings
-            <br>
-            <code>$kittn-typostyles-map</code> All possible Typostyles in a Map
-            <br>
-            <code>$kittn-generate-typostyles</code> Generate all Fontstyles with classes
-            <br>
-            <code>$kittn-color-map</code> Color Definition Map. This is a collection from all used Colors.
-            <br>
-            <code>$kittn-color-generator</code> Generate the Color Classes from the Color Array
-            <br>
-            <code>$kittn-color-route</code> Route the Colors to the Elements
-            <br>
-            <code>$kittn-hairline</code> Hairline Styling
-            <br>
-            <code>$kittn-tables</code> Table Styling
-
-          </p>
-          <hr>
-          <h3 id="maps">Maps</h3>
-          <p>To the <code>file</code> _setup.scss yet another map coming Files.</p>
-
-          <h4>Fontstacks</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_fontstacks.scss</code>
-          </p>
-
-          <p>Fonts that are inserted via the Font-Family mixins can access the fontstack map. In the map, the most common combinations are included.</p>
-
-          <h4>Iconmap</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_iconfontlist.scss</code>
-          </p>
-
-          <p>Alle Icons einer Iconfont werden in diese Map eingetragen - über die Iconfont Mixins werden daraus dann wieder Klassen generiert.</p>
-
-          <p>All icons from a IconFont be listed in this map - the classes would be generated with the Iconfont mixins.</p>
-          <div class="alert-box">
-            <p>Who created his Iconfonts with Icomoon, a CSS file get delivered. With some Find &amp; Replace can this CSS file easily convert back into a map.</p>
-          </div>
-          <pre class="language-scss"><code>$kittn-font-icons: (
-  news: '\e609',
-  works: '\e60a'
-);
-</code></pre>
-          <h4>Imagemaps</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_imagemap.scss</code>, <code>src/sass/maps/_sprite.scss</code>, <code>src/sass/maps/_sprite-retina.scss</code>
-          </p>
-
-          <p>These maps are created automatically via <code>Grunt</code> tasks. There, data are recorded as the image dimensions, file name, etc.</p>
-
-          <p>The Image Mixin will access the maps.</p>
-
-          <h4>Connectmap</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_connectmap.scss</code>
-          </p>
-
-          <p>In the Connectmap repeatable styles will be entered. The map is then read via mixins, which Silent Placeholder be generated. This can be done with <code>@extend</code> connected. Alternatively, you can directly import the content as well.</p>
-          <pre class="language-scss"><code>$kittn-connect-map: (
-  button: (
-    height: 30px,
-    width: 100%,
-    text-align: center
-  )
-);
-</code></pre>
-          <h4>ZMap</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_zmap.scss</code>
-          </p>
-
-          <p>The different Z-index are listed on the map.</p>
-          <pre class="language-scss"><code>$kittn-zlayer-map: (
-  'default': 10
-);
-</code></pre>
-          <hr>
-          <h2 id="helper">Helper</h2>
-          <h3 id="bem">BEM</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/_bem.scss</code>
-          </p>
-
-          <p>This BEM mixins use the prefix set in <code>$kittn-bem</code>. Whether you use these mixins or natively write his selectors, is left to the developer.</p>
-          <h4>element <small>(m)</small></h4>
-          <p>Build a BEM Element, will add the defined BEM Prefixes.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-bem</code>
-            </li>
-            <li>@param {*} <code>$name</code> - Selector name</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.box {
-  @include element(element) {
-    content: 'the Element';
-  }
-}
-
-// Result
-.box__element {
-  content: 'the Element';
-}
-</code></pre>
-          <h4>modifier <small>(m)</small></h4>
-          <p>Build a BEM Modifier, with an optional extend functionality</p>
-
-          <ul>
-            <li>@requires <code>$kittn-bem</code>
-            </li>
-            <li>@param {*} <code>$name</code> - The selector name</li>
-            <li>@param {bool} <code>$extend</code> (false) - If the Modifier need to be extended with parent</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.box {
-  height: 50px;
-  width: 30px;
-  @include modifier(round) {
-    border-radius: 10px;
-  }
-}
-
-.other-box {
-  height: 50px;
-  width: 30px;
-  @include modifier(round, true) { // Extend active
-    border-radius: 10px;
-  }
-}
-
-// Result
-.box {
-  height: 50px;
-  width: 30px;
-}
-
-.box--round {
-  border-radius: 10px;
-}
-
-.other-box, .other-box--round {
-  height: 50px;
-  width: 30px;
-}
-
-.other-box--round {
-  border-radius: 10px;
-}
-</code></pre>
-          <h4>chainroot <small>(m)</small></h4>
-          <p>Setup the Root Element for the chained Modifers. Must be inserted in a Selector.</p>
-          <pre class="language-scss"><code>// Example
-.test {
-  @include chainroot {
-    content: hello;
-  }
-}
-
-// Result
-.test, [class^="test"] {
-  content: hello;
-}
-</code></pre>
-          <h4>chain <small>(m)</small></h4>
-          <p>Chain the Modifiers in a more simple way.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-bem</code>
-            </li>
-            <li>@param {*} <code>$name</code> - Selector name</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.test {
-  @include chainroot {
-    font-size: 20px;
-    line-height: 24px;
-  }
-  
-  @include chain(wide) {
-    width: 200px;
-  }
-  
-  @include chain(height) {
-    height: 100px;
-  }
-}
-
-// Result
-.test, [class^="test"] {
-  font-size: 20px;
-  line-height: 24px;
-}
-[class^="test"][class*="--wide"] {
-  width: 200px;
-}
-[class^="test"][class*="--height"] {
-  height: 100px;
-}
-
-</code></pre>
-          <pre class="language-markup"><code>&lt;!-- Usage --&gt;
-&lt;div class=&quot;test&quot;&gt;...&lt;/div&gt;
-&lt;div class=&quot;test--wide&quot;&gt;...&lt;/div&gt;
-&lt;div class=&quot;test--height--wide&quot;&gt;...&lt;/div&gt;
-</code></pre>
-          <h3 id="connect">Connect</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/connect.scss</code>
-          </p>
-
-          <p>Through the Connect mixins, it is possible to predefine styles and then to combine these styles either by <code>@extend</code> or the style to load directly into the selector (for example if you are staying in a media query).</p>
-
-          <p>If defined in the <code>$kittn-connect-map</code> Map Styles, Silent Selectors are generated.</p>
-          <h4>connect-Gen <small>(m)</small></h4>
-          <p>Thus, the selectors are linked or included directly</p>
-
-          <ul>
-            <li>@access <code>private</code>
-            </li>
-            <li>@requires <code>$kittn-connect-map</code>
-            </li>
-            <li>@param {list} <code>$key</code> - Tageted Styles, can be more than one</li>
-            <li>@param {bool} <code>$extend</code> (true) - On <code>false</code> the Style will be directly yielded in the selector.</li>
-            <li>@param {map} <code>$map</code> ($kittn-connect-map) - Connect Map</li>
-          </ul>
-          <h4>connect-Yield <small>(m)</small></h4>
-          <p>The Mixin generated from the elements of <code>$kittn-connect-map</code> Map, Placeholder Selectors. Which are then connected by means of the <code>connect</code> mixin with existing classes.</p>
-
-          <ul>
-            <li>@access <code>private</code>
-            </li>
-            <li>@requires <code>$kittn-connect-map</code>
-            </li>
-            <li>@param {Map} <code>$map</code> ($kittn-connect-map) - Connect Map</li>
-          </ul>
-          <pre class="language-scss"><code>// Map
-// File: src/sass/maps/connectmap.scss
-$kittn-connect-map: (
-  size: (
-    height: 20px,
-    line-height: 20px
-  ),
-  connect: (
-    color: #fff,
-    background-color: #000
-  )
-);
-</code></pre>
-          <pre class="language-scss"><code>// Example
-@include connect-yield();
-
-// Result
-%test {
-  height: 20px;
-  line-height: 20px;
-}
-
-%connect {
-  color: #fff;
-  background-color: #000;
-}
-</code></pre>
-          <h4>connect <small>(m)</small></h4>
-          <p>With the Connect Mixin existing elements with the placeholder can be either connected, or the style can be integrated directly into the element.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-connect-map</code>
-            </li>
-            <li>@param {list} <code>$key</code> - Tageted Styles, can be more than one</li>
-            <li>@param {bool} <code>$extend</code> (true) - On <code>false</code> the Style will be directly yielded in the selector.</li>
-            <li>@param {map} <code>$map</code> ($kittn-connect-map) - Connect Map</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.one-connect {
-  @include connect(size);
-}
-.two-connect {
-  @include connect(size connect);
-}
-.direct-yield {
-  @include connect(size connect, false);
-}
-
-// Result
-.one-connect, .two-connect {
-  height: 20px;
-  line-height: 20px;
-}
-.two-connect {
-  color: #fff;
-  background-color: #000;
-}
-.direct-yield {
-  height: 20px;
-  line-height: 20px;
-  color: #fff;
-  background-color: #000;
-}
-</code></pre>
-          <h3 id="fonts">Fonts</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/_fonts.scss</code>
-          </p>
-          <h4>ff <small>(f)</small></h4>
-          <p>By means of the <code>ff</code> function, you can pick out a font stack from the map and paste, additionally, you can attach your own Font Families.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-fontstack-map</code>
-            </li>
-            <li>@param {*} <code>$family</code> - FontStack Family</li>
-            <li>@param {argList} <code>$append</code> - The Fonts that need to be prepended</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.font {
-  font-family: ff('helvetica');
-}
-.with-own-font {
-  font-family: ff('helvetica', 'gotham', 'interstate');
-}
-
-// Result
-.font {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.with-own-font {
-  font-family: "gotham", "interstate", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-</code></pre>
-          <h4>font-family <small>(m)</small></h4>
-          <p>Is more an alias of the FF function, this time as a mixin.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-fontstack-map</code>
-            </li>
-            <li>@param {*} <code>$family</code> - FontStack Family</li>
-            <li>@param {argList} <code>$append</code> - The Fonts that need to be prepended</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.font {
-  @include font-family('helvetica');
-}
-.with-own-font {
-  @include font-family('helvetica', 'gotham', 'interstate');
-}
-
-// Result
-.font {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.with-own-font {
-  font-family: "gotham", "interstate", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-</code></pre>
-          <h4>fontface <small>(m)</small></h4>
-          <p>The Mixin generates the Font Faces, added an additional SVG font stack if necessary - on Windows platforms for better font rendering which provides (Firefox, Chrome).</p>
-
-          <ul>
-            <li>@requires <code>$kittn-directorys</code>
-            </li>
-            <li>@param {*} <code>$filename</code> - The Filename of the Fontname</li>
-            <li>@param {*} <code>$fontname</code> - The Desired Fontname</li>
-            <li>@param {*} <code>$fontweight</code> (normal) - Fontweight</li>
-            <li>@param {*} <code>$fontstyle</code> (normal) - Fontstyle</li>
-            <li>@param {bool} <code>$svgoption</code> (true) - Activate the addition route to the SVG Font</li>
-          </ul>
-          <pre class="language-scss"><code>// Examples
-@include fontface('own-font', $svgoption: false);
-
-@include fontface('34923234font.com', 'bettername', $svgoption: false);
-
-@include fontface('own-font');
-
-// Results
-@font-face {
-  font-family: "own-font";
-  src: url("/assets/fonts/own-font.eot");
-  src: url("/assets/fonts/own-font.eot?#iefix") format("eot"), url("/assets/fonts/own-font.woff") format("woff"), url("/assets/fonts/own-font.ttf") format("truetype"), url("/assets/fonts/own-font.svg#own-font") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "bettername";
-  src: url("/assets/fonts/34923234font.com.eot");
-  src: url("/assets/fonts/34923234font.com.eot?#iefix") format("eot"), url("/assets/fonts/34923234font.com.woff") format("woff"), url("/assets/fonts/34923234font.com.ttf") format("truetype"), url("/assets/fonts/34923234font.com.svg#34923234font.com") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "own-font";
-  src: url("/assets/fonts/own-font.eot");
-  src: url("/assets/fonts/own-font.eot?#iefix") format("eot"), url("/assets/fonts/own-font.woff") format("woff"), url("/assets/fonts/own-font.ttf") format("truetype"), url("/assets/fonts/own-font.svg#own-font") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: "own-font";
-    src: url("/assets/fonts/own-font.svg") format("svg");
-    font-weight: normal;
-    font-style: normal;
-  }
-}
-</code></pre>
-          <h4>fontface-generator <small>(m)</small></h4>
-          <p>Der Generator generiert über die <code>$kittn-fontface-map</code> Map eine Reihe von Fontfaces. Der Generator steht fast am Anfang, Fontfaces werden im CSS immer an erster Stelle implementiert.</p>
-
-          <ul>
-            <li>@access <code>private</code>
-            </li>
-            <li>@requires <code>$kittn-fontface-map</code>
-            </li>
-          </ul>
-          <pre class="language-scss"><code>// Map
-// File: src/sass/setup.scss
-
-$kittn-fontface-map: (
-  'ownfont': (
-    filename: false,
-    weight: normal,
-    style: normal,
-    svgoption: false
-  )
-);
-</code></pre>
-          <pre class="language-scss"><code>// Example
-@include fontface-generator();
-
-// Result
-@font-face {
-  font-family: "ownfont";
-  src: url("/assets/fonts/ownfont.eot");
-  src: url("/assets/fonts/ownfont.eot?#iefix") format("eot"), url("/assets/fonts/ownfont.woff") format("woff"), url("/assets/fonts/ownfont.ttf") format("truetype"), url("/assets/fonts/ownfont.svg#ownfont") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-</code></pre>
-          <h3 id="helperhelper">Helper</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/_helper.scss</code>
-          </p>
-          <h4>strip-units <small>(f)</small></h4>
-          <p>Removes units from values.</p>
-
-          <ul>
-            <li>@param {Number} <code>$number</code> - Value</li>
-            <li>@returns {Number}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$size: 20px;
-
-.test {
-  height: strip-units($size);
-}
-
-// Result
-.test {
-  height: 20;
-}
-</code></pre>
-          <h4>unit-check <small>(f)</small></h4>
-          <p>Adds the default Unit of unitless values ​​to.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-default-unit</code>
-            </li>
-            <li>@param {Number} <code>$number</code> - Value</li>
-            <li>@returns {Number}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$size: 20;
-
-.test {
-  height: unit-check($size);
-}
-
-// Result
-.test {
-  height: 20px;
-}
-</code></pre>
-          <h4>calc <small>(m)</small></h4>
-          <p>To use the CSS Cross-browser function Calc (because in this case the Autoprefixer is not active), is aided by the with the mixin.</p>
-
-          <ul>
-            <li>@param {*} <code>$property</code> - Property that calculated</li>
-            <li>@param {*} <code>$expression</code> - Formula (need to be quoted)</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.test {
-  @include calc(width, '10% + 20px');
-  @include calc(height, '20px + 0.5rem');
-}
-
-// Result
-.test {
-  width: calc(10% + 20px);
-  height: calc(20px + 0.5rem);
-}
-</code></pre>
-          <h4>clamp <small>(f)</small></h4>
-          <p>With this function you limited numbers.</p>
-
-          <ul>
-            <li>@param {Number} <code>$value</code> - The Value that need to be clamped</li>
-            <li>@param {Number} <code>$min</code> - The posible minimal value</li>
-            <li>@param {Number} <code>$max</code> - The possible max Value</li>
-            <li>@returns {Number} - Clamped Value</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$height: 200;
-$width: 23;
-
-.test {
-  height: clamp($height, 0, 100) + 0px;
-  width: clamp($width, 0, 100) + 0px;
-}
-
-// Result
-.test {
-  height: 100px;
-  width: 23px;
-}
-</code></pre>
-          <h4>cp <small>(f)</small></h4>
-          <p>The Color Picker is connected to the Color Map (<code>$kittn-color-map</code>) and brings with it the corresponding color values​​.</p>
-          <div class="alert-box">
-            <p>The keywords of the colors must be quoted.</p>
-          </div>
-          <ul>
-            <li>@requires <code>$kittn-color-map</code>
-            </li>
-            <li>@param {*} <code>$target</code> - Desired color</li>
-            <li>@param {Map} <code>$map</code> - Color Map</li>
-            <li>@returns {Color}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.color {
-  color: cp('primary');
-  background-color: cp('black');
-}
-
-// Result
-.color {
-  color: #f29300;
-  background-color: #3c3c3c;
-}
-</code></pre>
-          <h4>spacer <small>(f)</small></h4>
-          <p>The spacer Mixin generated using the Global-spacing-unit sizes</p>
-
-          <ul>
-            <li>@requires <code>$kittn-global-spacing</code>
-            </li>
-            <li>@param {Number} <code>$lines</code> - Multiplicator for Spacing</li>
-            <li>@param {Bool} <code>$hard</code> (false) - For including an <code>!important</code>
-            </li>
-            <li>@param {Number} <code>$size</code> ($kittn-global-spacing) - Connection to the Base Spacing</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.box {
-  height: spacer(2);
-  width: spacer(1);
-  margin-top: spacer(.25, true);
-}
-
-// Result
-.color {
-  height: 40px;
-  width: 20px;
-  margin-top: 5px !important;
-}
-</code></pre>
-          <h3>s <small>(f)</small></h3>
-          <p>The same as above, this feature by default integrated with the difference no units. Often used for internal mixins.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-global-spacing</code>
-            </li>
-            <li>@param {Number} <code>$lines</code> - Multiplicator for Spacing</li>
-            <li>@param {Bool} <code>$imp</code> (false) - For including an !important</li>
-            <li>@param {*} <code>$u</code> (false) - Unit</li>
-            <li>@param {Number} <code>$size</code> ($kittn-global-spacing) - Connection to the Base Spacing</li>
-            <li>@returns {Number}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.box {
-  height: s(2, $u: r);
-  width: s(1, $u: p);
-  margin-top: s(.25, true, p);
-  padding-left: s(10) + 0px;
-}
-
-// Result
-.box {
-  height: 40rem;
-  width: 20px;
-  margin-top: 5px !important;
-  padding-left: 200px;
-}
-</code></pre>
-          <h3 id="typechecks">Typechecks</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/_typechecks.scss</code>
-          </p>
-          <h4>is-true <small>(f)</small></h4>
-          <p>Checks whether a value was passed</p>
-
-          <ul>
-            <li>@param {*} <code>$value</code> - Value to check</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$check: 1;
-
-.test {
-  @if is-true($check) {
-    content: 'Treffer';
-  }
-}
-
-// Result
-.test {
-  content: 'True';
-}
-</code></pre>
-          <h4>is-map <small>(f)</small></h4>
-          <p>Checks if it is a map.</p>
-
-          <ul>
-            <li>@param {*} <code>$value</code> - Value to check</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$check: (
-  1: 'hello'
-);
-
-.test {
-  @if is-map($check) {
-    content: 'True';
-  }
-}
-
-// Result
-.test {
-  content: 'True';
-}
-</code></pre>
-          <h5>is-list <small>(f)</small></h5>
-          <p>Checks if there is a list.</p>
-
-          <ul>
-            <li>@param {*} <code>$value</code> - Value to check</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$check: 'hello' 'welcome' 'to';
-
-.test {
-  @if is-list($check) {
-    content: 'True';
-  }
-}
-
-// Result
-.test {
-  content: 'True';
-}
-</code></pre>
-          <h4>is-number <small>(f)</small></h4>
-          <p>Checks if there is a number.</p>
-
-          <ul>
-            <li>@param {*} <code>$value</code> - Value to check</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$check: 1;
-
-.test {
-  @if is-number($check) {
-    content: 'True';
-  }
-}
-
-// Result
-.test {
-  content: 'True';
-}
-</code></pre>
-          <h4>is-string <small>(f)</small></h4>
-          <p>Checks if it is a string.</p>
-
-          <ul>
-            <li>@param {*} <code>$value</code> - Value to check</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$check: 'hello';
-
-.test {
-  @if is-string($check) {
-    content: 'True';
-  }
-}
-
-// Result
-.test {
-  content: 'True';
-}
-</code></pre>
-          <h4>is-not-string <small>(f)</small></h4>
-          <p>Checks whether it is <strong>not</strong> a String.</p>
-
-          <ul>
-            <li>@param {*} <code>$value</code> - Value to check</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$check: 1;
-
-.test {
-  @if is-not-string($check) {
-    content: 'True';
-  }
-}
-
-// Result
-.test {
-  content: 'True';
-}
-</code></pre>
-          <h4>is-nested <small>(f)</small></h4>
-          <p>Checks if the selector has been nested.</p>
-
-          <ul>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.test {
-  @if is-nested() {
-    content: 'True';
-  }
-}
-
-.other-test {
-  .other-inner {
-    @if is-nested() {
-      content: 'True';
-    }
-  }
-}
-
-// Result
-.other-test .other-inner {
-  content: 'True';
-}
-</code></pre>
-          <h4>map-filled <small>(f)</small></h4>
-          <p>Checks whether the map was filled.</p>
-
-          <ul>
-            <li>@param {*} <code>$value</code> - Value to check</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$test-1: ();
-
-$test-2: (
-  1: 2,
-  3: 4
-);
-
-.test-1 {
-  @if map-filled($test-1) {
-    content: 'True';
-  }
-}
-
-.test-2 {
-  @if map-filled($test-2) {
-    content: 'True';
-  }
-}
-
-// Result
-.test-2 {
-  content: 'True';
-}
-</code></pre>
-          <h3 id="jacket">Jacket</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/_jacket.scss</code>
-          </p>
-
-          <p>Using <a href="https://github.com/Team-Sass/jacket">Jacket</a>, specific styles are redirected to corresponding CSS files. Some &quot;Kittn&quot; mixins make it more use, for example, the REM function. While modern browsers get a stylesheet with
-            REM values​​, consists in IE8 stylesheet only pixel values</p>
-          <pre class="language-scss"><code>@mixin _color($target, $attrib: color, $imp: false, $map: $kittn-color-map) {
-
-  // Check if the Color have an opacity value
-  // Generate RGBA Colors with an IE8 Fallback (hex)
-  @if map-get($colors,opacity) != false {
-  
-    // Generate the IE8 Fallback Colors
-    @include jacket(old) {
-      #{$attrib}: map-get($colors,color) if($imp, !important, null);
-    }
-    
-    // Generate RGBA Colors
-    @include jacket(modern) {
-      #{$attrib}: rgba(map-get($colors,color),map-get($colors,opacity)) if($imp, !important, null);
-    }
-  }
-}
-
-</code></pre>
-          <p>In the example above you can see the shortened version of the <code>_color</code> mixin. In the case of Transparent colors, IE8 (<code>old</code>) supplied with hex colors, modern browser (<code>modern</code>), such as Chrome will receive an RGBA
-            color.</p>
-
-          <p>Who can naturally wants to build yet more routes. For example, to conduct specific styles for Android in a separate CSS file, you create a new &#39;style&#39; file. In that case, we call them <code>android.scss</code> that should be stored in
-            the <code>src/sat/</code> directory.</p>
-
-          <p>The file has to be prepared in accordance with:</p>
-          <pre class="language-scss"><code>// file: src/sass/android.scss
-$jacket: 'android';
-
-@import '_workfile';
-</code></pre>
-          <p>Once the compiler has done its work, in the <code>dist/assets/css/</code> directory a new CSS file is show up (<code>android.css</code>). You will find there is only the general styles that have not been routed with <code>old</code> or <code>modern</code>.</p>
-
-          <p>Since <code>jacket</code> also allows multiple routes at the same time, you can also mix styles:</p>
-          <pre class="language-scss"><code>@mixin myMixin() {
-  // Styles for modern browsers and android
-  @include jacket(modern, android) {
-    ...
-  }
-}
-</code></pre>
-          <p>Thus Styles run in the <code>android</code> and <code>modern</code> Style Sheets.</p>
-
-          <p>For more <a href="https://github.com/Team-Sass/jacket">information</a>.</p>
-          <h2 id="sassylists">Sassylists</h2>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/_sassylists.scss</code>
-          </p>
-
-          <p>Since &quot;kittn&quot; only a fraction of the functions of Hugo Giraudels <a href="http://sassylists.com/">sassylists</a> needed, the Library is integrated here in abridged form.</p>
-
-          <p>The following functionality was integrated:</p>
-
-          <ul>
-            <li><code>sl-has-multiple-values</code>
-            </li>
-            <li><code>sl-str-compare</code>
-            </li>
-            <li><code>sl-to-list</code>
-            </li>
-            <li><code>sl-listify</code>
-            </li>
-            <li><code>sl-reverse</code>
-            </li>
-            <li><code>sl-mirror</code>
-            </li>
-            <li><code>sl-remove-duplicates</code>
-            </li>
-            <li><code>sl-unique</code>
-            </li>
-            <li><code>sl-sort</code>
-            </li>
-            <li><code>sl-order</code>
-            </li>
-          </ul>
-          <h2 id="debug">Debug</h2>
-          <p><strong>File:</strong>  <code>scr/sass/framework/helper/_debug.scss</code>
-          </p>
-
-          <p>When activating potential errors in the CSS code will be highlighted visually.</p>
-
-          <ul>
-            <li><code>red</code> = Error</li>
-            <li>
-              <p><code>yellow</code> = To Check</p>
-            </li>
-            <li>
-              <p>@requires <code>$kittn-activate</code>
-              </p>
-            </li>
-          </ul>
-
-          <hr/>
           <h2 id="modules">Modules</h2>
           <h3 id="breakpoints">Breakpoints</h3>
           <p><strong>File:</strong>  <code>scr/sass/framework/modules/_breakpoints.scss</code>
@@ -1588,6 +547,145 @@ $kittn-color-map: (
   background-color: #f29300;
 }
 </code></pre>
+          <h4>color-scale <small>(f)</small></h4>
+          <p>Build a list of color values, with Eval Steps.</p>
+
+          <ul>
+            <li>@param {List} $color - Color Values</li>
+            <li>@param {Number} $steps - Number off steps to reach the other color</li>
+            <li>@param {Bool|Number} $pointer - Move the Pointer to one Color Value from the list</li>
+            <li>@returns {Color|List} - Returns a List off colors or one color value</li>
+          </ul>
+          <pre class="language-scss"><code>// Example
+.test {
+  color: color-scale(blue red, 10, 4);
+}
+.test {
+  content: color-scale(blue red, 5);
+}
+
+// Result
+.test {
+  color: #5400aa;
+}
+.test {
+  content: blue #3f00bf #7f007f #bf003f red;
+}
+</code></pre>
+          <h4>color-stack <small>(f)</small></h4>
+          <p>Build a list of color values with individual steps.</p>
+
+          <ul>
+            <li>@param {List} $color - Color Values</li>
+            <li>@param {List} $stacks - Individual steps between the color mix</li>
+            <li>@returns {Color|List}</li>
+          </ul>
+          <pre class="language-scss"><code>// Example
+.test {
+  color: color-stack(blue red, 40);
+}
+.test {
+  color: color-stack(blue red, 10 30 55 95);
+}
+
+// Result
+.test {
+  color: #990066;
+}
+.test {
+  content: #e50019 #b2004c #72008c #0c00f2;
+}
+</code></pre>
+          <h4>color-scale-generator <small>(m)</small></h4>
+          <p>Build a Set of Colors Classes based on the Color-Scale Function</p>
+
+          <ul>
+            <li>@requires color-scale()</li>
+            <li>@param {Map} $setup
+              <ul>
+                <li>color {List} - Color Values</li>
+                <li>steps {Number} - Number off steps to reach the other color</li>
+                <li>attribute {*} - Attribute - <code>background-color</code>, <code>color</code>
+                </li>
+                <li>extend {Bool|*} - For extending the classes with other Classes</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="example">
+            <div class="scale--1"></div>
+            <div class="scale--2"></div>
+            <div class="scale--3"></div>
+            <div class="scale--4"></div>
+            <div class="scale--5"></div>
+            <div class="scale--6"></div>
+          </div>
+          <pre class="language-scss"><code>// Example
+.scale {
+  @include color-scale-generator((
+    color: red blue,
+    steps: 6
+  ));
+}
+
+// Result
+.scale--1 {
+  background-color: red; }
+.scale--2 {
+  background-color: #cc0032; }
+.scale--3 {
+  background-color: #990066; }
+.scale--4 {
+  background-color: #660099; }
+.scale--5 {
+  background-color: #3300cc; }
+.scale--6 {
+  background-color: blue; }
+  
+  </code></pre>
+          <h4>color-stack-generator <small>(m)</small></h4>
+          <p>Generate Stack off individuall Colors</p>
+
+          <ul>
+            <li>@requires color-stack()</li>
+            <li>@param {Map} $setup
+              <ul>
+                <li>color {List} - Color Values</li>
+                <li>stacks {List} - Individual steps between the color mix</li>
+                <li>attribute {*} - Attribute - <code>background-color</code>, <code>color</code>
+                </li>
+                <li>extend {Bool|*} - For extending the classes with other Classes</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="example">
+            <div class="stack--1"></div>
+            <div class="stack--2"></div>
+            <div class="stack--3"></div>
+            <div class="stack--4"></div>
+            <div class="stack--5"></div>
+            <div class="stack--6"></div>
+            <div class="stack--7"></div>
+          </div>
+          <pre class="language-scss"><code>// Example
+.stack {
+  height: 20px;
+  @include color-stack-generator((
+    color: #19bdff #24ff88,
+    stacks: 10 30 70,
+    extend: '.stack'
+  ));
+}
+
+// Result
+.stack, .stack--0, .stack--1, .stack--2, .stack--3 {
+  height: 20px; }
+.stack--1 {
+  background-color: #22f893; }
+.stack--2 {
+  background-color: #20ebab; }
+.stack--3 {
+  background-color: #1cd0db; }
+  </code></pre>
           <h3 id="dimensions">Dimensions</h3>
           <p><strong>File:</strong>  <code>scr/sass/framework/modules/_dimensions.scss</code>&lt;br&gt;</p>
           <h4>size <small>(m)</small></h4>
@@ -4427,28 +3525,86 @@ html {
   font-size: 2.647059rem;
   line-height: 0.073529rem; }
   </code></pre>
-          <hr/>
-          <h2 id="partials">Partials</h2>
-          <h3 id="normalize">Normalize</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_normalize.scss</code>
+          <h3 id="wireframes">Wireframes</h3>
+          <p><strong>File:</strong>  <code>scr/sass/framework/modules/_wireframes.scss</code>
           </p>
+          <h4>wireframe-generator <small>(m)</small></h4>
+          <p>Generate Stylingclasses for Wireframes</p>
 
-          <p>Thus, the basis of setting typo, font and layout is performed.</p>
-          <h3 id="tables">Tables</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_tables.scss</code>
-          </p>
+          <ul>
+            <li>@param {Map} $wire
+              <ul>
+                <li>levels {Number} - How many levels the wire classes are nested</li>
+                <li>colors {List} - Color Values, min and max</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="example">
+            <div class="row wire">
+              <div style="height: 50px" data-title="logo" class="logo wire width--3 column"></div>
+              <nav style="height: 50px" class="wire width--7 column">
+                <ul style="overflow: hidden" class="wire">
+                  <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                    <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                  </li>
+                  <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                    <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                  </li>
+                  <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                    <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                  </li>
+                  <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                    <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="row wire">
+              <div style="padding-top: 10px; padding-bottom: 10px" class="teaser wire">
+                <div style="height: 200px" data-title="Teaser" class="teaser__inner wire"></div>
+              </div>
+            </div>
+          </div>
+          <pre class="language-scss"><code>// Example
+.wire {
+  @include wireframe-generator((
+    levels: 5,
+  ));
+}
 
-          <p>Integrates a base style for tables.</p>
-          <h3 id="pregenerators">Pre-Generators</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_pre-generators.scss</code>
-          </p>
-
-          <p>Here with generators are loaded must be loaded before the <code>normalize.scss</code>.</p>
-          <h3 id="postgenerators">Post-Generators</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_post-generators.scss</code>
-          </p>
-
-          <p>Here with generators are loaded must be loaded after <code>normalize.scss</code>.</p>
+// Result
+.wire {
+  min-height: 1px;
+  overflow: hidden;
+  position: relative; }
+  .wire:before {
+    content: attr(data-title);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #747474;
+    font-size: 16px;
+    text-transform: lowercase; }
+    
+.wire {
+  background-color: #fbfbfb; }
+  
+.wire .wire {
+  background-color: #dfdfdf; }
+  
+.wire .wire .wire {
+  background-color: #c4c4c4; }
+  
+.wire .wire .wire .wire {
+  background-color: #a8a8a8; }
+  
+.wire .wire .wire .wire .wire {
+  background-color: #8d8d8d; }
+  
+  </code></pre>
         </article>
       </div>
     </div>

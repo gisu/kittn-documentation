@@ -1139,7 +1139,48 @@
 /**
  * Extend the Element with existing Background-Color Classes
  *
- * @param  {*}  $name - Color Key
+ * @param {*}  $name - Color Key
+ */
+/**
+ * Build a Color list with eval steps
+ *
+ * @param {List} $color - Color Values
+ * @param {Number} $steps - Number off steps to reach the other color
+ * @param {Bool|Number} $pointer - Move the Pointer to one Color Value from the list
+ *
+ * @returns {Color|List} - Returns a List off colors or one color value
+ */
+/**
+ * Build an individual Color Stack
+ *
+ * @param {List} $color - Color Values
+ * @param {List} $stacks - Individual steps between the color mix
+ *
+ * @returns {List}
+ */
+/**
+ * Build a Set of Colors based on the Color-Scale Function
+ *
+ * @requires color-scale()
+ *
+ * @param {Map} $setup
+      - color {List} - Color Values
+      - steps {Number} - Number off steps to reach the other color
+      - attribute {*} - Attribute
+      - extend {Bool|*} - For extending the classes with other Classes
+ *
+ */
+/**
+ * Generate Stack off individuall Colors
+ *
+ * @requires color-stack()
+ *
+ * @param {Map} $setup
+      - color {List} - Color Values
+      - stacks {List} - Individual steps between the color mix
+      - attribute {*} - Attribute
+      - extend {Bool|*} - For extending the classes with other Classes
+ *
  */
 /**
  * Pick the Values from the Breakpoint Map
@@ -1268,6 +1309,18 @@
  * Extend with push class
  *
  * @param {Number} $number - Size Number
+ */
+/**
+ * Generate Stylingclasses for Wireframes
+ *
+ * @requires color-scale()
+ *
+ * @param {Map} $wire
+      - levels {Number} - How many levels the wire classes are nested
+      - colors {List} - Color Values, min and max
+ *
+ * @example
+ *    <div class="wire" data-title="header"></div>
  */
 @font-face {
   font-family: kittn;
@@ -1861,29 +1914,43 @@ table {
   margin-left: -10px;
   margin-right: -10px; }
 
-.main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
+.column, .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
   padding-left: 10px;
   padding-right: 10px; }
   @media screen and (min-width: 768px) {
-    .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
+    .column, .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
       padding-left: 10px;
       padding-right: 10px;
       display: block;
       float: left; }
-      .main-nav:last-child, .logo:last-child, .hero__image:last-child, .hero__text:last-child, .key-features:last-child, .jump-nav:last-child, .article:last-child {
+      .column:last-child, .main-nav:last-child, .logo:last-child, .hero__image:last-child, .hero__text:last-child, .key-features:last-child, .jump-nav:last-child, .article:last-child {
         float: right; } }
 
 @media screen and (min-width: 768px) {
-  .logo, .jump-nav {
+  .width--1 {
+    width: 8.333333%; }
+  .width--2 {
+    width: 16.666667%; }
+  .width--3, .logo, .jump-nav {
     width: 25%; }
-  .key-features {
+  .width--4, .key-features {
     width: 33.333333%; }
-  .hero__image, .hero__text {
+  .width--5 {
+    width: 41.666667%; }
+  .width--6, .hero__image, .hero__text {
     width: 50%; }
-  .main-nav {
+  .width--7 {
+    width: 58.333333%; }
+  .width--8, .main-nav {
     width: 66.666667%; }
-  .article {
-    width: 75%; } }
+  .width--9, .article {
+    width: 75%; }
+  .width--10 {
+    width: 83.333333%; }
+  .width--11 {
+    width: 91.666667%; }
+  .width--12 {
+    width: 100%; } }
 
 .article > p > strong code, .article > p > code, .article > blockquote code, .article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code, .article li code {
   background-color: #f0f0f0;
@@ -2073,6 +2140,18 @@ hr {
     .alert-box--warn p {
       color: #fff; }
 
+.example {
+  margin-bottom: 30px; }
+  .example:before {
+    content: 'Example:';
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #636363;
+    display: block;
+    font-size: 1.029412rem;
+    line-height: 1.235294rem; }
+
 /**
  * Header Layout Block
  */
@@ -2174,6 +2253,8 @@ hr {
     @media screen and (min-width: 768px) {
       .hero__image img {
         width: 40%; } }
+  .hero__headline span {
+    color: #0a7ba5; }
   .hero__button, .hero__button--secondary {
     background-color: #fff;
     padding: 10px 20px 10px 15px;
@@ -2310,9 +2391,6 @@ hr {
   width: 100%;
   max-width: inherit; }
 
-._FOOTER {
-  margin-top: 40px; }
-
 .copyright {
   text-align: center; }
   .copyright p {
@@ -2320,3 +2398,73 @@ hr {
     line-height: 1.058824rem; }
     .copyright p:last-child {
       margin-bottom: 0; }
+
+.scale, .scale--0, .scale--1, .scale--2, .scale--3, .scale--4, .scale--5, .scale--6 {
+  height: 20px; }
+  .scale--1 {
+    background-color: red; }
+  .scale--2 {
+    background-color: #cc0032; }
+  .scale--3 {
+    background-color: #990066; }
+  .scale--4 {
+    background-color: #660099; }
+  .scale--5 {
+    background-color: #3300cc; }
+  .scale--6 {
+    background-color: blue; }
+
+.stack, .stack--0, .stack--1, .stack--2, .stack--3 {
+  height: 20px; }
+  .stack--1 {
+    background-color: #22f893; }
+  .stack--2 {
+    background-color: #20ebab; }
+  .stack--3 {
+    background-color: #1cd0db; }
+
+.wire {
+  min-height: 1px;
+  overflow: hidden;
+  position: relative; }
+  .wire:before {
+    content: attr(data-title);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #747474;
+    font-size: 16px;
+    text-transform: lowercase; }
+
+.wire {
+  background-color: #fbfbfb; }
+
+.wire .wire {
+  background-color: #eeeeee; }
+
+.wire .wire .wire {
+  background-color: #e2e2e2; }
+
+.wire .wire .wire .wire {
+  background-color: #d6d6d6; }
+
+.wire .wire .wire .wire .wire {
+  background-color: #cacaca; }
+
+.wire .wire .wire .wire .wire .wire {
+  background-color: #bdbdbd; }
+
+.wire .wire .wire .wire .wire .wire .wire {
+  background-color: #b1b1b1; }
+
+.wire .wire .wire .wire .wire .wire .wire .wire {
+  background-color: #a5a5a5; }
+
+.wire .wire .wire .wire .wire .wire .wire .wire .wire {
+  background-color: #999999; }
+
+.wire .wire .wire .wire .wire .wire .wire .wire .wire .wire {
+  background-color: #8d8d8d; }

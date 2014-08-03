@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>kittndoc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Inconsolata" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="assets/css/kittn.css">
+  <link rel="shortcut icon" href="assets/img/system/favicon.png">
+  <link rel="icon" href="assets/img/system/favicon.png">
+  <script src="assets/js/modernizr.js"></script>
+</head>
+
+<body>
+  <header role="banner" class="_HEADER">
+    <div class="container">
+      <div class="row">
+        <h1 class="logo"><a href="index.html" class="logo__inner">Kittn</a>
+          </h1>
+        <nav role="navigation" class="main-nav">
+          <ul class="main-nav__list">
+            <li class="main-nav__entry"><a href="started.html" title="Getting Started" class="main-nav__link">Getting Started</a>
+            </li>
+            <li class="main-nav__entry"><a href="sassbasics.html" title="Basics" class="main-nav__link">Basics</a>
+            </li>
+            <li class="main-nav__entry"><a href="sasshelper.html" title="Helper" class="main-nav__link">Helper</a>
+            </li>
+            <li class="main-nav__entry"><a href="sassmodules.html" title="Modules" class="main-nav__link">Modules</a>
+            </li>
+            <li class="main-nav__entry"><a href="sasspartials.html" title="Partials" class="main-nav__link">Partials</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="_MAIN">
+    <header class="main-header">
+      <div class="container">
+        <div class="row">
+          <h1 class="h3">Sass Partials</h1>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="jump-nav">
+          <ul>
+            <li><a href="#partials">Partials
+                  <ul>
+                    <li><a href="#normalize">Normalize</a>
+            </li>
+            <li><a href="#tables">Tables</a>
+            </li>
+            <li><a href="#pregenerators">Pre Generators</a>
+            </li>
+            <li><a href="#normalize">Post Generators</a>
+            </li>
+          </ul>
+          </a>
+          </li>
+          </ul>
+        </div>
+        <article class="article">
+          <h2 id="partials">Partials</h2>
+          <h3 id="normalize">Normalize</h3>
+          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_normalize.scss</code>
+          </p>
+
+          <p>Thus, the basis of setting typo, font and layout is performed.</p>
+          <h3 id="tables">Tables</h3>
+          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_tables.scss</code>
+          </p>
+
+          <p>Integrates a base style for tables.</p>
+          <h3 id="pregenerators">Pre-Generators</h3>
+          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_pre-generators.scss</code>
+          </p>
+
+          <p>Here with generators are loaded must be loaded before the <code>normalize.scss</code>.</p>
+          <h3 id="postgenerators">Post-Generators</h3>
+          <p><strong>File:</strong>  <code>scr/sass/framework/partials/_post-generators.scss</code>
+          </p>
+
+          <p>Here with generators are loaded must be loaded after <code>normalize.scss</code>.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+  <footer class="_FOOTER">
+    <div class="container">
+      <div class="row"></div>
+      <div class="row copyright">
+        <p>Hand-Made by Sascha Fuchs. Endorsed by Wire Communications. Licensed under MIT.</p>
+        <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/conditionizr.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/eq.js"></script>
+  <script src="assets/js/prism.js"></script>
+</body>
+
+</html>

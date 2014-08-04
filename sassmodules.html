@@ -27,7 +27,7 @@
             </li>
             <li class="main-nav__entry"><a href="sasshelper.html" title="Helper" class="main-nav__link">Helper</a>
             </li>
-            <li class="main-nav__entry"><a href="sassmodules.html" title="Modules" class="main-nav__link">Modules</a>
+            <li class="main-nav__entry is-active"><a href="sassmodules.html" title="Modules" class="main-nav__link">Modules</a>
             </li>
             <li class="main-nav__entry"><a href="sasspartials.html" title="Partials" class="main-nav__link">Partials</a>
             </li>
@@ -87,42 +87,55 @@
         </div>
         <article class="article">
           <h2 id="modules">Modules</h2>
+          <hr>
           <h3 id="breakpoints">Breakpoints</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/modules/_breakpoints.scss</code>
-          </p>
-          <h4>bp <small>(f)</small></h4>
-          <p>Selects the basis of the breakpoint-Key, the corresponding size of the breakpoint map.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-breakpoint-map</code>
-            </li>
-            <li>@param {*} <code>$target</code> - The required Breakpoint</li>
-            <li>@param {Map} <code>$entrys</code> ($kittn-breakpoint-map) - Connection to the Breakpoint Map</li>
-            <li>@returns {Number}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.test {
+          <div class="filebox">scr/sass/framework/modules/_breakpoints.scss</div>
+          <section class="method">
+            <header class="method__head--f">
+              <h4 class="method__title">bp</h4>
+            </header>
+            <div class="method__text">
+              <p>Selects the basis of the breakpoint-Key, the corresponding size of the breakpoint map.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">$kittn-breakpoint-map</div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $target - The required Breakpoint</li>
+                  <li>{Map} $entrys ($kittn-breakpoint-map) - Connection to the Breakpoint Map</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">{Number}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.test {
   content: bp(1);
 }
-
-// Result
-.test {
-  content: 320px;
-}
-
 </code></pre>
-          <h4>break <small>(m)</small></h4>
-          <p>Generates MediaQueries. If mobile-first has been activated (<code>$kittn-activate</code>), the MQ always work by default with <code>min</code> values. In the mode <code>between</code> is the mixin the two sizes also always always ascending sort.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-breakpoint-map</code>, <code>$kittn-activate</code>
-            </li>
-            <li>@param {*} <code>$target</code> - Required Breakpoint</li>
-            <li>@param {*} <code>$mode</code> - Media Query Mode. Values: <code>between</code>, <code>max</code>, <code>min</code>, <code>auto</code> (default - setup with mobile-first:true/false)</li>
-            <li>@param {Map} <code>$list</code> ($kittn-breakpoint-map) - Connection to the Breakpoint Map</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.test {
+                <pre class="language-css"><code>.test {
+  content: 320px;
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">break</h4>
+            </header>
+            <div class="method__text">
+              <p>Generates MediaQueries. If mobile-first has been activated (<code>$kittn-activate</code>), the MQ always work by default with <code>min</code> values. In the mode <code>between</code> is the mixin the two sizes also always always ascending sort.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">$kittn-breakpoint-map, $kittn-activate</div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $target - Required Breakpoint</li>
+                  <li>{*} $mode - Media Query Mode. Values: between, max, min, auto (default - setup with mobile-first:true/false)</li>
+                  <li>{Map} $list ($kittn-breakpoint-map) - Connection to the Breakpoint Map</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.test {
   height: 200px;
   
   @include break(2) {
@@ -146,9 +159,8 @@
     display: block;
   }
 }
-
-// Result
-.test {
+</code></pre>
+                <pre class="language-css"><code>.test {
   height: 200px;
 }
 @media screen and (min-width: 480px) {
@@ -173,16 +185,26 @@
   .sort {
     display: block;
   }
-}
-</code></pre>
-          <h4>eq <small>(m)</small></h4>
-          <p>Mixin for the <a href="https://github.com/snugug/eq.js">ElementQueries</a> Script.</p>
-
-          <ul>
-            <li>@param {argList} $states - The Different Querie Types</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.test {
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">eq</h4>
+            </header>
+            <div class="method__text">
+              <p>Mixin for the <a href="https://github.com/snugug/eq.js">ElementQueries</a> Script.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{argList} $states - Different Querie Types</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.test {
   @include eq('small', 'medium', 'large') {
     color: red;
   }
@@ -193,31 +215,33 @@
     }
   }
 }
-
-// Result
-.test[data-eq-state="small"],
+</code></pre>
+                <pre class="language-css"><code>.test[data-eq-state="small"],
 .test[data-eq-state="medium"],
 .test[data-eq-state="large"] {
   color: red;
 }
 .test[data-eq-state="small"] p {
   height: 20px;
-}
-</code></pre>
-          <pre class="language-markup"><code>&lt;!-- Usage --&gt;
-&lt;div data-eq-pts=&quot;small: 480, medium: 700, large: 800&quot; class=&quot;test&quot;&gt;
+}</code></pre>
+                <pre class="language-markup"><code>&lt;div data-eq-pts=&quot;small: 480, medium: 700, large: 800&quot; class=&quot;test&quot;&gt;
   &lt;p&gt;Test Block&lt;/p&gt;
-&lt;/div&gt;
-
-</code></pre>
-          <h4>visibility <small>(m)</small></h4>
-          <p>Generates Visibilty / Hidden Classes based on the <code>$kittn-breakpoint-map</code> Map. However, there are only generated classes if they were entered in the map with <code>visibility: true</code>.</p>
-
-          <ul>
-            <li>@requires <code>$kittn-breakpoint-map</code>
-            </li>
-          </ul>
-          <pre class="language-scss"><code>// Map
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">visibility</h4>
+            </header>
+            <div class="method__text">
+              <p>Generates Visibilty / Hidden Classes based on the <code>$kittn-breakpoint-map</code> Map. However, there are only generated classes if they were entered in the map with <code>visibility: true</code>.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">$kittn-breakpoint-map</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>// Map Example
 $kittn-breakpoint-map: (
   1: (
     size: 320px,
@@ -231,13 +255,9 @@ $kittn-breakpoint-map: (
     step: false,
     fontsize: 80
   )
-);
-</code></pre>
-          <pre class="language-scss"><code>// Example
-@include visibility;
-
-// Result
-.hidden-to--1 {
+);</code></pre>
+                <pre class="language-scss"><code>@include visibility;</code></pre>
+                <pre class="language-css"><code>.hidden-to--1 {
   display: none;
 }
 @media screen and (max-width: 321px) {
@@ -265,79 +285,115 @@ $kittn-breakpoint-map: (
   .visible-from--1 {
     display: inherit;
   }
-}
-</code></pre>
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <hr>
           <h3 id="colors">Colors</h3>
-          <p><strong>File:</strong>  <code>scr/sass/framework/modules/_color.scss</code>&lt;br&gt;</p>
-          <h4>tint <small>(f)</small></h4>
-          <p>Mix a color with a white.</p>
-
-          <ul>
-            <li>@param {Color} <code>$color</code> - The Color value</li>
-            <li>@param {Number} <code>$amount</code> - The Mix Value</li>
-            <li>@param {color} <code>$tint-color</code> (#fff) - Mix Color</li>
-            <li>@returns {Color}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.color {
+          <div class="filebox">scr/sass/framework/modules/_color.scss</div>
+          <section class="method">
+            <header class="method__head--f">
+              <h4 class="method__title">tint</h4>
+            </header>
+            <div class="method__text">
+              <p>Mix a color with a white.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{Color} $color - The Color value</li>
+                  <li>{Number} $amount - The Mix Value</li>
+                  <li>{color} $tint-color (#fff) - Mix Color</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">{Color}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.color {
   color: tint(#ff0000,20);
 }
-
-// Result
-.color {
-  color: #ff3333;
-}
-
 </code></pre>
-          <h4>shade <small>(f)</small></h4>
-          <p>Mix a color with black.</p>
-
-          <ul>
-            <li>@param {Color} <code>$color</code> - The Color value</li>
-            <li>@param {Number} <code>$amount</code> - The Mix Value</li>
-            <li>@param {color} <code>$shade-color</code> (#000) - Mix Color</li>
-            <li>@returns {Color}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.color {
+                <pre class="language-css"><code>.color {
+  color: #ff3333;
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--f">
+              <h4 class="method__title">shade</h4>
+            </header>
+            <div class="method__text">
+              <p>Mix a color with black</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{Color} $color - The Color value</li>
+                  <li>{Number} $amount - The Mix Value</li>
+                  <li>{color} $shade-color (#000) - Mix Color</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">{Color}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.color {
   color: shade(#ff0000,20);
 }
-
-// Result
-.color {
-  color: #cc0000;
-}
-
 </code></pre>
-          <h4>luma <small>(f)</small></h4>
-          <p>Calculates the brightness of a color.</p>
-
-          <ul>
-            <li>@param {Color} <code>$color</code> - Color Value</li>
-            <li>@returns {Number}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$color: red;
+                <pre class="language-css"><code>.color {
+  color: #cc0000;
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--f">
+              <h4 class="method__title">luma</h4>
+            </header>
+            <div class="method__text">
+              <p>Calculates the brightness of a color</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{Color} $color - Color Value</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">{Number}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$color: red;
 
 .color {
   content: luma($color);
 }
-
-// Result
-.color {
-  content: 76.245;
-}
 </code></pre>
-          <h4>luma-gte <small>(f)</small></h4>
-          <p>Returns <code>true</code> back when color is brighter than 1 color 2</p>
-
-          <ul>
-            <li>@param {Color} <code>$color1</code> - Color Value</li>
-            <li>@param {Color} <code>$color2</code> - Color Value</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$color-1: red;
+                <pre class="language-css"><code>.color {
+  content: 76.245;
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--f">
+              <h4 class="method__title">luma-gte</h4>
+            </header>
+            <div class="method__text">
+              <p>Returns <code>true</code> back when color is brighter than 1 color 2</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>@param {Color} $color1 - Color Value</li>
+                  <li>@param {Color} $color2 - Color Value</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">{Bool}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$color-1: red;
 $color-2: blue;
 
 .color {
@@ -345,75 +401,109 @@ $color-2: blue;
     content: 'true'
   }
 }
-
-// Result
-.color {
-  content: "true";
-}
 </code></pre>
-          <h4>luma-lte <small>(f)</small></h4>
-          <p>Returns <code>true</code> back if color1 is brighter than color2</p>
-
-          <ul>
-            <li>@param {Color} <code>$color1</code> - Color Value</li>
-            <li>@param {Color} <code>$color2</code> - Color Value</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$color-1: red;
+                <pre class="language-css"><code>.color {
+  content: "true";
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--f">
+              <h4 class="method__title">luma-lte</h4>
+            </header>
+            <div class="method__text">
+              <p>Returns <code>true</code> back if color1 is brighter than color2</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{Color} $color1 - Color Value</li>
+                  <li>{Color} $color2 - Color Value</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">{Bool}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$color-1: red;
 $color-2: blue;
 
 .color {
-  @if luma-lte($color-1, $color-2) {
+  @if luma-lte($color-2, $color-1) {
     content: 'true'
   }
 }
 </code></pre>
-          <h4>luma-diff <small>(f)</small></h4>
-          <p>Calculates the difference between between two color values.</p>
-
-          <ul>
-            <li>@param {Color} <code>$color1</code> - Color Value</li>
-            <li>@param {Color} <code>$color2</code> - Color Value</li>
-            <li>@returns {Bool}</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-$color-1: red;
+                <pre class="language-css"><code>.color {
+  content: "true";
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--f">
+              <h4 class="method__title">luma-diff</h4>
+            </header>
+            <div class="method__text">
+              <p>Calculates the difference between between two color values.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{Color} $color1 - Color Value</li>
+                  <li>{Color} $color2 - Color Value</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">{Bool}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$color-1: red;
 $color-2: blue;
 
 .color {
   content: luma-diff($color-1, $color-2);
 }
-
-// Result
-.color {
-  content: 47.175;
-}
 </code></pre>
-          <h4>_color <small>(m)</small></h4>
-          <p>Taking values ​​from the Color Map. In the mixin a fallback for IE is integrated as well - if colors have opacity values​​.</p>
-
-          <ul>
-            <li>@access private</li>
-            <li>@requires <code>$kittn-color-map</code>
-            </li>
-            <li>@param {*} <code>$target</code> - Color Key from Map</li>
-            <li>@param {*} <code>$attrib</code> (color) - The Color Attribute</li>
-            <li>@param {Bool} <code>$imp</code> (false) - For !important setting</li>
-            <li>@param {Map} <code>$map</code> (stylecolors) - Color Map</li>
-          </ul>
-          <pre class="language-scss"><code>// Example
-.color {
+                <pre class="language-css"><code>.color {
+  content: 47.175;
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">_color</h4>
+            </header>
+            <div class="method__text">
+              <p>Taking values ​​from the Color Map. In the mixin a fallback for IE is integrated as well - if colors have opacity values​​.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--access">private</div>
+              <div class="method__api--requires">$kittn-color-map</div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $target - Color Key from Map</li>
+                  <li>{*} $attrib (color) - The Color Attribute</li>
+                  <li>{Bool} $imp (false) - For !important setting</li>
+                  <li>{Map} $map (stylecolors) - Color Map</li>
+                </ul>
+              </div>
+              <div class="method__api--returns">dfdf</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.color {
   @include _color('primary');
   @include _color('black', background-color);
 }
-
-// Result
-.color {
+</code></pre>
+                <pre class="language-css"><code>.color {
   color: #f29300;
   background-color: #3c3c3c;
-}
-</code></pre>
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
           <h4>get-c <small>(m)</small></h4>
           <p>Constructed from the selected color value the text color.</p>
 

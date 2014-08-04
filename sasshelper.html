@@ -86,12 +86,10 @@
               <p>Build a BEM Element, will add the defined BEM Prefixes.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-bem</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-bem</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $name - Selector name</li>
+                  <li>{*} $name - Selector name</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -115,14 +113,9 @@
               <p>Build a BEM Modifier, with an optional extend functionality</p>
             </div>
             <div class="method__details">
+              <div class="method__api--requires">$kittn-bem</div>
               <div class="method__api">
-                <p>@requires $kittn-bem</p>
-              </div>
-              <div class="method__api">
-                <ul>
-                  <li>@param {*} $name - The selector name</li>
-                  <li>@param {bool} $extend (false) - If the Modifier need to be extended with parent</li>
-                </ul>
+                <p>-{*} $name - The selector name -{bool} $extend (false) - If the Modifier need to be extended with parent</p>
               </div>
               <div class="method__code">
                 <pre class="language-scss"><code>.box {
@@ -187,12 +180,15 @@
               <p>Chain the Modifiers in a more simple way.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-bem @requires mixin chain()</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">
                 <ul>
-                  <li>@param {*} $name - Selector name</li>
+                  <li>$kittn-bem</li>
+                  <li>mixin chain()</li>
+                </ul>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $name - Selector name</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -243,17 +239,13 @@
               <p>Thus, the selectors are linked or included directly</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@access private</p>
-              </div>
-              <div class="method__api">
-                <p>@requires $kittn-connect-map</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--access">private</div>
+              <div class="method__api--requires">$kittn-connect-map</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {list} $key - Tageted Styles, can be more than one</li>
-                  <li>@param {bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
-                  <li>@param {map} $map ($kittn-connect-map) - Connect Map</li>
+                  <li>{list} $key - Tageted Styles, can be more than one</li>
+                  <li>{bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
+                  <li>{map} $map ($kittn-connect-map) - Connect Map</li>
                 </ul>
               </div>
             </div>
@@ -267,13 +259,9 @@
               <p>The Mixin generated from the elements of <code>$kittn-connect-map</code> Map, Placeholder Selectors. Which are then connected by means of the <code>connect</code> mixin with existing classes.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@access private</p>
-              </div>
-              <div class="method__api">
-                <p>@requires $kittn-connect-map</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--access">private</div>
+              <div class="method__api--requires">$kittn-connect-map</div>
+              <div class="method__api--param">
                 <ul>
                   <li>@param {Map} $map ($kittn-connect-map) - Connect Map</li>
                 </ul>
@@ -314,14 +302,12 @@ $kittn-connect-map: (
               <p>With the Connect Mixin existing elements with the placeholder can be either connected, or the style can be integrated directly into the element.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-connect-map</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-connect-map</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {list} $key - Tageted Styles, can be more than one</li>
-                  <li>@param {bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
-                  <li>@param {map} $map ($kittn-connect-map) - Connect Map</li>
+                  <li>{list} $key - Tageted Styles, can be more than one</li>
+                  <li>{bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
+                  <li>{map} $map ($kittn-connect-map) - Connect Map</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -365,15 +351,14 @@ $kittn-connect-map: (
               <p>By means of the <code>ff</code> function, you can pick out a font stack from the map and paste, additionally, you can attach your own Font Families.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-fontstack-map</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-fontstack-map</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $family - FontStack Family</li>
-                  <li>@param {argList} $append - The Fonts that need to be prepended</li>
+                  <li>{*} $family - FontStack Family</li>
+                  <li>{argList} $append - The Fonts that need to be prepended</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{*} - Desired Fontstack</div>
               <div class="method__code">
                 <pre class="language-scss"><code>.font {
   font-family: ff('helvetica');
@@ -400,13 +385,11 @@ $kittn-connect-map: (
               <p>Is more an alias of the FF function, this time as a mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-fontstack-map</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-fontstack-map</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $family - FontStack Family</li>
-                  <li>@param {argList} $append - The Fonts that need to be prepended</li>
+                  <li>{*} $family - FontStack Family</li>
+                  <li>{argList} $append - The Fonts that need to be prepended</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -435,16 +418,14 @@ $kittn-connect-map: (
               <p>The Mixin generates the Font Faces, added an additional SVG font stack if necessary - on Windows platforms for better font rendering which provides (Firefox, Chrome).</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-directorys</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-directorys</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $filename - The Filename of the Fontname</li>
-                  <li>@param {*} $fontname - The Desired Fontname</li>
-                  <li>@param {*} $fontweight (normal) - Fontweight</li>
-                  <li>@param {*} $fontstyle (normal) - Fontstyle</li>
-                  <li>@param {bool} $svgoption (true) - Activate the addition route to the SVG Font</li>
+                  <li>{*} $filename - The Filename of the Fontname</li>
+                  <li>{*} $fontname - The Desired Fontname</li>
+                  <li>{*} $fontweight (normal) - Fontweight</li>
+                  <li>{*} $fontstyle (normal) - Fontstyle</li>
+                  <li>{bool} $svgoption (true) - Activate the addition route to the SVG Font</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -498,12 +479,8 @@ $kittn-connect-map: (
               <p>This Generator include all Font-Faces that included in the <code>$kittn-fontface-map</code> map.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@access private</p>
-              </div>
-              <div class="method__api">
-                <p>@requires $kittn-fontface-map</p>
-              </div>
+              <div class="method__api--access">private</div>
+              <div class="method__api--requires">$kittn-fontface-map</div>
               <div class="method__code">
                 <pre class="language-scss"><code>// Map Example
 // File: src/sass/setup.scss
@@ -541,12 +518,12 @@ $kittn-fontface-map: (
               <p>Removes units from values</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {Number} $number - Value</li>
-                  <li>@returns {Number}</li>
+                  <li>{Number} $number - Value</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Number}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$size: 20px;
 
@@ -569,15 +546,13 @@ $kittn-fontface-map: (
               <p>Adds the default Unit of unitless values ​​to.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-default-unit</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-default-unit</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {Number} $number - Value</li>
-                  <li>@returns {Number}</li>
+                  <li>{Number} $number - Value</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Number}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$size: 20;
 
@@ -600,10 +575,10 @@ $kittn-fontface-map: (
               <p>To use the CSS Cross-browser function Calc (because in this case the Autoprefixer is not active), is aided by the with the mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $property - Property that calculated</li>
-                  <li>@param {*} $expression - Formula (need to be quoted)</li>
+                  <li>{*} $property - Property that calculated</li>
+                  <li>{*} $expression - Formula (need to be quoted)</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -628,14 +603,14 @@ $kittn-fontface-map: (
               <p>The function will limit number values</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {Number} $value - The Value that need to be clamped</li>
-                  <li>@param {Number} $min - The posible minimal value</li>
-                  <li>@param {Number} $max - The possible max Value</li>
-                  <li>@returns {Number} - Clamped Value</li>
+                  <li>{Number} $value - The Value that need to be clamped</li>
+                  <li>{Number} $min - The posible minimal value</li>
+                  <li>{Number} $max - The possible max Value</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Number} - Clamped Value</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$height: 200;
 $width: 23;
@@ -664,16 +639,14 @@ $width: 23;
               </div>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-color-map</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-color-map</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $target - Desired color</li>
-                  <li>@param {Map} $map - Color Map</li>
-                  <li>@returns {Color}</li>
+                  <li>{*} $target - Desired color</li>
+                  <li>{Map} $map - Color Map</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Color}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>.color {
   color: cp('primary');
@@ -696,14 +669,12 @@ $width: 23;
               <p>The spacer Mixin generated using the Global-spacing-unit sizes</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-global-spacing</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-global-spacing</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {Number} $lines - Multiplicator for Spacing</li>
-                  <li>@param {Bool} $hard (false) - For including an &#39;!important&#39;</li>
-                  <li>@param {Number} $size ($kittn-global-spacing) - Connection to the Base Spacing</li>
+                  <li>{Number} $lines - Multiplicator for Spacing</li>
+                  <li>{Bool} $hard (false) - For including an &#39;!important&#39;</li>
+                  <li>{Number} $size ($kittn-global-spacing) - Connection to the Base Spacing</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -729,18 +700,16 @@ $width: 23;
               <p>The same as above, this feature by default integrated with the difference no units. Often used for internal mixins.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <p>@requires $kittn-global-spacing</p>
-              </div>
-              <div class="method__api">
+              <div class="method__api--requires">$kittn-global-spacing</div>
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {Number} $lines - Multiplicator for Spacing</li>
-                  <li>@param {Bool} $imp (false) - For including an !important</li>
-                  <li>@param {*} $u (false) - Unit</li>
-                  <li>@param {Number} $size ($kittn-global-spacing) - Connection to the Base Spacing</li>
-                  <li>@returns {Number}</li>
+                  <li>{Number} $lines - Multiplicator for Spacing</li>
+                  <li>{Bool} $imp (false) - For including an !important</li>
+                  <li>{*} $u (false) - Unit</li>
+                  <li>{Number} $size ($kittn-global-spacing) - Connection to the Base Spacing</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Number}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>.box {
   height: s(2, $u: r);
@@ -771,12 +740,12 @@ $width: 23;
               <p>Checks whether a value was passed</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $value - Value to check</li>
-                  <li>@returns {Bool}</li>
+                  <li>{*} $value - Value to check</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$check: 1;
 
@@ -797,12 +766,12 @@ $width: 23;
               <p>Checks if it is a map.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $value - Value to check</li>
-                  <li>@returns {Bool}</li>
+                  <li>{*} $value - Value to check</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$check: (
   1: 'hello'
@@ -825,12 +794,12 @@ $width: 23;
               <p>Checks if there is a list.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $value - Value to check</li>
-                  <li>@returns {Bool}</li>
+                  <li>{*} $value - Value to check</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$check: 'hello' 'welcome' 'to';
 
@@ -851,12 +820,12 @@ $width: 23;
               <p>Checks if there is a number.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $value - Value to check</li>
-                  <li>@returns {Bool}</li>
+                  <li>{*} $value - Value to check</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$check: 1;
 
@@ -877,12 +846,12 @@ $width: 23;
               <p>Checks if it is a string.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $value - Value to check</li>
-                  <li>@returns {Bool}</li>
+                  <li>{*} $value - Value to check</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$check: 'hello';
 
@@ -903,12 +872,12 @@ $width: 23;
               <p>Checks whether it is <strong>not</strong> a String.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
-                  <li>@param {*} $value - Value to check</li>
-                  <li>@returns {Bool}</li>
+                  <li>{*} $value - Value to check</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$check: 1;
 
@@ -929,11 +898,7 @@ $width: 23;
               <p>Checks if the selector has been nested.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
-                <ul>
-                  <li>@returns {Bool}</li>
-                </ul>
-              </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>.test {
   @if is-nested() {
@@ -963,12 +928,12 @@ return 'True'</code></pre>
               <p>Checks whether the map was filled.</p>
             </div>
             <div class="method__details">
-              <div class="method__api">
+              <div class="method__api--param">
                 <ul>
                   <li>@param {*} $value - Value to check</li>
-                  <li>@returns {Bool}</li>
                 </ul>
               </div>
+              <div class="method__api--returns">{Bool}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>$test-1: ();
 

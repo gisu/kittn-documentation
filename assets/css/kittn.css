@@ -2328,6 +2328,23 @@ hr {
   .main-header h1 {
     margin-bottom: 0; }
 
+.method__api--access:before, .method__api--requires:before, .method__api--param:before, .method__api--returns:before {
+  color: #636363;
+  background-color: #dcdcdc;
+  font-size: 0.882353rem;
+  line-height: 1.058824rem;
+  padding: 0 10px;
+  line-height: 2.205882rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  width: 120px; }
+  @media screen and (min-width: 768px) {
+    .method__api--access:before, .method__api--requires:before, .method__api--param:before, .method__api--returns:before {
+      padding: 0 20px; } }
+
 .method {
   margin-bottom: 40px;
   background-color: #fff;
@@ -2360,10 +2377,13 @@ hr {
     padding-left: 20px;
     margin-bottom: 0; }
   .method__text {
-    padding: 20px;
+    padding: 10px;
     font-size: 0.955882rem;
     line-height: 1.147059rem;
     color: #636363; }
+    @media screen and (min-width: 768px) {
+      .method__text {
+        padding: 20px; } }
     .method__text *:last-child {
       margin-bottom: 0; }
     .method__text [class*='alert-box'] p, .method__text [class*='alert-box'] {
@@ -2372,24 +2392,41 @@ hr {
     .method__text [class*='alert-box']:before {
       font-size: 2.205882rem;
       line-height: 2.647059rem; }
-  .method__api {
+  .method__api, .method__api--access, .method__api--requires, .method__api--param, .method__api--returns {
     font-family: "Inconsolata", "DejaVu Sans Mono", Menlo, Monaco, Consolas, Courier, monospace;
     font-size: 0.955882rem;
     line-height: 1.147059rem;
     color: #636363;
     background-color: #fafafa;
     padding: 10px 20px;
-    border-bottom: 1px solid #f0f0f0; }
-    .method__api *:last-child {
+    border-bottom: 1px solid #f0f0f0;
+    position: relative; }
+    .method__api *:last-child, .method__api--access *:last-child, .method__api--requires *:last-child, .method__api--param *:last-child, .method__api--returns *:last-child {
       margin-bottom: 0; }
-    .method__api ul {
+    .method__api ul, .method__api--access ul, .method__api--requires ul, .method__api--param ul, .method__api--returns ul {
       list-style-type: none;
       margin-bottom: 0;
       padding-left: 0; }
-      .method__api ul ul {
+      .method__api ul ul, .method__api--access ul ul, .method__api--requires ul ul, .method__api--param ul ul, .method__api--returns ul ul {
         padding-left: 20px; }
-    .method__api:last-child {
+    .method__api:last-child, .method__api--access:last-child, .method__api--requires:last-child, .method__api--param:last-child, .method__api--returns:last-child {
       border-bottom: 0; }
+    .method__api--access {
+      padding-left: 140px; }
+      .method__api--access:before {
+        content: '@access'; }
+    .method__api--requires {
+      padding-left: 140px; }
+      .method__api--requires:before {
+        content: '@requires'; }
+    .method__api--param {
+      padding-left: 140px; }
+      .method__api--param:before {
+        content: '@param'; }
+    .method__api--returns {
+      padding-left: 140px; }
+      .method__api--returns:before {
+        content: '@returns'; }
   .method__code {
     font-size: 1.029412rem;
     line-height: 1.235294rem;

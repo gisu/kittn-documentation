@@ -50,9 +50,20 @@ $(function() {
     }
   });
 });
+
 $(document).ready(function() {
   // Paste your JS here
   overspanElement('.js-overspan', 'body');
+
+  $('.method__toggle').click(function() {
+    $(this).parent().find('.method__details').slideToggle();
+  });
+
+  // $('.method__close').click(function() {
+  //   $(this).parent().find('.method__codedisplay').slideUp();
+  //   $(this).parent().find('.method__open').css('display','block');
+  //   $(this).hide();
+  // });
 });
 
 // TODO: Include here a note

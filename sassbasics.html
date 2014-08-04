@@ -40,7 +40,7 @@
     <header class="main-header">
       <div class="container">
         <div class="row">
-          <h1 class="h3">Sass Basics</h1>
+          <h1>Sass Basics</h1>
         </div>
       </div>
     </header>
@@ -135,16 +135,12 @@
           </div>
           <hr>
           <h3 id="loader">Loader</h3>
-          <p><strong>File:</strong>  <code>src/sass/_loader.scss</code>
-          </p>
-
+          <div class="filebox">src/sass/_loader.scss</div>
           <p>With the <code>_loader.scss</code> file, all required files are loaded. The order is already given proof should not be changed.</p>
 
           <hr/>
           <h3 id="setup">Setup</h3>
-          <p><strong>File:</strong>  <code>src/sass/_setup.scss</code>
-          </p>
-
+          <div class="filebox">src/sass/_setup.scss</div>
           <p>Almost all settings can be changed and extended over <code>_setup.scss</code>.</p>
           <p>
             <code>$kittn-global-spacing</code> Global spacing unit, used for Spacer and Lines Mixins.
@@ -197,46 +193,39 @@
           <hr>
           <h3 id="maps">Maps</h3>
           <p>To the <code>file</code> _setup.scss yet another map coming Files.</p>
-
           <h4>Fontstacks</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_fontstacks.scss</code>
-          </p>
-
+          <div class="filebox">src/sass/maps/_fontstacks.scss</div>
           <p>Fonts that are inserted via the Font-Family mixins can access the fontstack map. In the map, the most common combinations are included.</p>
-
           <h4>Iconmap</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_iconfontlist.scss</code>
-          </p>
-
+          <div class="filebox">src/sass/maps/_iconfontlist.scss</div>
           <p>Alle Icons einer Iconfont werden in diese Map eingetragen - über die Iconfont Mixins werden daraus dann wieder Klassen generiert.</p>
 
           <p>All icons from a IconFont be listed in this map - the classes would be generated with the Iconfont mixins.</p>
           <div class="alert-box">
             <p>Who created his Iconfonts with Icomoon, a CSS file get delivered. With some Find &amp; Replace can this CSS file easily convert back into a map.</p>
           </div>
-          <pre class="language-scss"><code>$kittn-font-icons: (
+          <div class="method">
+            <div class="method__code">
+              <pre class="language-scss"><code>$kittn-font-icons: (
   news: '\e609',
   works: '\e60a'
 );
 </code></pre>
+            </div>
+          </div>
           <h4>Imagemaps</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_imagemap.scss</code>, <code>src/sass/maps/_sprite.scss</code>, <code>src/sass/maps/_sprite-retina.scss</code>
-          </p>
-
+          <div class="filebox">src/sass/maps/_imagemap.scss
+            <br>src/sass/maps/_sprite.scss
+            <br>src/sass/maps/_sprite-retina.scss</div>
           <p>These maps are created automatically via <code>Grunt</code> tasks. There, data are recorded as the image dimensions, file name, etc.</p>
 
           <p>The Image Mixin will access the maps.</p>
-
           <h4>Connectmap</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_connectmap.scss</code>
-          </p>
-
+          <div class="filebox">src/sass/maps/_connectmap.scss</div>
           <p>In the Connectmap repeatable styles will be entered. The map is then read via mixins, which Silent Placeholder be generated. This can be done with <code>@extend</code> connected. Alternatively, you can directly import the content as well.</p>
-          <pre class="language-scss"><code>$kittn-connect-map: (
+          <div class="method">
+            <div class="method__code">
+              <pre class="language-scss"><code>$kittn-connect-map: (
   button: (
     height: 30px,
     width: 100%,
@@ -244,17 +233,20 @@
   )
 );
 </code></pre>
+            </div>
+          </div>
           <h4>ZMap</h4>
-
-          <p><strong>File:</strong>  <code>src/sass/maps/_zmap.scss</code>
-          </p>
-
+          <div class="filebox">src/sass/maps/_zmap.scss</div>
           <p>The different Z-index are listed on the map.</p>
-          <pre class="language-scss"><code>$kittn-zlayer-map: (
+          <div class="method">
+            <div class="method__code">
+              <pre class="language-scss"><code>$kittn-zlayer-map: (
   'default': 10
 );
 
 </code></pre>
+            </div>
+          </div>
         </article>
       </div>
     </div>

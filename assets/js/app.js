@@ -59,11 +59,14 @@ $(document).ready(function() {
     $(this).parent().find('.method__details').slideToggle();
   });
 
-  // $('.method__close').click(function() {
-  //   $(this).parent().find('.method__codedisplay').slideUp();
-  //   $(this).parent().find('.method__open').css('display','block');
-  //   $(this).hide();
-  // });
+  if($(window).width() > 768) {
+    $('.jump-nav').waypoint('sticky', {
+      direction: 'down right',
+      stuckClass: 'stuck',
+      offset: 20,
+    });
+  }
+
 });
 
 // TODO: Include here a note

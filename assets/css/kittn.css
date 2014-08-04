@@ -1914,16 +1914,16 @@ table {
   margin-left: -10px;
   margin-right: -10px; }
 
-.column, .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
+.column, .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav-container, .article {
   padding-left: 10px;
   padding-right: 10px; }
   @media screen and (min-width: 768px) {
-    .column, .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav, .article {
+    .column, .main-nav, .logo, .hero__image, .hero__text, .key-features, .jump-nav-container, .article {
       padding-left: 10px;
       padding-right: 10px;
       display: block;
       float: left; }
-      .column:last-child, .main-nav:last-child, .logo:last-child, .hero__image:last-child, .hero__text:last-child, .key-features:last-child, .jump-nav:last-child, .article:last-child {
+      .column:last-child, .main-nav:last-child, .logo:last-child, .hero__image:last-child, .hero__text:last-child, .key-features:last-child, .jump-nav-container:last-child, .article:last-child {
         float: right; } }
 
 @media screen and (min-width: 768px) {
@@ -1931,7 +1931,7 @@ table {
     width: 8.333333%; }
   .width--2 {
     width: 16.666667%; }
-  .width--3, .logo, .jump-nav {
+  .width--3, .logo, .jump-nav-container {
     width: 25%; }
   .width--4, .key-features {
     width: 33.333333%; }
@@ -2548,6 +2548,9 @@ hr {
 /**
  * Jump Navigation for the Article
  */
+.jump-nav.stuck {
+  position: fixed;
+  top: 20px; }
 .jump-nav ul {
   list-style-type: none;
   padding-left: 0;

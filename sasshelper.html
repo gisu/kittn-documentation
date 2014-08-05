@@ -88,7 +88,8 @@
               <p>Build a BEM Element, will add the defined BEM Prefixes.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-bem</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-bem">$kittn-bem</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $name - Selector name</li>
@@ -115,7 +116,8 @@
               <p>Build a BEM Modifier, with an optional extend functionality</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-bem</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-bem">$kittn-bem</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $name - The selector name</li>
@@ -158,7 +160,7 @@
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">chainroot</h4>
+              <h4 id="mixin-chainroot" class="method__title">chainroot</h4>
             </header>
             <div class="method__text">
               <p>Setup the Root Element for the chained Modifers. Must be inserted in a Selector.</p>
@@ -187,8 +189,9 @@
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>$kittn-bem</li>
-                  <li>mixin chain()</li>
+                  <li>map <a href="/sassbasics.html#kittn-bem">$kittn-bem</a>
+                  </li>
+                  <li>mixin <a href="#mixin-chainroot">chainroot()</a> (optional)</li>
                 </ul>
               </div>
               <div class="method__api--param">
@@ -238,14 +241,15 @@
           <p>If defined in the <code>$kittn-connect-map</code> Map Styles, Silent Selectors are generated.</p>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">connect-gen</h4>
+              <h4 id="mixin-connect-gen" class="method__title">connect-gen</h4>
             </header>
             <div class="method__text">
               <p>Thus, the selectors are linked or included directly</p>
             </div>
             <div class="method__details">
               <div class="method__api--access">private</div>
-              <div class="method__api--requires">$kittn-connect-map</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-connect-map">$kittn-connect-map</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{List} $key - Tageted Styles, can be more than one</li>
@@ -265,7 +269,14 @@
             </div>
             <div class="method__details">
               <div class="method__api--access">private</div>
-              <div class="method__api--requires">$kittn-connect-map</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>map <a href="/sassbasics.html#kittn-connect-map">$kittn-connect-map</a>
+                  </li>
+                  <li>mixin <a href="#mixin-connect-gen">connect-gen()</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>@param {Map} $map ($kittn-connect-map) - Connect Map</li>
@@ -307,7 +318,14 @@ $kittn-connect-map: (
               <p>With the Connect Mixin existing elements with the placeholder can be either connected, or the style can be integrated directly into the element.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-connect-map</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>map <a href="/sassbasics.html#kittn-connect-map">$kittn-connect-map</a>
+                  </li>
+                  <li>mixin <a href="#mixin-connect-gen">connect-gen()</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{list} $key - Tageted Styles, can be more than one</li>
@@ -356,11 +374,12 @@ $kittn-connect-map: (
               <p>By means of the <code>ff</code> function, you can pick out a font stack from the map and paste, additionally, you can attach your own Font Families.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-fontstack-map</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-fontstack-map">$kittn-fontstack-map</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $family - FontStack Family</li>
-                  <li>{argList} $append - The Fonts that need to be prepended</li>
+                  <li>{argList} $append - Fonts that need to be prepended</li>
                 </ul>
               </div>
               <div class="method__api--returns">{*} - Desired Fontstack</div>
@@ -390,7 +409,8 @@ $kittn-connect-map: (
               <p>Is more an alias of the FF function, this time as a mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-fontstack-map</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-fontstack-map">$kittn-fontstack-map</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $family - FontStack Family</li>
@@ -423,7 +443,8 @@ $kittn-connect-map: (
               <p>The Mixin generates the Font Faces, added an additional SVG font stack if necessary - on Windows platforms for better font rendering which provides (Firefox, Chrome).</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-directorys</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-directorys">$kittn-directorys</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $filename - The Filename of the Fontname</li>
@@ -485,7 +506,8 @@ $kittn-connect-map: (
             </div>
             <div class="method__details">
               <div class="method__api--access">private</div>
-              <div class="method__api--requires">$kittn-fontface-map</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-fontface-map">$kittn-fontface-map</a>
+              </div>
               <div class="method__code">
                 <pre class="language-scss"><code>// Map Example
 // File: src/sass/setup.scss
@@ -517,7 +539,7 @@ $kittn-fontface-map: (
           <p>Some super simple functions</p>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">strip-units</h4>
+              <h4 id="function-strip-units" class="method__title">strip-units</h4>
             </header>
             <div class="method__text">
               <p>Removes units from values</p>
@@ -545,13 +567,14 @@ $kittn-fontface-map: (
           </section>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">unit-check</h4>
+              <h4 id="function-unit-check" class="method__title">unit-check</h4>
             </header>
             <div class="method__text">
               <p>Adds the default Unit of unitless values ​​to.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-default-unit</div>
+              <div class="method__api--requires">var <a href="/sassbasics.html#kittn-default-unit">$kittn-default-unit</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $number - Value</li>
@@ -602,7 +625,7 @@ $kittn-fontface-map: (
           </section>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">clamp</h4>
+              <h4 id="function-clamp" class="method__title">clamp</h4>
             </header>
             <div class="method__text">
               <p>The function will limit number values</p>
@@ -644,11 +667,12 @@ $width: 23;
               </div>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-color-map</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-color-map">$kittn-color-map</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $target - Desired color</li>
-                  <li>{Map} $map - Color Map</li>
+                  <li>{Map} $map ($kittn-color-map) - Color Map</li>
                 </ul>
               </div>
               <div class="method__api--returns">{Color}</div>
@@ -674,7 +698,8 @@ $width: 23;
               <p>The spacer Mixin generated using the Global-spacing-unit sizes</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-global-spacing</div>
+              <div class="method__api--requires">var <a href="/sassbasics.html#kittn-global-spacing">$kittn-global-spacing</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $lines - Multiplicator for Spacing</li>
@@ -705,7 +730,8 @@ $width: 23;
               <p>The same as above, this feature by default integrated with the difference no units. Often used for internal mixins.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-global-spacing</div>
+              <div class="method__api--requires">var <a href="/sassbasics.html#kittn-global-spacing">$kittn-global-spacing</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $lines - Multiplicator for Spacing</li>

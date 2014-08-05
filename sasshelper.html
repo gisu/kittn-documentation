@@ -116,8 +116,11 @@
             </div>
             <div class="method__details">
               <div class="method__api--requires">$kittn-bem</div>
-              <div class="method__api">
-                <p>-{*} $name - The selector name -{bool} $extend (false) - If the Modifier need to be extended with parent</p>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $name - The selector name</li>
+                  <li>{bool} $extend (false) - If the Modifier need to be extended with parent</li>
+                </ul>
               </div>
               <div class="method__code">
                 <pre class="language-scss"><code>.box {
@@ -245,9 +248,9 @@
               <div class="method__api--requires">$kittn-connect-map</div>
               <div class="method__api--param">
                 <ul>
-                  <li>{list} $key - Tageted Styles, can be more than one</li>
-                  <li>{bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
-                  <li>{map} $map ($kittn-connect-map) - Connect Map</li>
+                  <li>{List} $key - Tageted Styles, can be more than one</li>
+                  <li>{Bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
+                  <li>{Map} $map ($kittn-connect-map) - Connect Map</li>
                 </ul>
               </div>
             </div>

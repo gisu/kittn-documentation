@@ -37,10 +37,12 @@
     </div>
   </header>
   <main class="_MAIN">
-    <header class="main-header sTop">
+    <header class="main-header">
       <div class="container">
         <div class="row">
-          <h1>Sass Basics</h1>
+          <div class="colum">
+            <h1>Sass Basics</h1>
+          </div>
         </div>
       </div>
     </header>
@@ -144,110 +146,901 @@
           <h3 id="setup">Setup</h3>
           <div class="filebox">src/sass/_setup.scss</div>
           <p>Almost all settings can be changed and extended over <code>_setup.scss</code>.</p>
-          <p>
-            <code>$kittn-global-spacing</code> Global spacing unit, used for Spacer and Lines Mixins.
-            <br>
-            <code>$kittn-default-unit</code> Default unit for unitless values. Default <code>px</code>
-            <br>
-            <code>$kittn-bem</code> BEM Prefixes for Elements and Modifiers
-            <br>
-            <code>$kittn-directorys</code> Kittn Directory Organisation - when you change the structure from <code>dist/</code> you need to change here also.
-            <br>
-            <code>$kittn-activate</code> Activate Base Features
-            <br>
-            <code>$kittn-sprite</code> Sprite Configuration
-            <br>
-            <code>$kittn-iconfont</code> Iconfont Configuration
-            <br>
-            <code>$kittn-breakpoint-map</code> Map off all Breakpoints and Behaviors
-            <br>
-            <code>$kittn-grid-setup</code> Base configuration for a whole grid config
-            <br>
-            <code>$kittn-fontface-map</code> Load and integrate all FontFaces
-            <br>
-            <code>$kittn-typo</code> Base Typo Setup
-            <br>
-            <code>$kittn-active-responsive-fonts</code> Activates the Responsive Fontsize Generator
-            <br>
-            <code>$kittn-typo-margin</code> Default Margin for Typographic Elements
-            <br>
-            <code>$kittn-typo-style</code> Base Typo and Font Styling
-            <br>
-            <code>$kittn-typo-sizes</code> Base Typo Sizes
-            <br>
-            <code>$kittn-global-heading</code> Global Heading Stylings
-            <br>
-            <code>$kittn-typostyles-map</code> All possible Typostyles in a Map
-            <br>
-            <code>$kittn-generate-typostyles</code> Generate all Fontstyles with classes
-            <br>
-            <code>$kittn-color-map</code> Color Definition Map. This is a collection from all used Colors.
-            <br>
-            <code>$kittn-color-generator</code> Generate the Color Classes from the Color Array
-            <br>
-            <code>$kittn-color-route</code> Route the Colors to the Elements
-            <br>
-            <code>$kittn-hairline</code> Hairline Styling
-            <br>
-            <code>$kittn-tables</code> Table Styling
-
-          </p>
+          <section class="method">
+            <header class="method__head--var">
+              <h4 id="kittn-global-spacing" class="method__title">$kittn-global-spacing</h4>
+            </header>
+            <div class="method__text">
+              <p>Global spacing unit, used for Spacer and Lines Mixins.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">Number</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-global-spacing: 20;</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--var">
+              <h4 id="kittn-default-unit" class="method__title">$kittn-default-unit</h4>
+            </header>
+            <div class="method__text">
+              <p>Default unit for unitless values. Default <code>px</code>
+              </p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">*</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-default-unit: px;</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-bem" class="method__title">$kittn-bem</h4>
+            </header>
+            <div class="method__text">
+              <p>BEM Prefixes for Elements and Modifiers</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} element - Prefix</li>
+                  <li>{*} modifier - Prefix</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-bem: (
+  element: '__',
+  modifier: '--'
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-directorys" class="method__title">$kittn-directorys</h4>
+            </header>
+            <div class="method__text">
+              <p>Kittn Directory Organisation - when you change the structure from <code>dist/</code> you need to change here also.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} fonts - Directory</li>
+                  <li>{*} images - Base CSS image folder</li>
+                  <li>{*} single - Folder from the single images</li>
+                  <li>{*} texture - Folder from the texture files</li>
+                  <li>{*} svg - Folder from the svg images with png fallbacks</li>
+                  <li>{*} svgonly - Folder SVG only files</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-directorys: (
+  fonts: '/assets/fonts/',
+  images: '/assets/img/',
+  single: '/assets/img/single/',
+  texture: '/assets/img/textures/',
+  svg: '/assets/img/svg/',
+  svgonly: '/assets/img/svgonly/'
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-activate" class="method__title">$kittn-activate</h4>
+            </header>
+            <div class="method__text">
+              <p>Activate Base Features</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Bool} debugging - Activate the CSS Debugging Features</li>
+                  <li>{Bool} box-sizing - Activate the new old Box Model ;P</li>
+                  <li>{Bool} baseline - Activate Baseline Features</li>
+                  <li>{Bool} hyphens - All Words would be breaked with Hyphens</li>
+                  <li>{Bool} viewport-fix - Activate Viewport-Fixes for Windows Mobile 8</li>
+                  <li>{Bool} mobile-first - Grid and Breakpoints oriented from Smallest to Biggest Size</li>
+                  <li>{Bool} ie8-fallback - Integrate some IE8 Fallbacks</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-activate: (
+  debugging: false,
+  box-sizing: true,
+  baseline: false,
+  antialias: true,
+  hyphens: false,
+  viewport-fix: false,
+  mobile-first: true,
+  ie8-fallbacks: false
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-sprite" class="method__title">$kittn-sprite</h4>
+            </header>
+            <div class="method__text">
+              <p>Sprite Configuration</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*|Bool} name - Sprite Name</li>
+                  <li>{Bool} retina-capable - Integrate an additional Retina Sprite</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-sprite:(
+  name: false,
+  retina-capable: true,
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-iconfont" class="method__title">$kittn-iconfont</h4>
+            </header>
+            <div class="method__text">
+              <p>Iconfont Configuration</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*|Bool} name - Iconfont Name with &#39;false&#39; deactivate the Iconfont</li>
+                  <li>{*} prefix - Icon Prefix</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-iconfont: (
+  name: false,
+  prefix: 'f-icon'
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-breakpoint-map" class="method__title">$kittn-breakpoint-map</h4>
+            </header>
+            <div class="method__text">
+              <p>Map off all Breakpoints and Behaviors</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [name] - Breakpoint Name
+                    <ul>
+                      <li>{Number} size - The width that activate the Trigger</li>
+                      <li>{Bool} visibility - Set it on true to activate the visibility classes</li>
+                      <li>{Bool} step - Set the threshold for the grid-stepper mixin</li>
+                      <li>{Bool|Number} fontsize - Rewrite the Basefontsize for this breakpoint</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-breakpoint-map: (
+  1: (
+    size: 320px,
+    visibility: true,
+    step: true,
+    fontsize: false
+  )
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-grid-setup" class="method__title">$kittn-grid-setup</h4>
+            </header>
+            <div class="method__text">
+              <p>Setup the Base Grid</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Bool} activate - Activates the Generator</li>
+                  <li>{Book} silent - Generated classes are silent [%]</li>
+                  <li>{*} container-name - Name of the container class</li>
+                  <li>{*} row-name - Name of the row class</li>
+                  <li>{*} colum-name - Name of the colums</li>
+                  <li>{*} size-name - Name of the size classes [prefix]</li>
+                  <li>{*} offset-name - Name of the offset classes [prefix]</li>
+                  <li>{*} pushpull-name - Name of the pushpull classes [prefix]</li>
+                  <li>{*} breakpoint - This breakpoint will modifiy the grid [$kittn-breakpoint-map]</li>
+                  <li>{Number} colums - Maximum colums</li>
+                  <li>{Number} spacing - Padding of the colums</li>
+                  <li>{*} layouttype - &#39;inline&#39;, &#39;table&#39;, &#39;flex&#39;, &#39;block&#39;</li>
+                  <li>{*} valign - &#39;top&#39;, &#39;bottom&#39;, &#39;baseline&#39;, &#39;middle&#39;</li>
+                  <li>{Bool} container-adaptive - adaptive or fluid</li>
+                  <li>{List} container-width - Main Width off the Grid</li>
+                  <li>{*} container-position - &#39;center&#39;, &#39;left&#39;, &#39;right&#39;</li>
+                  <li>{Number} container-offset - The Size of the Outer Gutter</li>
+                  <li>{Bool|Number} container-ie8-style - When is set on &#39;true&#39; IE8 get a static Container</li>
+                  <li>{Bool} colum-extras - Want to include the additional colum classes</li>
+                  <li>{Bool|*} size-extend - Size classes can be extended with other classes</li>
+                  <li>{Bool|List} size-select - You can select the size classes</li>
+                  <li>{Bool} offset-activate - Activate the offset classes</li>
+                  <li>{Bool} pushpull-activate - Activate the push&amp;pull classes</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-grid-setup: (
+  activate: false,
+  silent: true,
+  container-name: 'container',
+  row-name: 'row',
+  colum-name: 'column',
+  size-name: 'width',
+  offset-name: 'offset',
+  pushpull-name: 'pushpull',
+  breakpoint: 4,
+  colums: 12,
+  spacing: 10,
+  layouttype: block,
+  valign: top,
+  container-adaptive: false,
+  container-width: 320 1180,
+  container-position: center,
+  container-offset: 0,
+  container-ie8-style: false,
+  colum-extras: false,
+  size-extend: false,
+  size-select: false,
+  offset-activate: false,
+  pushpull-activate: false
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-fontface-map" class="method__title">$kittn-fontface-map</h4>
+            </header>
+            <div class="method__text">
+              <p>Map off all Breakpoints and Behaviors</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [fontname]
+                    <ul>
+                      <li>{Bool|*} filename - Filename, when &#39;false&#39; the Fontname will be used</li>
+                      <li>{*} weight - The associated Fontweight</li>
+                      <li>{*} style - The associated Font Style</li>
+                      <li>{Bool} svgoption - Activate the addition route to the SVG Font</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-fontface-map: (
+  kittn: (
+    filename: false,
+    weight: normal,
+    style: normal,
+    svgoption: true
+  )
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-typo" class="method__title">$kittn-typo</h4>
+            </header>
+            <div class="method__text">
+              <p>Base Typo Setup</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} unit - &#39;px&#39; or &#39;rem&#39;</li>
+                  <li>{Number} base-scale - Fontsize on &lt;html&gt;</li>
+                  <li>{Number} base-size - Base Fontsize in &#39;px&#39;</li>
+                  <li>{Number} line-height - Base Line-Height</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-typo: (
+  unit: rem,
+  base-scale: 85,
+  base-size: 16,
+  line-height: 21
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--var">
+              <h4 id="kittn-active-responsive-fonts" class="method__title">$kittn-active-responsive-fonts</h4>
+            </header>
+            <div class="method__text">
+              <p>Set the Start or End Fontsize for the responsive fontsizes. &#39;false&#39; will deactivate the responsive fontsizes.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">Number</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-active-responsive-fonts: 85;</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-typo-margin" class="method__title">$kittn-typo-margin</h4>
+            </header>
+            <div class="method__text">
+              <p>Default Margin for Typographic Elements (set on &#39;0&#39; to deactivate)</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Number} top - Top Margin Size</li>
+                  <li>{Number} botton - Bottom Margin Size</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-typo-margin: (
+  top: s(1.25),
+  bottom: s(1)
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-typo-style" class="method__title">$kittn-typo-style</h4>
+            </header>
+            <div class="method__text">
+              <p>Base Typo and Font Styling</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} base-font - Base Font</li>
+                  <li>{*|Bool} base-weight - Base Fontweight, &#39;false&#39; will deactivate</li>
+                  <li>{Bool|*} heading-font - Font for Headlines, &#39;false&#39; will use the Basefont</li>
+                  <li>{Bool|*} bold-font - &#39;false&#39; will use the Basefont</li>
+                  <li>{Bool|*} bold-weight - Set the Weight for Bold Font</li>
+                  <li>{Bool|*} italic-font - &#39;false&#39; will use the Basefont</li>
+                  <li>{Bool|*} italic-style - Set the Fontstyle for italic typos</li>
+                  <li>{Bool} link-decoration - De/Activate the Text Decoration for links</li>
+                  <li>{Bool} link-decoration-hover - De/Activate the Text Decoration for links hovered state</li>
+                  <li>{Bool|*} quote-font - &#39;false&#39; will use the Basefont</li>
+                  <li>{Bool|*} quote-weight - Set the Fontweight for Blockquotes</li>
+                  <li>{Bool|*} quote-style - Set the Fontstyle for Blockquotes</li>
+                  <li>{Bool|*} code-font - &#39;false&#39; will use the Basefont</li>
+                  <li>{Bool|*} code-weight - Set the Fontweight for Code Elements</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-typo-style: (
+  base-font: ff('helvetica'),
+  base-weight: false,
+  heading-font: ff('helvetica','Montserrat'),
+  bold-font: false,
+  bold-weight: bold,
+  italic-font: false,
+  italic-style: italic,
+  link-decoration: false,
+  link-decoration-hover: false,
+  quote-font: false,
+  quote-weight: false,
+  quote-style: false,
+  code-font: ff('monospace'),
+  code-weight: normal
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-typo-sizes" class="method__title">$kittn-typo-sizes</h4>
+            </header>
+            <div class="method__text">
+              <p>Base Typo Sizes</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Bool|*} list-fontsize - Fontsize for List Elements, &#39;false&#39; use Basefontsize</li>
+                  <li>{Bool|*} list-lineheight - Lineheight for List Elements, &#39;false&#39; use Base Line-Height</li>
+                  <li>{Number} list-margin - Sidemargin</li>
+                  <li>{*} list-style - Values : &#39;disc&#39;, &#39;square&#39;, &#39;circle&#39;</li>
+                  <li>{Bool|Number} quote-fontsize - Fontsize for Blockquotes, &#39;false&#39; use the Base Fontsize</li>
+                  <li>{Bool|Number} quote-lineheight - Lineheight for Blockquotes, &#39;false&#39; use Base Line-Height</li>
+                  <li>{Bool|Number} cite-fontsize - Fontsize for Cite Elements, , &#39;false&#39; use Basefontsize</li>
+                  <li>{Bool|Number} cite-lineheight - Line-Height for Cite Elements</li>
+                  <li>{Bool|Number} code-fontsize - Fontsize Code Elements</li>
+                  <li>{Bool|Number} code-lineheight - Lineheight for Code Elements</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-typo-sizes: (
+  list-fontsize: false,
+  list-lineheight: map-get($kittn-typo, line-height) + 4,
+  list-margin: s(1),
+  list-style: disc,
+  quote-fontsize: map-get($kittn-typo, base-size) + 2,
+  quote-lineheight: map-get($kittn-typo, line-height) + 6,
+  cite-fontsize: map-get($kittn-typo, base-size) - 1,
+  cite-lineheight: map-get($kittn-typo, line-height) + 0,
+  code-fontsize: false,
+  code-lineheight: false
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-global-heading" class="method__title">$kittn-global-heading</h4>
+            </header>
+            <div class="method__text">
+              <p>Global Heading Stylings</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Bool|*} lineheight - &#39;false&#39; or &#39;d&#39; (for line-height:1) or a unitless number</li>
+                  <li>{Bool|Number} marginbottom - &#39;false&#39; or &#39;number&#39;</li>
+                  <li>{Bool|*} fontweight - &#39;false&#39; or &#39;number&#39;</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-global-heading: (
+  lineheight: false,
+  marginbottom: 0,
+  fontweight: 400
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-typostyles-map" class="method__title">$kittn-typostyles-map</h4>
+            </header>
+            <div class="method__text">
+              <p>Map all possible Fontstyles</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [stylename] - Fontstyle Name
+                    <ul>
+                      <li>{Number} font-size - Fontsize in &#39;px&#39; relation (will be converted)</li>
+                      <li>{Bool|Number|*} line-height - Lineheight, Values: &#39;d&#39;: line-height = 1, &#39;c&#39;: sass calculated or &#39;number&#39; or &#39;bool&#39;</li>
+                      <li>{Bool|Number} margin-bottom - Bottom Margin</li>
+                      <li>{Bool|*} font-weight - Font Weight</li>
+                      <li>{Bool} tag - When active it will generate also a Tag, &#39;false&#39; only classes</li>
+                      <li>{*} extend - When you want to Extend the Style you can enter here the Extend Classname like &#39;%myclass&#39;</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-typostyles-map: (
+  h1: (
+    font-size: 36,
+    line-height: d,
+    margin-bottom: s(0.5),
+    font-weight: false,
+    tag: true,
+    extend: '%heading'
+  )
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--var">
+              <h4 id="kittn-generate-typostyles" class="method__title">$kittn-generate-typostyles</h4>
+            </header>
+            <div class="method__text">
+              <p>When active all Fontstyle will be generated</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">{Bool}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-generate-typostyles: true;</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-color-map" class="method__title">$kittn-color-map</h4>
+            </header>
+            <div class="method__text">
+              <p>Color Definition Map. This is a collection from all used Colors. Use only use HEX Colors, when you enter a Opacity Value (between 0 to 1), Sass convert it to RGBA with a Fallback for old Browsers.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [colorstyle] - Name for the Colorstyle, quoted
+                    <ul>
+                      <li>{Color} color - Color (HEX)</li>
+                      <li>{Bool|Number} opacity - Opacity Value (0.0 - 1.0)</li>
+                      <li>{*} type - Type of the Generated classes. Values: &#39;bc&#39; background &amp; textcolor, &#39;c&#39; textcolor, &#39;b&#39; background-color</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-color-map: (
+  'primary': (
+    color: #23baf2,
+    opacity: false,
+    type: bc
+  ),
+  'primary-dark': (
+    color: #188cb8,
+    opacity: false,
+    type: bc
+  ),
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-color-generator" class="method__title">$kittn-color-generator</h4>
+            </header>
+            <div class="method__text">
+              <p>Generator Settings for the Color Map</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Bool} generate - Activate the Generator</li>
+                  <li>{*} type - &#39;class&#39; or &#39;silent&#39;</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-color-generator: (
+  generate: true,
+  type: silent
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-color-route" class="method__title">$kittn-color-route</h4>
+            </header>
+            <div class="method__text">
+              <p>Route the Colors to the Elements</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Color} body - Body Background</li>
+                  <li>{Color} text - Base Text Color</li>
+                  <li>{Color|Bool} headline - Headline Color</li>
+                  <li>{Color|Bool} blockquote - Textcolor for a Blockquote</li>
+                  <li>{Color|Bool} highlight-bg - Background for Mark</li>
+                  <li>{Color|Bool} hightlight-text - Textcolor for Mark</li>
+                  <li>{Color|Bool} link - Textcolor Link Elements</li>
+                  <li>{Color|Bool} link-hover - Textcolor for Link Elements (:hover)</li>
+                  <li>{Color|Bool} link-active - Textcolor for Link Elements (:active)</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-color-route: (
+  body: cp('body'),
+  text: cp('black'),
+  headline: cp('gray'),
+  blockquote: cp('gray'),
+  highlight-bg: lighten(cp('primary'),25),
+  hightlight-text: darken(cp('primary'),10),
+  link: cp('primary'),
+  link-hover: darken(cp('primary'),15),
+  link-active: darken(cp('primary'),25),
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-hairline" class="method__title">$kittn-hairline</h4>
+            </header>
+            <div class="method__text">
+              <p>Hairline Styling</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Number} height</li>
+                  <li>{*} style - Line Styles (border styles)</li>
+                  <li>{Color} color</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-hairline: (
+  height: 1,
+  style: dashed,
+  color: cp('darkwhite')
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-tables" class="method__title">$kittn-tables</h4>
+            </header>
+            <div class="method__text">
+              <p>Base table styling</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{Color} background - Tablecell Backgroud</li>
+                  <li>{Color} background-zebra - Tablecell Background Variation for Zebrastyle</li>
+                  <li>{Color} background-hover - Tablecell Background when hovered</li>
+                  <li>{Color} border-color - Border Color</li>
+                  <li>{Number} margin - Margin Bottom</li>
+                  <li>{Number} padding - Tablecell Padding</li>
+                  <li>{Number} trigger - Trigger Size for responsive Tables</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-tables: (
+  background: transparent, // {Color}
+  background-zebra: tint(cp(primary),20), // {Color}
+  background-hover: lighten(cp(primary),20), // {Color}
+  border-color: cp('gray'), // {Color}
+  margin: 20px, // {Number}
+  padding: 8px, // {Number}
+  trigger: 400px, // {Number} Trigger Size for responsive Tables
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
           <hr>
           <h3 id="maps">Maps</h3>
-          <p>To the <code>file</code> _setup.scss yet another map coming Files.</p>
-          <h4>Fontstacks</h4>
-          <div class="filebox">src/sass/maps/_fontstacks.scss</div>
-          <p>Fonts that are inserted via the Font-Family mixins can access the fontstack map. In the map, the most common combinations are included.</p>
-          <h4>Iconmap</h4>
-          <div class="filebox">src/sass/maps/_iconfontlist.scss</div>
-          <p>Alle Icons einer Iconfont werden in diese Map eingetragen - über die Iconfont Mixins werden daraus dann wieder Klassen generiert.</p>
-
-          <p>All icons from a IconFont be listed in this map - the classes would be generated with the Iconfont mixins.</p>
-          <div class="alert-box">
-            <p>Who created his Iconfonts with Icomoon, a CSS file get delivered. With some Find &amp; Replace can this CSS file easily convert back into a map.</p>
-          </div>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-scss"><code>$kittn-font-icons: (
-  news: '\e609',
-  works: '\e60a'
-);
-</code></pre>
+          <p>Additional to the <code>setup.scss</code> file you will find other Map Files</p>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-fontstack-map" class="method__title">$kittn-fontstack-map</h4>
+            </header>
+            <div class="filebox">src/sass/maps/_fontstacks.scss</div>
+            <div class="method__text">
+              <p>Fonts that are inserted via the Font-Family mixins can access the fontstack map. In the map, the most common combinations are included.</p>
             </div>
-          </div>
-          <h4>Imagemaps</h4>
-          <div class="filebox">src/sass/maps/_imagemap.scss
-            <br>src/sass/maps/_sprite.scss
-            <br>src/sass/maps/_sprite-retina.scss</div>
-          <p>These maps are created automatically via <code>Grunt</code> tasks. There, data are recorded as the image dimensions, file name, etc.</p>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [fontstack-name]
+                    <ul>
+                      <li>{List} Fonts</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-fontstack-map: (
+  'baskerville': (
+    Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif
+  ),
+  'big caslon': (
+    'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif
+  ),
+  'bodoni': (
+    'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif
+  )
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-fontstack-map" class="method__title">$kittn-fontstack-map</h4>
+            </header>
+            <div class="filebox">src/sass/maps/_iconfontlist.scss</div>
+            <div class="method__text">
+              <p>All icons from a IconFont be listed in this map - the classes would be generated with the Iconfont mixins.</p>
+              <div class="alert-box">
+                <p>Who created his Iconfonts with Icomoon, a CSS file get delivered. With some Find &amp; Replace can this CSS file easily convert back into a map.</p>
+              </div>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} iconname</li>
+                  <li>{*} code - CSS Content Code</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-font-icons: (
+  check: '\f00c',
+  times: '\f00d',
+  home: '\f015',
+  lock: '\f023',
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="map-images" class="method__title">$map-images</h4>
+            </header>
+            <div class="filebox">src/sass/maps/_imagemap.scss</div>
+            <div class="method__text">
+              <p>The Imagemap will hold all data from the Single and Textures imagefiles. These data are then processed with the <a href="/sassmodules.html#images">Image mixins</a>.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [imagename]
+                    <ul>
+                      <li>{*} file - Filename</li>
+                      <li>{*} type - Imagetype (single/ texture)</li>
+                      <li>{*} name - Name of the imagefile</li>
+                      <li>{*} extension - Fileextension</li>
+                      <li>{Number} width</li>
+                      <li>{Number} height</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$map-images: (
+  single-red-corner-medium-right: (
+    file: 'red-corner-medium-right.png',
+    type: 'single',
+    name: 'red-corner-medium-right',
+    extension: '.png',
+    width: 32px,
+    height: 60px
+  ),
+  single-red-corner-small-left: (
+    file: 'red-corner-small-left.png',
+    type: 'single',
+    name: 'red-corner-small-left',
+    extension: '.png',
+    width: 17px,
+    height: 31px
+  )
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="map-sprites" class="method__title">$map-sprites</h4>
+            </header>
+            <div class="filebox">src/sass/maps/_sprite.scss
+              <br>src/sass/maps/_sprite-retina.scss</div>
+            <div class="method__text">
+              <p>These Imagemaps will hold all data that needed for including sprites from the Spritemap. These data are then processed with the <a href="/sassmodules.html#images">Image mixins</a>.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [imagename]
+                    <ul>
+                      <li>{Number} width</li>
+                      <li>{Number} height</li>
+                      <li>{Number} positionX</li>
+                      <li>{Number} positionY</li>
+                      <li>{Number} mapWidth</li>
+                      <li>{Number} mapHeight</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$map-sprites: (
+  jump-right: (
+    width: 21px,
+    height: 21px,
+    positionX: -42px,
+    positionY: -56px,
+    mapWidth: 112px,
+    mapHeight: 96px
+  )
+);
 
-          <p>The Image Mixin will access the maps.</p>
-          <h4>Connectmap</h4>
-          <div class="filebox">src/sass/maps/_connectmap.scss</div>
-          <p>In the Connectmap repeatable styles will be entered. The map is then read via mixins, which Silent Placeholder be generated. This can be done with <code>@extend</code> connected. Alternatively, you can directly import the content as well.</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-scss"><code>$kittn-connect-map: (
+$map-sprites-retina: (
+  jump-right: (
+    width: 42px,
+    height: 42px,
+    positionX: -82px,
+    positionY: -110px,
+    mapWidth: 224px,
+    mapHeight: 190px
+  )
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-connect-map" class="method__title">$kittn-connect-map</h4>
+            </header>
+            <div class="filebox">src/sass/maps/_connectmap.scss</div>
+            <div class="method__text">
+              <p>In the Connectmap repeatable styles will be entered. The map is then read via <a href="/sasshelper.html#connect">connect mixins</a>, which Silent Placeholder be generated. This can be done with `@extend` connected. Alternatively, you can
+                directly import the content as well.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [connect-name]
+                    <ul>
+                      <li>{*} property</li>
+                      <li>{*} value</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-connect-map: (
   button: (
     height: 30px,
     width: 100%,
     text-align: center
   )
-);
-</code></pre>
+);</code></pre>
+              </div>
             </div>
-          </div>
-          <h4>ZMap</h4>
-          <div class="filebox">src/sass/maps/_zmap.scss</div>
-          <p>The different Z-index are listed on the map.</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-scss"><code>$kittn-zlayer-map: (
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-zlayer-map" class="method__title">$kittn-zlayer-map</h4>
+            </header>
+            <div class="filebox">src/sass/maps/_zmap.scss</div>
+            <div class="method__text">
+              <p>The different Z-index are listed on the map, useable with the <a href="/sassmodules.html#positioning">z-mixins</a>.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} [z-name]</li>
+                  <li>{Number} Index Number</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-zlayer-map: (
   'default': 10
-);
-</code></pre>
+);</code></pre>
+              </div>
             </div>
-          </div>
+            <a class="method__toggle"></a>
+          </section>
         </article>
       </div>
     </div>

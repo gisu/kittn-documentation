@@ -2881,13 +2881,14 @@ $kittn-font-icons: (
           <div class="filebox">scr/sass/framework/modules/_lines.scss</div>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">rem</h4>
+              <h4 id="function-rem" class="method__title">rem</h4>
             </header>
             <div class="method__text">
               <p>Converts <code>px</code> into <code>rem</code>.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-typo</div>
+              <div class="method__api--requires">map <a href="sassbasics.html/#kittn-typo">$kittn-typo</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $px - Size in PX</li>
@@ -2908,7 +2909,7 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">_remsize</h4>
+              <h4 id="mixin-remsize" class="method__title">_remsize</h4>
             </header>
             <div class="method__text">
               <p>Calculated sizes based on the base line-height. The recalculations is admitted only if the <code>$kittn-typo</code> the <code>unit</code> was placed on <code>rem</code>. IE8 gets its own fallback via PX values.</p>
@@ -2917,8 +2918,10 @@ $kittn-font-icons: (
               <div class="method__api--access">private</div>
               <div class="method__api--requires">
                 <ul>
-                  <li>$kittn-typo</li>
-                  <li>function rem()</li>
+                  <li>function <a href="#function-rem">rem()</a>
+                  </li>
+                  <li>map <a href="sassbasics.html/#kittn-typo">$kittn-typo</a>
+                  </li>
                 </ul>
               </div>
               <div class="method__api--param">
@@ -2942,7 +2945,7 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">_pxsize</h4>
+              <h4 id="mixin-pxsize" class="method__title">_pxsize</h4>
             </header>
             <div class="method__text">
               <p>Calculates PX values ​​into REM. The recalculations is admitted only if the <code>$kittn-typo</code> the <code>unit</code> was placed on <code>rem</code>. IE8 gets its own fallback via PX values.</p>
@@ -2950,10 +2953,7 @@ $kittn-font-icons: (
             <div class="method__details">
               <div class="method__api--access">private</div>
               <div class="method__api--requires">
-                <ul>
-                  <li>$kittn-typo</li>
-                  <li>function rem()</li>
-                </ul>
+                <p>ul li function &lt;a href=&quot;#function-rem&quot;&gt;rem()&lt;/a&gt; li map &lt;a href=&quot;sassbasics.html/#kittn-typo&quot;&gt;$kittn-typo&lt;/a&gt;</p>
               </div>
               <div class="method__api--param">
                 <ul>
@@ -2976,7 +2976,7 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">rem</h4>
+              <h4 id="mixin-rem" class="method__title">rem</h4>
             </header>
             <div class="method__text">
               <p>Calculates the sizes Dynamic. The size may be once about Lines (calculation by multiplying the Base line-height), or Px in the REM are then converted. IE8 gets a pixel fallback in IE8 Compatibility active.</p>
@@ -2984,15 +2984,19 @@ $kittn-font-icons: (
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>mixin _remsize()</li>
-                  <li>mixin _pxsize()</li>
+                  <li>mixin <a href="#mixin-remsize">_remsize()</a>
+                  </li>
+                  <li>mixin <a href="#mixin-pxsize">_remsize()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
                 </ul>
               </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $arg - Attribute</li>
                   <li>{Number} $size - Size</li>
-                  <li>{Bool} $baseline - When &#39;true&#39;, the Value follow the Baselinerule</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3010,16 +3014,24 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">lineheight</h4>
+              <h4 id="mixin-lineheight" class="method__title">lineheight</h4>
             </header>
             <div class="method__text">
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3041,10 +3053,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3066,10 +3086,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3091,10 +3119,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3116,10 +3152,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3141,10 +3185,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3166,10 +3218,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3191,10 +3251,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3216,10 +3284,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3241,10 +3317,18 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-rem">rem()</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
+                  <li>{Bool} $baseline ($kittn-activate:baseline) - When &#39;true&#39;, the Value follow the Baselinerule</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3260,13 +3344,18 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">fontsize</h4>
+              <h4 id="mixin-fontsize" class="method__title">fontsize</h4>
             </header>
             <div class="method__text">
               <p>Based on the <code>rem</code> mixin.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-pxsize">_pxsize()</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $size - Size</li>
@@ -3291,7 +3380,14 @@ $kittn-font-icons: (
               <p>Based on the <code>rem</code> mixin. Calculates in addition to the font size also the line-height.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin rem()</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-fontsize">fontsize()</a>
+                  </li>
+                  <li>mixin <a href="#mixin-lineheight">lineheight()</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $fontsize - Font Size</li>
@@ -3323,13 +3419,19 @@ $kittn-font-icons: (
           <div class="filebox">scr/sass/framework/modules/_modernizr.scss</div>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">modernizer</h4>
+              <h4 id="mixin-modernizr" class="method__title">modernizer</h4>
             </header>
             <div class="method__text">
               <p>The integrated feature check classes of Modernizr, you can integrate fallbacks.</p>
             </div>
             <div class="method__details">
               <div class="method__api--access">private</div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{List} $features - The checked features</li>
+                  <li>{Bool} $supports - Internal yep nope routing</li>
+                </ul>
+              </div>
             </div>
             <a class="method__toggle"></a>
           </section>
@@ -3341,7 +3443,8 @@ $kittn-font-icons: (
               <p>Becomes active at positive feature check classes</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin modernizr()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-modernizr">modernizr()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{argList} $features - Checked Features</li>
@@ -3368,7 +3471,9 @@ $kittn-font-icons: (
               <p>Becomes active at negative feature check classes</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin modernizr()</div>
+              <div class="method__api--requires">mixin
+                <a href="#mixin-modernizr">
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{argList} $features - Checked Features</li>
@@ -3392,13 +3497,14 @@ $kittn-font-icons: (
           <div class="filebox">scr/sass/framework/modules/_positioning.scss</div>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">z</h4>
+              <h4 id="function-z" class="method__title">z</h4>
             </header>
             <div class="method__text">
-              <p>Picked the corresponding z-index from the zlayer Map.</p>
+              <p>Pick the corresponding z-index from the zlayer Map.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-zlayer-map</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-zlayer-map">$kittn-zlayer-map</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $layer - The layer to use</li>
@@ -3427,14 +3533,16 @@ $kittn-font-icons: (
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>$kittn-zlayer-map</li>
-                  <li>function z()</li>
+                  <li>function <a href="/sasshelper.html#function-strip-units">strip-units()</a>
+                  </li>
+                  <li>function <a href="#function-z">z()</a>
+                  </li>
                 </ul>
               </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $layer - The layer to use</li>
-                  <li>{Number} $offset - Add or substract an offset</li>
+                  <li>{Number} $offset (0) - Add or substract an offset</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3468,11 +3576,17 @@ $kittn-font-icons: (
               <p>Assigns the element a z-index and also determines the position-type.</p>
             </div>
             <div class="method__details">
+              <div class="method__api--requires">
+                <ul>
+                  <li>function <a href="#function-z">z()</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{Number} $index - Z-index</li>
-                  <li>{Number} $offset - Offset</li>
-                  <li>{Bool|*} $position - Position. Values: &#39;r&#39; relative, &#39;a&#39; absolute, &#39;f&#39; fixed</li>
+                  <li>{Number} $offset (0) - Offset</li>
+                  <li>{Bool|*} $position (false) - Position. Values: &#39;r&#39; relative, &#39;a&#39; absolute, &#39;f&#39; fixed</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3502,7 +3616,7 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">set-position</h4>
+              <h4 id="mixin-set-position" class="method__title">set-position</h4>
             </header>
             <div class="method__text">
               <p>Sets the position for the position mixins.</p>
@@ -3513,13 +3627,7 @@ $kittn-font-icons: (
               <div class="method__api--access">private</div>
               <div class="method__api--param">
                 <ul>
-                  <li>{List} $position
-                    <ul>
-                      <li>One position Value: &#39;top&#39;</li>
-                      <li>Two position Values: &#39;top&#39;, &#39;left&#39;</li>
-                      <li>Four position Values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
-                    </ul>
-                  </li>
+                  <li>{List} $position - Position Type. One Value: &#39;top&#39; | two values: &#39;top&#39;, &#39;left&#39; | four values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
                 </ul>
               </div>
             </div>
@@ -3533,16 +3641,11 @@ $kittn-font-icons: (
               <p>Set the element to <code>position: relative</code> also set the position.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin set-position()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-set-position">set-position()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{List} $position
-                    <ul>
-                      <li>One position Value: &#39;top&#39;</li>
-                      <li>Two position Values: &#39;top&#39;, &#39;left&#39;</li>
-                      <li>Four position Values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
-                    </ul>
-                  </li>
+                  <li>{List} $position (0) - Position Type. One Value: &#39;top&#39; | two values: &#39;top&#39;, &#39;left&#39; | four values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3590,16 +3693,11 @@ $kittn-font-icons: (
               <p>Set the element to <code>position: absolute</code> also set the position.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin set-position()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-set-position">set-position()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{List} $position
-                    <ul>
-                      <li>One position Value: &#39;top&#39;</li>
-                      <li>Two position Values: &#39;top&#39;, &#39;left&#39;</li>
-                      <li>Four position Values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
-                    </ul>
-                  </li>
+                  <li>{List} $position (0) - Position Type. One Value: &#39;top&#39; | two values: &#39;top&#39;, &#39;left&#39; | four values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3639,16 +3737,11 @@ $kittn-font-icons: (
               <p>Set the element to <code>position: fixed</code> also set the position.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin set-position()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-set-position">set-position()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{List} $position
-                    <ul>
-                      <li>One position Value: &#39;top&#39;</li>
-                      <li>Two position Values: &#39;top&#39;, &#39;left&#39;</li>
-                      <li>Four position Values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
-                    </ul>
-                  </li>
+                  <li>{List} $position (0) - Position Type. One Value: &#39;top&#39; | two values: &#39;top&#39;, &#39;left&#39; | four values: &#39;top&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;left&#39;</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3703,7 +3796,7 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">bar</h4>
+              <h4 id="mixin-bar" class="method__title">bar</h4>
             </header>
             <div class="method__text">
               <p>Generate a bar element.</p>
@@ -3713,7 +3806,7 @@ $kittn-font-icons: (
                 <ul>
                   <li>{*} $variant - &#39;f&#39; for fixed, &#39;a&#39; for absolute</li>
                   <li>{*} $position - &#39;t&#39; Top, &#39;b&#39; Bottom, &#39;l&#39; Left, &#39;r&#39; Right</li>
-                  <li>{Number} $z-index - The Z-Index</li>
+                  <li>{Number} $z-index - Z-Index</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3749,11 +3842,12 @@ $kittn-font-icons: (
               <p>Generate a bar element - top position.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin bar()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-bar">bar()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{value} $z - The Z-Index</li>
-                  <li>{*} $variant - &#39;f&#39;: fixed, &#39;a&#39;: absolute</li>
+                  <li>{value} $z (9999) - The Z-Index</li>
+                  <li>{*} $variant (f) - &#39;f&#39;: fixed, &#39;a&#39;: absolute</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3789,11 +3883,12 @@ $kittn-font-icons: (
               <p>Generate a bar element - bottom position.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin bar()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-bar">bar()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{value} $z - The Z-Index</li>
-                  <li>{*} $variant - &#39;f&#39;: fixed, &#39;a&#39;: absolute</li>
+                  <li>{value} $z (9999) - The Z-Index</li>
+                  <li>{*} $variant (f) - &#39;f&#39;: fixed, &#39;a&#39;: absolute</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3823,15 +3918,41 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">position-translate</h4>
+              <h4 id="mixin-position-translate" class="method__title">position-translate</h4>
             </header>
             <div class="method__text">
-              <p>Used for the calculation of the <code>pivot-points</code> needs.</p>
+              <p>Transform named Positions to numbered values</p>
             </div>
             <div class="method__details">
+              <div class="method__api--access">private</div>
+              <div class="method__api--requires">function <a href="/sasshelper.html#function-clamp">clamp()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{*|number|bool} $pos - Position Value. Values: &#39;left&#39;, &#39;center&#39;, &#39;right&#39;, &#39;top&#39;, &#39;middle&#39;, &#39;bottom&#39;</li>
+                  <li>{*|Number|Bool} $pos - Position Value. Values: &#39;left&#39;, &#39;center&#39;, &#39;right&#39;, &#39;top&#39;, &#39;middle&#39;, &#39;bottom&#39;</li>
+                  <li>{*} $axis - The Position Axis. Values: &#39;vert&#39;, &#39;horz&#39;</li>
+                </ul>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 id="mixin-pivot" class="method__title">pivot</h4>
+            </header>
+            <div class="method__text">
+              <p>Move the Pivot Point from a Element, based on 2D CSS Transform</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-position-translate">position-translate()</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*|Number|Bool} $pos - Position Value. Values: &#39;left&#39;, &#39;center&#39;, &#39;right&#39;, &#39;top&#39;, &#39;middle&#39;, &#39;bottom&#39;</li>
                   <li>{*} $axis - The Position Axis. Values: &#39;vert&#39;, &#39;horz&#39;</li>
                 </ul>
               </div>
@@ -3860,17 +3981,22 @@ $kittn-font-icons: (
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">slide</h4>
+              <h4 id="mixin-slide" class="method__title">slide</h4>
             </header>
             <div class="method__text">
               <p>Moves an element.</p>
             </div>
             <div class="method__details">
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin <a href="#mixin-position-translate">position-translate()</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{*|number|bool} $vert (middle) - Vertical Position from the Pivot Point. Values: &#39;top&#39; ,&#39;middle&#39; ,&#39;bottom&#39;</li>
-                  <li>{*|number|bool} $horz (false) - Horizontal Position from the Pivot Point. Values: &#39;left&#39;, &#39;center&#39;, &#39;right&#39;</li>
-                  <li>{*} $type - Position Type. Values &#39;absolute&#39;, &#39;relative&#39;, &#39;fixed&#39;</li>
+                  <li>{Number|*} $vert - Vertical Position</li>
+                  <li>{Number|*} $horz - Horizontal Position</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3878,10 +4004,10 @@ $kittn-font-icons: (
   @include slide(middle);
 }
 .slide-2 {
-  @include slide(middle,center);
+  @include slide(middle, center);
 }
 .slide-3 {
-  @include slide(70,center);
+  @include slide(70, center);
 }</code></pre>
                 <pre class="language-css"><code>.slide-1 {
   position: absolute;
@@ -3911,8 +4037,10 @@ $kittn-font-icons: (
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>mixin pivot()</li>
-                  <li>mixin slide()</li>
+                  <li>mixin <a href="#mixin-pivot">pivot()</a>
+                  </li>
+                  <li>mixin <a href="#mixin-slide">slide()</a>
+                  </li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3938,8 +4066,10 @@ $kittn-font-icons: (
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>mixin pivot()</li>
-                  <li>mixin slide()</li>
+                  <li>mixin <a href="#mixin-pivot">pivot()</a>
+                  </li>
+                  <li>mixin <a href="#mixin-slide">slide()</a>
+                  </li>
                 </ul>
               </div>
               <div class="method__code">
@@ -3966,7 +4096,7 @@ $kittn-font-icons: (
             <div class="method__details">
               <div class="method__api--param">
                 <ul>
-                  <li>{List} $element - Width and the Height of the Element</li>
+                  <li>{List} $element (0 0) - Width and height of the Element</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -4008,7 +4138,7 @@ $kittn-font-icons: (
             <div class="method__details">
               <div class="method__api--param">
                 <ul>
-                  <li>{List} &#39;$size&#39; - The Sidevalues, one value can be used for two sides, two values first for left second for right</li>
+                  <li>{List} $size - Overlapvalues, one value can be used for two sides, two values first for left second for right</li>
                 </ul>
               </div>
               <div class="method__code">
@@ -4311,13 +4441,24 @@ $kittn-font-icons: (
           <div class="filebox">scr/sass/framework/modules/_spacer.scss</div>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">margin-padding</h4>
+              <h4 id="mixin-margin-padding" class="method__title">margin-padding</h4>
             </header>
             <div class="method__text">
               <p>Calculates margin / padding for margin and padding mixins.</p>
             </div>
             <div class="method__details">
               <div class="method__api--access">private</div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{Map} $options
+                    <ul>
+                      <li>{Bool|List} value (false) - It generate all four sides, with different length of values.</li>
+                      <li>{*} type (padding) - Type &#39;margin&#39; or &#39;padding&#39;</li>
+                      <li>{Bool} important (false) - When the Values need hard overwritten. Otherwise set it to &#39;false&#39;, the parent Classname will be used as base name</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
             <a class="method__toggle"></a>
           </section>
@@ -4329,10 +4470,11 @@ $kittn-font-icons: (
               <p>With the mixin can write padding in the usual short form, but which are then written to individual declarations in the CSS.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin margin-padding()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-margin-padding">margin-padding()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{Bool|List} $value (false) - It generate all four sides, with different length of values.</li>
+                  <li>{Bool|List} $value (null) - It generate all four sides, with different length of values.</li>
                   <li>{Bool} $important (false) - When the Values need hard overwritten. Otherwise set it to &#39;false&#39;, the parent Classname will be used as base name</li>
                 </ul>
               </div>
@@ -4376,10 +4518,11 @@ $kittn-font-icons: (
               <p>With the mixin can write margin in the usual short form, but which are then written to individual declarations in the CSS.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">mixin margin-padding()</div>
+              <div class="method__api--requires">mixin <a href="#mixin-margin-padding">margin-padding()</a>
+              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{Bool|List} $value (false) - It generate all four sides, with different length of values.</li>
+                  <li>{Bool|List} $value (null) - It generate all four sides, with different length of values.</li>
                   <li>{Bool} $important (false) - When the Values need hard overwritten. Otherwise set it to &#39;false&#39;, the parent Classname will be used as base name</li>
                 </ul>
               </div>
@@ -4423,7 +4566,12 @@ $kittn-font-icons: (
               <p>Calculated on the basis of the Global Spacing Unit distances.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-global-spacing</div>
+              <div class="method__api--requires">
+                <ul>
+                  <li>var <a href="/sassbasics.html#kittn-global-spacing">$kittn-global-spacing</a>
+                  </li>
+                </ul>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{List} $options - Spacing Type. &#39;w&#39;: width, &#39;h&#39;: height, &#39;lh&#39;: line-height, &#39;pt&#39;: padding-top, &#39;pb&#39;: padding-bottom, &#39;pl&#39;: padding-left, &#39;pr&#39;: padding-right, &#39;mt&#39;: margin-top,
@@ -4539,10 +4687,10 @@ $kittn-font-icons: (
                 <ul>
                   <li>{Map} $values
                     <ul>
-                      <li>{color} color (#fff) - Trianglecolor</li>
-                      <li>{number} width (15px) - Width</li>
-                      <li>{number} height (15px) - Height</li>
-                      <li>{*|number} angle - Values: &#39;top&#39;, &#39;top left&#39;, &#39;right&#39;, &#39;bottom right&#39;, &#39;bottom&#39;, &#39;bottom left&#39;, &#39;left&#39;, &#39;top left&#39;</li>
+                      <li>{Color} color (#fff) - Trianglecolor</li>
+                      <li>{Number} width (15px) - Width</li>
+                      <li>{Number} height (15px) - Height</li>
+                      <li>{*|Number} angle - Values: &#39;top&#39;, &#39;top left&#39;, &#39;right&#39;, &#39;bottom right&#39;, &#39;bottom&#39;, &#39;bottom left&#39;, &#39;left&#39;, &#39;top left&#39;</li>
                     </ul>
                   </li>
                 </ul>
@@ -4603,13 +4751,14 @@ $kittn-font-icons: (
           <div class="filebox">scr/sass/framework/modules/_typography.scss</div>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">tw</h4>
+              <h4 id="function-tw" class="method__title">tw</h4>
             </header>
             <div class="method__text">
               <p>Pick Values from the Typostyle Map.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">$kittn-typostyles-map</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-typostyles-map">$kittn-typostyles-map</a>
+              </div>
               <div class="method__api--param">
                 <ul>
                   <li>{*} $entry - Key</li>
@@ -4649,8 +4798,10 @@ $kittn-typostyles-map: (
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>$kittn-generate-typostyles</li>
-                  <li>$kittn-typostyles-map</li>
+                  <li>map <a href="/sassbasics.html#kittn-generate-typostyles">$kittn-generate-typostyles</a>
+                  </li>
+                  <li>map <a href="/sassbasics.html#kittn-typostyles-map">$kittn-typostyles-map</a>
+                  </li>
                 </ul>
               </div>
               <div class="method__code">
@@ -4728,23 +4879,22 @@ $kittn-typostyles-map: (
             <div class="method__text">
               <p>If the font size defined in <code>rem</code>, one can make about the mixin the FontSize responsive. The Global size is listed in the <code>$kittn-breakpoint-map</code>.</p>
 
-              <p>Is activated all over the <code>$ kittn-active-responsive-fonts</code> variable, it must be a value from 0 - 100 set.</p>
+              <p>Is activated all over the <code>$kittn-active-responsive-fonts</code> variable, it must be a value from 0 - 100 set.</p>
             </div>
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>$kittn-breakpoint-map</li>
-                  <li>$kittn-activate</li>
-                  <li>$kittn-active-responsive-fonts</li>
-                </ul>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{Number} $base - The Base Font Size in percent</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>// Map and Vars
+                  <li>map <a href="/sassbasics.html#kittn-breakpoint-map>$kittn-breakpoint-map</a></li>
+                    <li>map <a href=" /sassbasics.html#kittn-activate>$kittn-activate</a>
+                  </li>
+                  <li>var
+                    <a href="/sassbasics.html#kittn-active-responsive-fonts>$kittn-active-responsive-fonts</a></li>
+                  </ul>
+                </div>
+                <div class=" method__api--param "><ul><li>{Number} $base - The Base Font Size in percent</li></ul>
+                </div>
+                <div class="method__code ">
+                  <pre class="language-scss "><code>// Map and Vars
 // file: src/sass/setup.scss
 
 $kittn-breakpoint-map: (
@@ -4769,8 +4919,8 @@ $kittn-breakpoint-map: (
 );
 
 $kittn-active-responsive-fonts: 70;</code></pre>
-                <pre class="language-scss"><code>@include responsive-fontsize( $kittn-active-responsive-fonts );</code></pre>
-                <pre class="language-css"><code>html {
+                  <pre class="language-scss "><code>@include responsive-fontsize( $kittn-active-responsive-fonts );</code></pre>
+                  <pre class="language-css "><code>html {
   font-size: 70%;
 }
 @media screen and (min-width: 480px) {
@@ -4783,53 +4933,43 @@ $kittn-active-responsive-fonts: 70;</code></pre>
     font-size: 90%;
   }
 }</code></pre>
+                </div>
+              </div><a class="method__toggle "></a>
+            </section>
+            <section class="method ">
+              <header class="method__head--m ">
+                <h4 class="method__title ">get-fontsize</h4>
+              </header>
+              <div class="method__text "><p>Applies the font size from the map.</p>
               </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">get-fontsize</h4>
-            </header>
-            <div class="method__text">
-              <p>Applies the font size from the map.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--requires">function tw()</div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{*} $entry - TypoKey</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>.test {
+              <div class="method__details ">
+                <div class="method__api--requires ">function <a href="#function-tw ">tw()</a></div>
+                <div class="method__api--param "><ul><li>{*} $entry - TypoKey</li></ul>
+                </div>
+                <div class="method__code ">
+                  <pre class="language-scss "><code>.test {
   @include get-fontsize(small);
 }</code></pre>
-                <pre class="language-css"><code>.test {
+                  <pre class="language-css "><code>.test {
   font-size: 0.808824rem;
 }</code></pre>
+                </div>
+              </div><a class="method__toggle "></a>
+            </section>
+            <section class="method ">
+              <header class="method__head--m ">
+                <h4 class="method__title ">ext-typo</h4>
+              </header>
+              <div class="method__text "><p>Connects to existing Typo classes.</p>
               </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">ext-typo</h4>
-            </header>
-            <div class="method__text">
-              <p>Connects to existing Typo classes.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--param">
-                <ul>
-                  <li>{*} $entry - TypoKey</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>.test {
+              <div class="method__details ">
+                <div class="method__api--param "><ul><li>{*} $entry - TypoKey</li></ul>
+                </div>
+                <div class="method__code ">
+                  <pre class="language-scss "><code>.test {
   @include ext-typo(h1);
 }</code></pre>
-                <pre class="language-css"><code>.h1, .test, h1, .h2, h2, h3, .h3 {
+                  <pre class="language-css "><code>.h1, .test, h1, .h2, h2, h3, .h3 {
   text-rendering: optimizeLegibility;
   margin-bottom: 0rem;
   color: #636363; }
@@ -4837,70 +4977,48 @@ $kittn-active-responsive-fonts: 70;</code></pre>
 .h1, .test, h1 {
   font-size: 2.647059rem;
   line-height: 0.073529rem; }</code></pre>
+                </div>
+              </div><a class="method__toggle "></a>
+            </section>
+            <hr>
+            <h3 id="wireframes ">Wireframes</h3>
+            <div class="filebox ">scr/sass/framework/modules/_wireframes.scss</div>
+            <section class="method ">
+              <header class="method__head--m ">
+                <h4 class="method__title ">wireframe-generator</h4>
+              </header>
+              <div class="method__text "><p>Generate Stylingclasses for Wireframes</p>
               </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <hr>
-          <h3 id="wireframes">Wireframes</h3>
-          <div class="filebox">scr/sass/framework/modules/_wireframes.scss</div>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">wireframe-generator</h4>
-            </header>
-            <div class="method__text">
-              <p>Generate Stylingclasses for Wireframes</p>
-            </div>
-            <div class="example">
-              <div class="row wire">
-                <div style="height: 50px" data-title="logo" class="logo wire width--3 column"></div>
-                <nav style="height: 50px" class="wire width--7 column">
-                  <ul style="overflow: hidden" class="wire">
-                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
-                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
-                    </li>
-                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
-                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
-                    </li>
-                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
-                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
-                    </li>
-                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
-                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              <div class="row wire">
-                <div style="padding-top: 10px; padding-bottom: 10px" class="teaser wire">
-                  <div style="height: 200px" data-title="Teaser" class="teaser__inner wire"></div>
+              <div class="example ">
+                <div class="row wire ">
+                  <div style="height: 50px " data-title="logo " class="logo wire width--3 column "></div>
+                  <nav style="height: 50px " class="wire width--7 column ">
+                    <ul style="overflow: hidden " class="wire ">
+                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
+                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
+                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
+                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="row wire ">
+                  <div style="padding-top: 10px; padding-bottom: 10px " class="teaser wire ">
+                    <div style="height: 200px " data-title="Teaser " class="teaser__inner wire "></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="method__details">
-              <div class="method__api--requires">
-                <ul>
-                  <li>mixin pivot-center()</li>
-                  <li>function color-scale()</li>
-                </ul>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{Map} $wire
-                    <ul>
-                      <li>levels {Number} - How many levels the wire classes are nested</li>
-                      <li>colors {List} - Color Values, min and max</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>.wire {
+              <div class="method__details ">
+                <div class="method__api--requires "><ul><li>mixin pivot-center()</li><li>function color-scale()</li></ul>
+                </div>
+                <div class="method__api--param "><ul><li>{Map} $wire<ul><li>levels {Number} - How many levels the wire classes are nested</li><li>colors {List} - Color Values, min and max</li></ul></li></ul>
+                </div>
+                <div class="method__code ">
+                  <pre class="language-scss "><code>.wire {
   @include wireframe-generator((
     levels: 5,
   ));
 }</code></pre>
-                <pre class="language-css"><code>.wire {
+                  <pre class="language-css "><code>.wire {
   min-height: 1px;
   overflow: hidden;
   position: relative; }
@@ -4930,28 +5048,26 @@ $kittn-active-responsive-fonts: 70;</code></pre>
   
 .wire .wire .wire .wire .wire {
   background-color: #8d8d8d; }</code></pre>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-        </article>
+                </div>
+              </div><a class="method__toggle "></a>
+            </section>
+          </article>
+        </div>
       </div>
-    </div>
-  </main>
-  <footer class="_FOOTER">
-    <div class="container">
-      <div class="row"></div>
-      <div class="row copyright">
-        <p>Hand-Made by Sascha Fuchs. Endorsed by Wire Communications. Licensed under MIT.</p>
-        <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
+    </main>
+    <footer class="_FOOTER ">
+      <div class="container ">
+        <div class="row "></div>
+        <div class="row copyright ">
+          <p>Hand-Made by Sascha Fuchs. Endorsed by Wire Communications. Licensed under MIT.</p>
+          <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues " target='_blank'>Github issues page</a>.</p>
+        </div>
       </div>
-    </div>
-  </footer>
-  <script src="assets/js/scripts.js"></script>
-  <script src="assets/js/conditionizr.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/eq.js"></script>
-  <script src="assets/js/prism.js"></script>
-</body>
-
+    </footer>
+    <script src="assets/js/scripts.js "></script>
+    <script src="assets/js/conditionizr.js "></script>
+    <script src="assets/js/app.js "></script>
+    <script src="assets/js/eq.js "></script>
+    <script src="assets/js/prism.js "></script>
+  </body>
 </html>

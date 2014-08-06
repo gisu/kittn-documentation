@@ -824,6 +824,96 @@
             </div>
             <a class="method__toggle"></a>
           </section>
+          <section class="method">
+            <header class="method__head--map">
+              <h4 id="kittn-button" class="method__title">$kittn-button</h4>
+            </header>
+            <div class="method__text">
+              <p>Button Map. You can add more than one button, any attribute is optional</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">
+                <ul>
+                  <li>{*} buttonname - Name of the Button
+                    <ul>
+                      <li>global
+                        <ul>
+                          <li>{Color|Bool} color - Text Color</li>
+                          <li>{Color|Bool} background - Background Color</li>
+                          <li>{*|Bool} display (inline-block) - Display Type</li>
+                          <li>{Number|Bool} width - Width of the button</li>
+                          <li>{Number|Bool} fontsize - Text Fontsize</li>
+                          <li>{Number|Bool} lineheight - Text Lineheight</li>
+                          <li>{Number|Bool} height - Button height</li>
+                          <li>{*|Bool} align (center) - Text Align</li>
+                          <li>{Number|Bool} padding - Side Padding</li>
+                          <li>{*|Bool} weight - Font Weight</li>
+                          <li>{*|Bool} style - Font style</li>
+                          <li>{*|Bool} family - Font Family</li>
+                          <li>{*|Bool} transition - State transition</li>
+                          <li>{*|Bool} shadow - Box Shadow</li>
+                          <li>{*|Bool} border - Border Style</li>
+                          <li>{Number|Bool} radius - Border Radius</li>
+                        </ul>
+                      </li>
+                      <li>hover - hover style (optional)
+                        <ul>
+                          <li>{Color|Bool} color - Text Color</li>
+                          <li>{Color|Bool} background - Background Color</li>
+                          <li>{*|Bool} weight - Font Weight</li>
+                          <li>{*|Bool} shadow - Box Shadow</li>
+                          <li>{*|Bool} border - Border Style</li>
+                        </ul>
+                      </li>
+                      <li>active - Active State style (optional)
+                        <ul>
+                          <li>{Color|Bool} color - Text Color</li>
+                          <li>{Color|Bool} background - Background Color</li>
+                          <li>{*|Bool} weight - Font Weight</li>
+                          <li>{*|Bool} shadow - Box Shadow</li>
+                          <li>{*|Bool} border - Border Style</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-button: (
+  default: (
+    global: (
+      color: cp('white'),
+      background: cp('primary'),
+      fontsize: 14,
+      lineheight: 30,
+      padding: 20px,
+      transition: 300ms ease-in-out,
+    ),
+    hover: (
+      color: cp('white'),
+      background: darken(cp('primary'),15),
+    )
+  )
+);</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--var">
+              <h4 id="kittn-gen-buttons" class="method__title">$kittn-gen-buttons</h4>
+            </header>
+            <div class="method__text">
+              <p>Define the Style how the Buttons are generated</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--type">{Bool}</div>
+              <div class="method__code">
+                <pre class="language-scss"><code>$kittn-gen-buttons: silent;</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
           <hr>
           <h3 id="maps">Maps</h3>
           <p>Additional to the <code>setup.scss</code> file you will find other Map Files</p>

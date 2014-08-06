@@ -81,6 +81,8 @@
               </li>
               <li><a href="#wireframes">Wireframes</a>
               </li>
+              <li><a href="#buttons">Buttons</a>
+              </li>
             </ul>
             </a>
             </li>
@@ -4884,17 +4886,21 @@ $kittn-typostyles-map: (
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>map <a href="/sassbasics.html#kittn-breakpoint-map>$kittn-breakpoint-map</a></li>
-                    <li>map <a href=" /sassbasics.html#kittn-activate>$kittn-activate</a>
+                  <li>map <a href="/sassbasics.html#kittn-breakpoint-map">$kittn-breakpoint-map</a>
                   </li>
-                  <li>var
-                    <a href="/sassbasics.html#kittn-active-responsive-fonts>$kittn-active-responsive-fonts</a></li>
-                  </ul>
-                </div>
-                <div class=" method__api--param "><ul><li>{Number} $base - The Base Font Size in percent</li></ul>
-                </div>
-                <div class="method__code ">
-                  <pre class="language-scss "><code>// Map and Vars
+                  <li>map <a href="/sassbasics.html#kittn-activate">$kittn-activate</a>
+                  </li>
+                  <li>var <a href="/sassbasics.html#kittn-active-responsive-fonts">$kittn-active-responsive-fonts</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{Number} $base - The Base Font Size in percent</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>// Map and Vars
 // file: src/sass/setup.scss
 
 $kittn-breakpoint-map: (
@@ -4919,8 +4925,8 @@ $kittn-breakpoint-map: (
 );
 
 $kittn-active-responsive-fonts: 70;</code></pre>
-                  <pre class="language-scss "><code>@include responsive-fontsize( $kittn-active-responsive-fonts );</code></pre>
-                  <pre class="language-css "><code>html {
+                <pre class="language-scss"><code>@include responsive-fontsize( $kittn-active-responsive-fonts );</code></pre>
+                <pre class="language-css"><code>html {
   font-size: 70%;
 }
 @media screen and (min-width: 480px) {
@@ -4933,43 +4939,54 @@ $kittn-active-responsive-fonts: 70;</code></pre>
     font-size: 90%;
   }
 }</code></pre>
-                </div>
-              </div><a class="method__toggle "></a>
-            </section>
-            <section class="method ">
-              <header class="method__head--m ">
-                <h4 class="method__title ">get-fontsize</h4>
-              </header>
-              <div class="method__text "><p>Applies the font size from the map.</p>
               </div>
-              <div class="method__details ">
-                <div class="method__api--requires ">function <a href="#function-tw ">tw()</a></div>
-                <div class="method__api--param "><ul><li>{*} $entry - TypoKey</li></ul>
-                </div>
-                <div class="method__code ">
-                  <pre class="language-scss "><code>.test {
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">get-fontsize</h4>
+            </header>
+            <div class="method__text">
+              <p>Applies the font size from the map.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">function <a href="#function-tw">tw()</a>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $entry - TypoKey</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.test {
   @include get-fontsize(small);
 }</code></pre>
-                  <pre class="language-css "><code>.test {
+                <pre class="language-css"><code>.test {
   font-size: 0.808824rem;
 }</code></pre>
-                </div>
-              </div><a class="method__toggle "></a>
-            </section>
-            <section class="method ">
-              <header class="method__head--m ">
-                <h4 class="method__title ">ext-typo</h4>
-              </header>
-              <div class="method__text "><p>Connects to existing Typo classes.</p>
               </div>
-              <div class="method__details ">
-                <div class="method__api--param "><ul><li>{*} $entry - TypoKey</li></ul>
-                </div>
-                <div class="method__code ">
-                  <pre class="language-scss "><code>.test {
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">ext-typo</h4>
+            </header>
+            <div class="method__text">
+              <p>Connects to existing Typo classes.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $entry - TypoKey</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.test {
   @include ext-typo(h1);
 }</code></pre>
-                  <pre class="language-css "><code>.h1, .test, h1, .h2, h2, h3, .h3 {
+                <pre class="language-css"><code>.h1, .test, h1, .h2, h2, h3, .h3 {
   text-rendering: optimizeLegibility;
   margin-bottom: 0rem;
   color: #636363; }
@@ -4977,48 +4994,70 @@ $kittn-active-responsive-fonts: 70;</code></pre>
 .h1, .test, h1 {
   font-size: 2.647059rem;
   line-height: 0.073529rem; }</code></pre>
-                </div>
-              </div><a class="method__toggle "></a>
-            </section>
-            <hr>
-            <h3 id="wireframes ">Wireframes</h3>
-            <div class="filebox ">scr/sass/framework/modules/_wireframes.scss</div>
-            <section class="method ">
-              <header class="method__head--m ">
-                <h4 class="method__title ">wireframe-generator</h4>
-              </header>
-              <div class="method__text "><p>Generate Stylingclasses for Wireframes</p>
               </div>
-              <div class="example ">
-                <div class="row wire ">
-                  <div style="height: 50px " data-title="logo " class="logo wire width--3 column "></div>
-                  <nav style="height: 50px " class="wire width--7 column ">
-                    <ul style="overflow: hidden " class="wire ">
-                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
-                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
-                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
-                      <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px; " class="wire "><a style="height: 40px; display: block; margin-top: 5px " data-title="link " class="wire "></a></li>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <hr>
+          <h3 id="wireframes">Wireframes</h3>
+          <div class="filebox">scr/sass/framework/modules/_wireframes.scss</div>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">wireframe-generator</h4>
+            </header>
+            <div class="method__text">
+              <p>Generate Stylingclasses for Wireframes</p>
+            </div>
+            <div class="example">
+              <div class="row wire">
+                <div style="height: 50px" data-title="logo" class="logo wire width--3 column"></div>
+                <nav style="height: 50px" class="wire width--7 column">
+                  <ul style="overflow: hidden" class="wire">
+                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                    </li>
+                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                    </li>
+                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                    </li>
+                    <li style="height: 50px; float: left; width: 10%; padding-left: 5px; padding-right: 5px;" class="wire">
+                      <a style="height: 40px; display: block; margin-top: 5px" data-title="link" class="wire"></a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row wire">
+                <div style="padding-top: 10px; padding-bottom: 10px" class="teaser wire">
+                  <div style="height: 200px" data-title="Teaser" class="teaser__inner wire"></div>
+                </div>
+              </div>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">
+                <ul>
+                  <li>mixin pivot-center()</li>
+                  <li>function color-scale()</li>
+                </ul>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{Map} $wire
+                    <ul>
+                      <li>levels {Number} - How many levels the wire classes are nested</li>
+                      <li>colors {List} - Color Values, min and max</li>
                     </ul>
-                  </nav>
-                </div>
-                <div class="row wire ">
-                  <div style="padding-top: 10px; padding-bottom: 10px " class="teaser wire ">
-                    <div style="height: 200px " data-title="Teaser " class="teaser__inner wire "></div>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
-              <div class="method__details ">
-                <div class="method__api--requires "><ul><li>mixin pivot-center()</li><li>function color-scale()</li></ul>
-                </div>
-                <div class="method__api--param "><ul><li>{Map} $wire<ul><li>levels {Number} - How many levels the wire classes are nested</li><li>colors {List} - Color Values, min and max</li></ul></li></ul>
-                </div>
-                <div class="method__code ">
-                  <pre class="language-scss "><code>.wire {
+              <div class="method__code">
+                <pre class="language-scss"><code>.wire {
   @include wireframe-generator((
     levels: 5,
   ));
 }</code></pre>
-                  <pre class="language-css "><code>.wire {
+                <pre class="language-css"><code>.wire {
   min-height: 1px;
   overflow: hidden;
   position: relative; }
@@ -5048,26 +5087,116 @@ $kittn-active-responsive-fonts: 70;</code></pre>
   
 .wire .wire .wire .wire .wire {
   background-color: #8d8d8d; }</code></pre>
-                </div>
-              </div><a class="method__toggle "></a>
-            </section>
-          </article>
-        </div>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <hr>
+          <h3 id="buttons">Buttons</h3>
+          <div class="filebox">scr/sass/framework/modules/_buttons.scss</div>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 id="mixin-button" class="method__title">button</h4>
+            </header>
+            <div class="method__text">
+              <p>Generate a single Button from the Map</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--access">private</div>
+              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-button">$kittn-button</a>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{Map} $button - A part from the Button Map</li>
+                </ul>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 id="mixin-button-generator" class="method__title">button-generator</h4>
+            </header>
+            <div class="method__text">
+              <p>Generate all Buttons from the Button Map</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">
+                <ul>
+                  <li>map <a href="/sassbasics.html#kittn-button">$kittn-button</a>
+                  </li>
+                  <li>mixin <a href="#mixin-button">button()</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{Map} $map ($kittn-button) - Connection through the Button Map</li>
+                </ul>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">ext-button</h4>
+            </header>
+            <div class="method__text">
+              <p>Extend Classes with the generated Buttons</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">mixin <a href="#mixin-button-generator">button-generator()</a>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{*} $name - Button to be extended</li>
+                  <li>{Map} $map ($kittn-button) - Connection through the map</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.button {
+  @include ext-button(default);
+}</code></pre>
+                <pre class="language-css"><code>.button {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  background: #23baf2;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.029412rem;
+  line-height: 2.205882rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-transition: all 300ms ease-in-out;
+          transition: all 300ms ease-in-out; }
+.button:hover, .button:active,
+.is-active .button, .is-active.button {
+  text-decoration: none;
+  color: #fff;
+  background: #0b8dbd; }</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+        </article>
       </div>
-    </main>
-    <footer class="_FOOTER ">
-      <div class="container ">
-        <div class="row "></div>
-        <div class="row copyright ">
-          <p>Hand-Made by Sascha Fuchs. Endorsed by Wire Communications. Licensed under MIT.</p>
-          <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues " target='_blank'>Github issues page</a>.</p>
-        </div>
+    </div>
+  </main>
+  <footer class="_FOOTER">
+    <div class="container">
+      <div class="row"></div>
+      <div class="row copyright">
+        <p>Hand-Made by Sascha Fuchs. Endorsed by Wire Communications. Licensed under MIT.</p>
+        <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
       </div>
-    </footer>
-    <script src="assets/js/scripts.js "></script>
-    <script src="assets/js/conditionizr.js "></script>
-    <script src="assets/js/app.js "></script>
-    <script src="assets/js/eq.js "></script>
-    <script src="assets/js/prism.js "></script>
-  </body>
+    </div>
+  </footer>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/conditionizr.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/eq.js"></script>
+  <script src="assets/js/prism.js"></script>
+</body>
+
 </html>

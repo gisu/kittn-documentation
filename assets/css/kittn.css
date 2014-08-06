@@ -415,6 +415,48 @@
  * @type Map
  */
 /**
+ * Button Map
+ * You can add more than one button, any attribute is optional
+
+   - {*} buttonname - Name of the Button
+     - global
+       - {Color|Bool} color - Text Color
+       - {Color|Bool} background - Background Color
+       - {*|Bool} display (inline-block) - Display Type
+       - {Number|Bool} width - Width of the button
+       - {Number|Bool} fontsize - Text Fontsize
+       - {Number|Bool} lineheight - Text Lineheight
+       - {Number|Bool} height - Button height
+       - {*|Bool} align (center) - Text Align
+       - {Number|Bool} padding - Side Padding
+       - {*|Bool} weight - Font Weight
+       - {*|Bool} style - Font style
+       - {*|Bool} family - Font Family
+       - {*|Bool} transition - State transition
+       - {*|Bool} shadow - Box Shadow
+       - {*|Bool} border - Border Style
+       - {Number|Bool} radius - Border Radius
+     - hover
+       - {Color|Bool} color - Text Color
+       - {Color|Bool} background - Background Color
+       - {*|Bool} weight - Font Weight
+       - {*|Bool} shadow - Box Shadow
+       - {*|Bool} border - Border Style
+     - active - Active State style (optional)
+       - {Color|Bool} color - Text Color
+       - {Color|Bool} background - Background Color
+       - {*|Bool} weight - Font Weight
+       - {*|Bool} shadow - Box Shadow
+       - {*|Bool} border - Border Style
+ *
+ * @type Map
+ */
+/**
+ * Define the Style how the Buttons are generated
+ *
+ * @type * - 'silent' or 'class'
+ */
+/**
  * Micro Clearfix without IE7 the fix is smarter
  */
 /**
@@ -1322,6 +1364,26 @@
  * @example
  *    <div class="wire" data-title="header"></div>
  */
+/**
+ * Generate a single Button
+ *
+ * @access private
+ *
+ * @requires $kittn-button
+ *
+ * @param {Map} $button - A part from the Button Map
+ */
+/**
+ * Generate all Buttons from the Button Map
+ *
+ * @param {Map} $map ($kittn-button) - Connection through the Button Map
+ */
+/**
+ * Extend Classes with the generated Buttons
+ *
+ * @param {*} $name - Button to be extended
+ * @param {Map} $map ($kittn-button) - Connection through the map
+ */
 @font-face {
   font-family: kittn;
   src: url("/assets/fonts/kittn.eot");
@@ -1951,6 +2013,24 @@ table {
     width: 91.666667%; }
   .width--12 {
     width: 100%; } }
+
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  background: #23baf2;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.029412rem;
+  line-height: 2.205882rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-transition: all 300ms ease-in-out;
+          transition: all 300ms ease-in-out; }
+  .button:hover, .button:active, .is-active .button, .is-active.button {
+    text-decoration: none;
+    color: #fff;
+    background: #0b8dbd; }
 
 .method__text code, .article > p > strong code, .article > p > code, .article > blockquote code, .article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code, .article li code {
   background-color: #f0f0f0;
@@ -2671,3 +2751,6 @@ hr {
 
 .wire .wire .wire .wire .wire .wire .wire .wire .wire .wire {
   background-color: #8d8d8d; }
+
+.button {
+  content: herllo; }

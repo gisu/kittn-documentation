@@ -428,7 +428,8 @@
        - {Number|Bool} lineheight - Text Lineheight
        - {Number|Bool} height - Button height
        - {*|Bool} align (center) - Text Align
-       - {Number|Bool} padding - Side Padding
+       - {Number|Bool} padding-v - Side Padding
+       - {Number|Bool} padding-h - Horizontal Padding
        - {*|Bool} weight - Font Weight
        - {*|Bool} style - Font style
        - {*|Bool} family - Font Family
@@ -436,18 +437,30 @@
        - {*|Bool} shadow - Box Shadow
        - {*|Bool} border - Border Style
        - {Number|Bool} radius - Border Radius
+
+       - {Bool} iconized - Activate Icons
+       - {Number} icon - Iconcode
+       - {*} icon-pos - Icon Position 'left' or 'right'
+       - {Number} icon-space - Extra Spacing for Icon
+       - {Number} icon-size - Icon Size
+       - {Number} icon-lineheight - Icon Lineheight
+       - {*} icon-offset-h - Horizontal Offset
+       - {*} icon-offset-v - Vertical Offset
+       - {Color} icon-color - Icon Color
      - hover
        - {Color|Bool} color - Text Color
        - {Color|Bool} background - Background Color
        - {*|Bool} weight - Font Weight
        - {*|Bool} shadow - Box Shadow
        - {*|Bool} border - Border Style
+       - {Color} icon-color - Icon Color
      - active - Active State style (optional)
        - {Color|Bool} color - Text Color
        - {Color|Bool} background - Background Color
        - {*|Bool} weight - Font Weight
        - {*|Bool} shadow - Box Shadow
        - {*|Bool} border - Border Style
+       - {Color} icon-color - Icon Color
  *
  * @type Map
  */
@@ -1456,7 +1469,7 @@ audio:not([controls]) {
   display: none;
   height: 0; }
 
-label, input, textarea, select, option, button,
+label, input, textarea, select, option, button, a,
 input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer; }
 
@@ -1713,41 +1726,41 @@ legend {
   padding: 0;
   white-space: normal; }
 
+input {
+  line-height: normal; }
+  input:focus {
+    outline: 0; }
+
 optgroup {
   font-weight: bold; }
 
-button, input, select, textarea {
-  font-size: 100%;
+button, optgroup, input, select, textarea {
+  font-size: inherit;
   margin: 0;
-  vertical-align: middle; }
+  color: inherit; }
 
-button, input {
+button {
   line-height: normal; }
 
 button, select {
   text-transform: none; }
 
 button,
-input[type="button"],
+html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  background: transparent;
-  border: 0;
-  color: inherit;
-  font: inherit;
-  outline: none;
-  padding: 0;
-  width: auto;
   cursor: pointer;
-  -webkit-appearance: none;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-appearance: none; }
 
 button[disabled],
-input[disabled] {
+html input[disabled] {
   cursor: default; }
 
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   cursor: pointer;
   padding: 0; }
 
@@ -2017,20 +2030,48 @@ table {
 .button {
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
-  background: #23baf2;
+  background: #fff;
   text-align: center;
   display: inline-block;
-  font-size: 1.029412rem;
-  line-height: 2.205882rem;
-  padding-left: 20px;
-  padding-right: 20px;
-  -webkit-transition: all 300ms ease-in-out;
-          transition: all 300ms ease-in-out; }
+  width: 100%;
+  font-size: 0.882353rem;
+  line-height: 50px;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 300ms all ease-in-out;
+          transition: 300ms all ease-in-out; }
   .button:hover, .button:active, .is-active .button, .is-active.button {
     text-decoration: none;
     color: #fff;
-    background: #0b8dbd; }
+    background: #23baf2;
+    -webkit-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1); }
+
+.button-ghost {
+  cursor: pointer;
+  text-decoration: none;
+  color: #23baf2;
+  background: transparent;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  font-size: 0.882353rem;
+  line-height: 44px;
+  padding-left: 1.470588rem;
+  padding-right: 1.470588rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 3px solid #23baf2;
+  -webkit-transition: 300ms all ease-in-out;
+          transition: 300ms all ease-in-out; }
+  .button-ghost:hover, .button-ghost:active, .is-active .button-ghost, .is-active.button-ghost {
+    text-decoration: none;
+    color: #fff;
+    background: #23baf2;
+    -webkit-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1); }
 
 .method__text code, .article > p > strong code, .article > p > code, .article > blockquote code, .article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code, .article li code {
   background-color: #f0f0f0;
@@ -2751,6 +2792,3 @@ hr {
 
 .wire .wire .wire .wire .wire .wire .wire .wire .wire .wire {
   background-color: #8d8d8d; }
-
-.button {
-  content: herllo; }

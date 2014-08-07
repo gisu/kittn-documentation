@@ -157,6 +157,24 @@
  * @throws Color is not included in the map
  */
 /**
+ * Tint up the Color - normally mix with white
+ *
+ * @param  {Color}   $color             - The Color value
+ * @param  {Number}  $amount            - The Mix Value
+ * @param  {color}   $tint-color (#fff) - Color for Tint
+ *
+ * @returns {Color}
+ */
+/**
+ * Shade down the Color - normally mix with black
+ *
+ * @param  {Color}  $color              - The Color value
+ * @param  {Number} $amount             - The Mix Value
+ * @param  {Color}  $shade-color (#000) - Color for Tint
+ *
+ * @returns {Color}
+ */
+/**
  * Multiply the Spacing Value to generate Spacings
  *
  * @param  {Number}  $lines - Multiplicator for Spacing
@@ -2072,6 +2090,65 @@ table {
     background: #23baf2;
     -webkit-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
             box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1); }
+
+table {
+  max-width: 100%;
+  margin-bottom: 20px;
+  background-color: transparent; }
+
+th {
+  text-align: left; }
+
+.table {
+  width: 100%;
+  margin-bottom: 20px; }
+  .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.544118rem;
+    vertical-align: top;
+    border-top: 1px solid #dcdcdc; }
+  .table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dcdcdc; }
+  .table > caption + thead > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > th, .table > thead:first-child > tr:first-child > td {
+    border-top: 0; }
+  .table > tbody + tbody {
+    border-top: 2px solid #dcdcdc; }
+
+.table-bordered {
+  border: 1px solid #dcdcdc; }
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+    border: 1px solid #dcdcdc; }
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border-bottom-width: 2px; }
+
+.table-zebra > tbody > tr:nth-child(odd) > td, .table-zebra > tbody > tr:nth-child(odd) > th {
+  background-color: #d3f1fc; }
+
+.table-hover > tbody > td, .table-hover > tbody > th, .table-hover > tr:hover > td, .table-hover > tr:hover > th {
+  background-color: #53c9f5; }
+
+@media screen and (max-width: 400px) {
+  .responsive-table {
+    width: 100%;
+    margin-bottom: 20px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #dcdcdc; }
+    .responsive-table > .table {
+      margin-bottom: 0; }
+      .responsive-table > .table > thead > tr > th, .responsive-table > .table > thead > tr > td, .responsive-table > .table > tbody > tr > th, .responsive-table > .table > tbody > tr > td, .responsive-table > .table > tfoot > tr > th, .responsive-table > .table > tfoot > tr > td {
+        white-space: nowrap; }
+    .responsive-table > .table-bordered {
+      border: 0; }
+      .responsive-table > .table-bordered > thead > tr > th:first-child, .responsive-table > .table-bordered > thead > tr td:first-child, .responsive-table > .table-bordered > tbody > tr > th:first-child, .responsive-table > .table-bordered > tbody > tr td:first-child, .responsive-table > .table-bordered > tfoot > tr > th:first-child, .responsive-table > .table-bordered > tfoot > tr td:first-child {
+        border-left: 0; }
+      .responsive-table > .table-bordered > thead > tr > th:last-child, .responsive-table > .table-bordered > thead > tr td:last-child, .responsive-table > .table-bordered > tbody > tr > th:last-child, .responsive-table > .table-bordered > tbody > tr td:last-child, .responsive-table > .table-bordered > tfoot > tr > th:last-child, .responsive-table > .table-bordered > tfoot > tr td:last-child {
+        border-right: 0; }
+    .responsive-table > tbody tr:last-child > th, .responsive-table > tbody tr:last-child > td, .responsive-table > tfoot tr:last-child > th, .responsive-table > tfoot tr:last-child > td {
+      border-bottom: 0; } }
 
 .method__text code, .article > p > strong code, .article > p > code, .article > blockquote code, .article > .alert-box code, .article > .alert-box--info code, .article > .alert-box--warn code, .article li code {
   background-color: #f0f0f0;

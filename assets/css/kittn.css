@@ -2084,12 +2084,14 @@ table {
   border: 3px solid #23baf2;
   -webkit-transition: 300ms all ease-in-out;
           transition: 300ms all ease-in-out; }
-  .button-ghost:hover, .button-ghost:active, .is-active .button-ghost, .is-active.button-ghost {
+  .button-ghost:hover {
     text-decoration: none;
     color: #fff;
     background: #23baf2;
     -webkit-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
             box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1); }
+  .button-ghost:active, .is-active .button-ghost, .is-active.button-ghost {
+    text-decoration: none; }
 
 table {
   max-width: 100%;

@@ -663,6 +663,65 @@ $width: 23;
             <a class="method__toggle"></a>
           </section>
           <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">loadin</h4>
+            </header>
+            <div class="method__text">
+              <p>Save some Styling Attributes in a temporary cache</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{String} $name - Name off the Cache</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.test {
+  height: 200px
+  
+  @include loadin(a1) {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    display: inline-block;
+  }
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">loadout</h4>
+            </header>
+            <div class="method__text">
+              <p>Load out the Styling Attributes from the temporarly cache</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{String} $name - Name off the Cache</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.drop-1 {
+  @include loadout(a1);
+}
+
+.drop-2 {
+  @include loadout(a1);
+}</code></pre>
+                <pre class="language-css"><code>.drop-1, .drop-2 {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  display: inline-block;
+}</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
             <header class="method__head--f">
               <h4 class="method__title">cp</h4>
             </header>

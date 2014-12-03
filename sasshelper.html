@@ -239,6 +239,79 @@
             </div>
             <a class="method__toggle"></a>
           </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">tag</h4>
+            </header>
+            <div class="method__text">
+              <p>Build smarter Chaining Selectors</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">
+                <ul>
+                  <li>map <a href="/sassbasics.html#kittn-bem">$kittn-bem</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>{string} $tag - Name of the Attribute</li>
+                  <li>{string|bool} $c - Childname</li>
+                  <li>{string|bool} $m - Modifiername</li>
+                  <li>{bool} $context - When the selectornesting is needed</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>@include tag($sel) {
+  background-color: yellow;
+  display: inline-block;
+  
+  @include tag($sel, false, rotten) {
+    background-color: black;
+  }
+  @include tag($sel, fruit) {
+    color: brown;
+    padding: 10px 40px;
+  }
+  
+  @include tag($sel, fruit, too-fresh) {
+    color: yellow;
+  }
+  @include tag($sel, fruit, expanded) {
+    padding: 40px 80px;
+  }
+}
+.fruit-basket {
+  @include tag($sel, $context: true) {
+    background-color: red;
+  }
+}
+</code></pre>
+                <pre class="language-css"><code>[bananna] {
+  background-color: yellow;
+  display: inline-block;
+}
+[bananna~='rotten'] {
+  background-color: black;
+}
+[bananna__fruit] {
+  color: brown;
+  padding: 10px 40px;
+}
+[bananna__fruit~='too-fresh'] {
+  color: yellow;
+}
+[bananna__fruit~='expanded'] {
+  padding: 40px 80px;
+}
+.fruit-basket > [bananna] {
+  background-color: red;
+}
+</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
           <hr>
           <h3 id="connect">Connect</h3>
           <div class="filebox">scr/sass/framework/helper/connect.scss</div>

@@ -103,7 +103,7 @@
               </div>
               <div class="method__code">
                 <pre class="language-scss"><code>.box {
-  @include element(element) {
+  @include e(element) {
     content: 'the Element';
   }
 }</code></pre>
@@ -134,7 +134,7 @@
                 <pre class="language-scss"><code>.box {
   height: 50px;
   width: 30px;
-  @include modifier(round) {
+  @include m(round) {
     border-radius: 10px;
   }
 }
@@ -142,7 +142,7 @@
 .other-box {
   height: 50px;
   width: 30px;
-  @include modifier(round, true) { // Extend active
+  @include m(round, true) { // Extend active
     border-radius: 10px;
   }
 }</code></pre>
@@ -1299,7 +1299,7 @@ $jacket: 'android';
     <div class="container">
       <div class="row"></div>
       <div class="row copyright">
-        <p>Hand-Made by Sascha Fuchs. Endorsed by <a href="http://wire-communication.de" target="_blank">Wire Communication</a>. Licensed under MIT.</p>
+        <p>Hand-Made by Sascha Fuchs. Used by <a href="http://wire-communication.de" target="_blank">Wire</a> and <a href="http://designlovr.net" target="_blank">Designlovr</a>. Licensed under MIT.</p>
         <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
       </div>
     </div>

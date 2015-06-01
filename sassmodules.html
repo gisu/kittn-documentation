@@ -216,51 +216,10 @@
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">eq</h4>
-            </header>
-            <div class="method__text">
-              <p>Mixin for the <a href="https://github.com/snugug/eq.js">ElementQueries</a> Script.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--param">
-                <ul>
-                  <li>{argList} $states - Different Querie Types</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>.test {
-  @include eq('small', 'medium', 'large') {
-    color: red;
-  }
-  
-  @include eq('small') {
-    p {
-      height: 20px;
-    }
-  }
-}
-</code></pre>
-                <pre class="language-css"><code>.test[data-eq-state="small"],
-.test[data-eq-state="medium"],
-.test[data-eq-state="large"] {
-  color: red;
-}
-.test[data-eq-state="small"] p {
-  height: 20px;
-}</code></pre>
-                <pre class="language-markup"><code>&lt;div data-eq-pts=&quot;small: 480, medium: 700, large: 800&quot; class=&quot;test&quot;&gt;
-  &lt;p&gt;Test Block&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
               <h4 class="method__title">visibility</h4>
             </header>
             <div class="method__text">
-              <p>Generates Visibilty / Hidden Classes based on the <code>$kittn-breakpoint-map</code> Map. However, there are only generated classes if they were entered in the map with <code>visibility: true</code>.</p>
+              <p>Generates Visibilty / Hidden Classes based on the <code>$kittn-breakpoint-map</code> Map. The Classes are Invisible, connect it with @extend.</p>
             </div>
             <div class="method__details">
               <div class="method__api--requires">map <a href="/sassbasics.html#kittn-breakpoint-map">$kittn-breakpoint-map</a>
@@ -282,23 +241,24 @@ $kittn-breakpoint-map: (
   )
 );</code></pre>
                 <pre class="language-scss"><code>@include visibility;</code></pre>
-                <pre class="language-css"><code>.hidden-to--1 {
+                <pre class="language-css"><code>// Normally invisible
+.hidden-to--1 {
   display: none;
 }
 @media screen and (max-width: 321px) {
-  .hidden-to--1 {
+  %hidden-to--1 {
     display: inherit;
   }
 }
 
 @media screen and (min-width: 320px) {
-  .hidden-from--1 {
+  %hidden-from--1 {
     display: none;
   }
 }
 
 @media screen and (max-width: 321px) {
-  .visible-to--1 {
+  %visible-to--1 {
     display: none;
   }
 }
@@ -307,7 +267,7 @@ $kittn-breakpoint-map: (
   display: none;
 }
 @media screen and (min-width: 320px) {
-  .visible-from--1 {
+  %visible-from--1 {
     display: inherit;
   }
 }</code></pre>
@@ -1402,7 +1362,7 @@ $kittn-breakpoint-map: (
               </div>
               <div class="method__code">
                 <pre class="language-scss"><code>.row-block {
-  @include grid-row(());
+  @include grid-row();
 }
 
 .row-table {
@@ -1460,7 +1420,7 @@ $kittn-breakpoint-map: (
               <div class="method__api--returns"></div>
               <div class="method__code">
                 <pre class="language-scss"><code>.colum {
-  @include grid-colum(());
+  @include grid-colum();
 }
 
 .colum {
@@ -1626,7 +1586,7 @@ $kittn-breakpoint-map: (
               </div>
               <div class="method__code">
                 <pre class="language-scss"><code>%colum {
-  @include grid-colum(());
+  @include grid-colum();
 }
 .width {
   @include grid-generator((
@@ -4651,7 +4611,7 @@ $kittn-font-icons: (
               <div class="method__code">
                 <pre class="language-scss"><code>.triangle-1 {
   &:before {
-    @include triangle(());
+    @include triangle();
   }
 }
 .triangle-2 {
@@ -5138,7 +5098,7 @@ $kittn-active-responsive-fonts: 70;</code></pre>
     <div class="container">
       <div class="row"></div>
       <div class="row copyright">
-        <p>Hand-Made by Sascha Fuchs. Endorsed by <a href="http://wire-communication.de" target="_blank">Wire Communication</a>. Licensed under MIT.</p>
+        <p>Hand-Made by Sascha Fuchs. Used by <a href="http://wire-communication.de" target="_blank">Wire</a> and <a href="http://designlovr.net" target="_blank">Designlovr</a>. Licensed under MIT.</p>
         <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
       </div>
     </div>

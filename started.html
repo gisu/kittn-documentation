@@ -115,33 +115,30 @@
           <p>On Mac systems, Ruby is already installed, this step would be omitted. But if you like you can update on Ruby v.2.12.</p>
 
           <p>To install Ruby on Windows, simply use the <a href="http://rubyinstaller.org/downloads/">One Click Installer</a>.</p>
+
+          <p>Ruby is only needed as Fallback when you have to Switch to Ruby-Sass.</p>
           <div class="alert-box">
-            <p>Currently Sass is compiled with <code>Ruby-Sass</code>. When <code>Libsass</code> is 100% productive usable, the Ruby dependency is omitted.</p>
+            <p>Kittn v2 use Libsass as default Compiler for Sass files, because is faster. When you have Problems you can switch to the native Ruby-Sass Compiler (Gruntfile: var cssCompiler = &#39;ruby-sass&#39;;).</p>
           </div>
           <p>Node can be installed on Mac systems either <a href="http://brew.sh">Brew</a> or you can use the <a href="http://nodejs.org/">Installer</a>, then for both systems.</p>
 
           <h5>Extensions &amp; Compiler</h5>
 
           <ul>
-            <li>Sass 3.4.0 rc.1</li>
-            <li>Jade 1.3.0</li>
-            <li>Gulp 3.8.5</li>
-            <li>Grunt 0.4.5</li>
-            <li>Bower 1.3.0</li>
-            <li>Yeoman 1.2.0</li>
+            <li>Sass &gt;= 3.4.0</li>
+            <li>Jade &gt;= 1.3.0</li>
+            <li>Gulp &gt;= 3.8.11</li>
             <li>Git</li>
           </ul>
 
           <blockquote>
-            <p>The generator installed automatically <code>Grunt</code>, <code>Bower</code> and <code>Yeoman</code>.</p>
+            <p>The generator installed automatically <code>Bower</code> and <code>Yeoman</code>.</p>
           </blockquote>
 
           <h6>Sass</h6>
-
-          <p>The current version 3.4.0 RC1 must be installed because the framework makes use of the extended scripted Ampersand.</p>
           <div class="method">
             <div class="method__code">
-              <pre class="language-bash"><code>gem install sass --pre
+              <pre class="language-bash"><code>gem install sass
 </code></pre>
             </div>
           </div>
@@ -156,7 +153,7 @@
           </div>
           <h6>Gulp</h6>
 
-          <p>All tasks - even <code>Grunt</code> tasks - can be started with <code>Gulp</code>.</p>
+          <p>Kittn v2 use Gulp only, a Fallback to Grunt is dropped.</p>
           <div class="method">
             <div class="method__code">
               <pre class="language-bash"><code>npm install -g gulp
@@ -177,7 +174,7 @@
 </code></pre>
             </div>
           </div>
-          <p>The generator will automatically install <code>Yeoman</code>, <code>Grunt</code> and <code>Bower</code>, when they not installed on the system. Kittn is now available as a globally installed package.</p>
+          <p>The generator will automatically install <code>Yeoman</code> and <code>Bower</code>, when they not installed on the system.</p>
 
           <p>To use Kittn, you created a project directory itself and activates the generator:</p>
           <div class="method">
@@ -220,33 +217,19 @@
             </li>
             <li>Copy JS Files to <code>dist</code>
             </li>
-            <li>Copy HTML Images from <code>src/stash/images/html-images/html-assets/</code> to <code>dist/images</code>
-            </li>
-            <li>Start the <code>grunt</code> Build Image Task
+            <li>Start the <code>gulp</code> Rebuild Image Task
               <ul>
-                <li>Copy to <code>dist/assets/img/sprite/</code>
+                <li>Build Bitmap Sprite Map <code>src/sass/maps/</code>
                 </li>
-                <li>Copy to <code>dist/assets/img/sprite_2x/</code>
+                <li>Build SVG Sprite Map <code>src/sass/maps/</code>
                 </li>
-                <li>Build Retina Sprite <code>src/sass/maps/</code>
+                <li>Build Bitmap Sprite <code>dist/assets/img/</code>
                 </li>
-                <li>Build NonRetina Sprite <code>src/sass/maps/</code>
+                <li>Build SVG Sprite <code>dist/assets/img/</code>
                 </li>
-                <li>Rebuild Retina Sprite Map <code>dist/assets/img/</code>
+                <li>Copy all Single Bitmap Images to <code>dist/assets/img/bitmaps/</code>
                 </li>
-                <li>Rebuild NonRetina Sprite Map <code>dist/assets/img/</code>
-                </li>
-                <li>SVG Minify and Copy to <code>dist/assets/img/svg/</code>
-                </li>
-                <li>Build PNG Fallback Image <code>dist/assets/img/svg</code>
-                </li>
-                <li>SVG Minify and Copy to <code>dist/assets/img/svgonly/</code>
-                </li>
-                <li>Copy Texture Image to <code>dist/assets/img/texture/</code>
-                </li>
-                <li>Copy Single Images to <code>dist/assets/img/single/</code>
-                </li>
-                <li>Build Image Map <code>src/sass/maps/</code>
+                <li>Copy all Single SVG Images to <code>dist/assets/img/svgfiles/</code>
                 </li>
               </ul>
             </li>
@@ -276,92 +259,6 @@
           <div class="alert-box">
             <p>I deliberately use no CoffeeScript because it has just performed in teamwork to confusion. If you still want to use CoffeeScript, only the corresponding plugin must install.</p>
           </div>
-          <p>Those who want to extend the file monitoring to images, can use the <code>extended default task</code>:</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-bash"><code>gulp extended
-</code></pre>
-            </div>
-          </div>
-          <p>A modification of files, as well as adding or deleting will activate the task, eg is from SVG files automatically generates a PNG fallback.</p>
-          <div class="alert-box--info">
-            <p>It may be that the Extend task is not responding at the beginning of changes in the image (<code>src/stash/images/</code>) directory. Since no images at the beginning exist that can <code>Gulp</code> watch. Preparing in this case the images
-              on <code>gulp grunt-rebuild-images</code> and then activate the extended task.</p>
-          </div>
-          <p><em>Process for the extended default task:</em>
-          </p>
-          <div class="folderbox">src/stash/images/css-images/svg/</div>
-          <ul>
-            <li>Watch Directory</li>
-            <li>On File Change
-              <ul>
-                <li>Clean SVG Directory <code>dist/assets/img/svg/</code>
-                </li>
-                <li>SVG Minify and Copy to <code>dist/assets/img/svg/</code>
-                </li>
-                <li>Build PNG Fallback Image</li>
-                <li>Rebuild Image Map</li>
-              </ul>
-            </li>
-          </ul>
-          <div class="folderbox">src/stash/images/css-images/svgonly/</div>
-          <ul>
-            <li>Watch Directory</li>
-            <li>On File Change
-              <ul>
-                <li>Clean SVG Directory <code>dist/assets/img/svgonly/</code>
-                </li>
-                <li>SVG Minify and Copy to <code>dist/assets/img/svgonly/</code>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <div class="folderbox">src/stash/images/css-images/single-assets/</div>
-          <ul>
-            <li>Watch Directory</li>
-            <li>On File Change
-              <ul>
-                <li>Clean Single Directory <code>dist/assets/img/single/</code>
-                </li>
-                <li>Copy to <code>dist/assets/img/single/</code>
-                </li>
-                <li>Rebuild Image Map</li>
-              </ul>
-            </li>
-          </ul>
-          <div class="folderbox">src/stash/images/css-images/texture-assets/</div>
-          <ul>
-            <li>Watch Directory</li>
-            <li>On File Change
-              <ul>
-                <li>Clean Texture Directory <code>dist/assets/img/texture/</code>
-                </li>
-                <li>Copy to <code>dist/assets/img/texture/</code>
-                </li>
-                <li>Rebuild Image Map</li>
-              </ul>
-            </li>
-          </ul>
-          <div class="folderbox">src/stash/images/css-images/sprite-assets/</div>
-          <ul>
-            <li>Watch Directory</li>
-            <li>On File Change
-              <ul>
-                <li>Clean Texture Directory <code>dist/assets/img/sprite/</code>
-                </li>
-                <li>Clean Texture Directory <code>dist/assets/img/sprite_2x/</code>
-                </li>
-                <li>Copy to <code>dist/assets/img/sprite/</code>
-                </li>
-                <li>Copy to <code>dist/assets/img/sprite_2x/</code>
-                </li>
-                <li>Build Retina Sprite</li>
-                <li>Build NonRetina Sprite</li>
-                <li>Rebuild Retina Sprite Map</li>
-                <li>Rebuild NonRetina Sprite Map</li>
-              </ul>
-            </li>
-          </ul>
           <h3 id="tasks">Tasks</h3>
           <p>For the first initialization of the project.</p>
           <div class="method">
@@ -377,10 +274,16 @@
 </code></pre>
             </div>
           </div>
-          <p>Extended default task - monitors image data</p>
+          <p>The project data is prepared for production. CSS, JS and image data are compressed.
+            <code>package.json</code> and <code>bower.json</code> are bumped to a new Patch Version Number. You can Bump to Higher Versions with Environment vars.</p>
           <div class="method">
             <div class="method__code">
-              <pre class="language-bash"><code>gulp extended
+              <pre class="language-bash"><code>gulp publish
+
+gulp publish --type=major
+gulp publish --type=minor
+gulp publish --type=patch
+gulp publish --version=1.2.3
 </code></pre>
             </div>
           </div>
@@ -391,52 +294,17 @@
 </code></pre>
             </div>
           </div>
-          <p>The project data is prepared for production. CSS, JS and image data are compressed.</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-bash"><code>gulp publish
-</code></pre>
-            </div>
-          </div>
           <p>Rebuild all Jade Files</p>
           <div class="method">
             <div class="method__code">
-              <pre class="language-bash"><code>gulp jade-rebuild
+              <pre class="language-bash"><code>gulp rebuild-jade
 </code></pre>
             </div>
           </div>
-          <p>Patch the Version Number from <code>package.json</code> and <code>bower.json</code> (0.0.1)</p>
+          <p>Rebuild Images</p>
           <div class="method">
             <div class="method__code">
-              <pre class="language-bash"><code>gulp bump
-</code></pre>
-            </div>
-          </div>
-          <p>Extend the Minor Version Number from <code>package.json</code> and <code>bower.json</code> (0.1.0)</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-bash"><code>gulp bump-minor
-</code></pre>
-            </div>
-          </div>
-          <p>Extend to the next Release Number from <code>package.json</code> and <code>bower.json</code> (1.0.0)</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-bash"><code>gulp bump-major
-</code></pre>
-            </div>
-          </div>
-          <p>Rebuild all Image Files.</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-bash"><code>gulp grunt-rebuild-images
-</code></pre>
-            </div>
-          </div>
-          <p>Build different Sizes from HTML Images</p>
-          <div class="method">
-            <div class="method__code">
-              <pre class="language-bash"><code>gulp grunt-res-img
+              <pre class="language-bash"><code>gulp rebuild-images
 </code></pre>
             </div>
           </div>
@@ -463,9 +331,9 @@
             <br>
             <code>...... system/</code> Systemimages like favicon
             <br>
-            <code>...... single/</code> CSS single images
+            <code>...... bitmaps/</code> All single (not used in a Sprite) Bitmap Images
             <br>
-            <code>...... textures/</code> CSS texture images
+            <code>...... svgfiles/</code> All Single used SVG Images
             <br>
             <code>.... js/</code> JS files
             <br>
@@ -506,21 +374,13 @@
             <br>
             <code>.... images/</code> Image sources
             <br>
-            <code>...... css-images/</code> CSS included images
+            <code>...... bitmap-assets/</code> Place for all Bitmap Images (Single Use)
             <br>
-            <code>........ single-assets/</code> Place for each single assets
+            <code>...... svgsingle/</code> Place for all SVG Images (Single Use)
             <br>
-            <code>........ sprite-assets/</code> Place for each sprite assets
+            <code>...... svg-assets/</code> Place for all SVG Images (SVG Sprite)
             <br>
-            <code>........ svg-assets/</code> Place for each svg assets with a generated png fallback
-            <br>
-            <code>........ svgonly-assets/</code> Place for each svg assets without fallbacks
-            <br>
-            <code>........ texture-assets/</code> Place for each texture asset
-            <br>
-            <code>...... html-images/</code>
-            <br>
-            <code>........ html-assets/</code> HTML included images
+            <code>...... sprite-assets/</code> Place for all Bitmap Images (Bitmap Sprite)
             <br>
             <code>.... scripts/</code> Script files that are not installed on Bower
             <br>
@@ -650,10 +510,8 @@
           </p>
 
           <ul>
-            <li><code>src/stash/images/css-images/sprite.psd</code> Asset file for all sprite images (retina &amp; nonRetina)</li>
-            <li><code>src/stash/images/css-images/single.psd</code> Asset file for all single images</li>
-            <li><code>src/stash/images/css-images/texture.psd</code> Asset file for all texture images</li>
-            <li><code>src/stash/images/html-images/html.psd</code> Asset file for HTML Images</li>
+            <li><code>src/stash/images/sprite.psd</code> Asset file for all sprite images (bitmap)</li>
+            <li><code>src/stash/images/bitmaps.psd</code> Asset file for all single images (bitmap)</li>
           </ul>
 
           <p>
@@ -666,10 +524,9 @@
             <li><code>filename.png</code> Generates a PNG</li>
             <li><code>200% filename.gif</code> Generates a gif with a 200% scaling</li>
             <li><code>filename.jpg70%</code> Generates a JPG with 70% quality</li>
-            <li><code>200% filename@2x.png, filename.png</code> Generates two PNG files, one in Double resolution (retina)</li>
           </ul>
 
-          <p>Please note the sprites file name of the retina Qualifying ends with @ 2x in NonRetina eliminates the postfix.</p>
+          <p>Kittn v2 dosent Support Retina and NonRetina Bitmap Sprites, because for HighDPI is SVG the better alternative. You can also include Sprite Images with HighDPI (Bitmap), and Scale it down with the Sprite Mixin.</p>
 
           <p>More <a href="http://pixelhusten.tumblr.com/post/77743297904/let-photoshop-do-the-dirty-work">information to the generator</a> (German) - also how you can create with Photoshop SVG.</p>
           <div class="alert-box--info">
@@ -696,7 +553,7 @@
     <div class="container">
       <div class="row"></div>
       <div class="row copyright">
-        <p>Hand-Made by Sascha Fuchs. Endorsed by <a href="http://wire-communication.de" target="_blank">Wire Communication</a>. Licensed under MIT.</p>
+        <p>Hand-Made by Sascha Fuchs. Used by <a href="http://wire-communication.de" target="_blank">Wire</a> and <a href="http://designlovr.net" target="_blank">Designlovr</a>. Licensed under MIT.</p>
         <p>You find Bugs? Have Ideas to make Kittn better? Contribute to this project through the <a href="https://github.com/gisu/generator-kittn/issues" target='_blank'>Github issues page</a>.</p>
       </div>
     </div>

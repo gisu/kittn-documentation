@@ -23,7 +23,7 @@
   <header role="banner" class="_HEADER">
     <div class="container">
       <div class="row">
-        <h1 class="logo"><span class="logo__inner">Kittn</span>
+        <h1 class="logo"><a href="index.html" class="logo__inner">Kittn</a>
           </h1>
         <nav role="navigation" class="main-nav">
           <ul class="main-nav__list">
@@ -35,38 +35,59 @@
             </li>
             <li class="main-nav__entry"><a href="sassmodules.html" title="Modules" class="main-nav__link">Modules</a>
             </li>
-            <li class="main-nav__entry"><a href="sasspartials.html" title="Partials" class="main-nav__link">Partials</a>
+            <li class="main-nav__entry is-active"><a href="sasspartials.html" title="Partials" class="main-nav__link">Partials</a>
             </li>
           </ul>
         </nav>
       </div>
     </div>
   </header>
-  <section class="hero">
+  <main class="_MAIN">
+    <header class="main-header">
+      <div class="container">
+        <div class="row">
+          <h1>Tipps and Tricks</h1>
+        </div>
+      </div>
+    </header>
     <div class="container">
       <div class="row">
-        <figure class="hero__image">
-          <img src="images/kittn-only.svg" alt="">
-        </figure>
-        <article class="hero__text">
-          <h2 class="hero__headline">Welcome to Kittn <small>v.2.0.10</small><br><span class='h6'>Build frontends with more meow!</span></h2>
-          <div class="hero__links"><a href="http://kittn.de/started.html" title="Get started" class="hero__button"><i class="f-icon--lightbulb"></i><span>Start using Kittn</span></a><a href="https://github.com/gisu/generator-kittn" target="_blank" title="Jump to the project"
-            class="hero__button--secondary"><i class="f-icon--github"></i><span>View on Github</span></a>
+        <div class="jump-nav-container">
+          <div class="jump-nav">
+            <ul>
+              <li><a href="#integrations">Integrations
+                    <ul>
+                      <li><a href="#intCraft">Craft CMS</a>
+              </li>
+              <li><a href="#intKriby">Kirby</a>
+              </li>
+              <li><a href="#intWP">Wordpress</a>
+              </li>
+              <li><a href="#intProcesswire">Processwire</a>
+              </li>
+            </ul>
+            </a>
+            </li>
+            </ul>
           </div>
+        </div>
+        <article class="article">
+          <h2 id="integrations">Integrations</h2>
+          <hr>
+          <h3 id="intCraft">Integrate in Craft CMS</h3>
+          <p>Some Blah Blah here</p>
+          <hr>
+          <h3 id="intKriby">Integrate in Kirby</h3>
+          <p>Some Blah Blah here</p>
+          <hr>
+          <h3 id="intWP">Integrate in Wordpress</h3>
+          <p>Some Blah Blah here</p>
+          <hr>
+          <h3 id="intProcesswire">Integrate in Processwire</h3>
+          <p>Some Blah Blah here</p>
         </article>
       </div>
     </div>
-  </section>
-  <main class="_MAIN">
-    <footer class="main-footer">
-      <div class="container">
-        <div class="build-with--text">
-          <p>Kittn is being fed with the following ingredients</p>
-        </div>
-        <div class="build-with--icons"><i class="f-icon--sass"></i><span>+</span><i class="f-icon--gulp"></i><span>+</span><i class="f-icon--node"></i><span>+</span><i class="f-icon--yeoman"></i><span>+</span><i class="f-icon--love"></i>
-        </div>
-      </div>
-    </footer>
   </main>
   <footer class="_FOOTER">
     <div class="container">

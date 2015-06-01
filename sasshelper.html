@@ -313,135 +313,6 @@
             <a class="method__toggle"></a>
           </section>
           <hr>
-          <h3 id="connect">Connect</h3>
-          <div class="filebox">scr/sass/framework/helper/connect.scss</div>
-          <p>Through the Connect mixins, it is possible to predefine styles and then to combine these styles either by <code>@extend</code> or the style to load directly into the selector (for example if you are staying in a media query).</p>
-
-          <p>If defined in the <code>$kittn-connect-map</code> Map Styles, Silent Selectors are generated.</p>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 id="mixin-connect-gen" class="method__title">connect-gen</h4>
-            </header>
-            <div class="method__text">
-              <p>Thus, the selectors are linked or included directly</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--access">private</div>
-              <div class="method__api--requires">map <a href="/sassbasics.html#kittn-connect-map">$kittn-connect-map</a>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{List} $key - Tageted Styles, can be more than one</li>
-                  <li>{Bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
-                  <li>{Map} $map ($kittn-connect-map) - Connect Map</li>
-                </ul>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">connect-yield</h4>
-            </header>
-            <div class="method__text">
-              <p>The Mixin generated from the elements of <code>$kittn-connect-map</code> Map, Placeholder Selectors. Which are then connected by means of the <code>connect</code> mixin with existing classes.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--access">private</div>
-              <div class="method__api--requires">
-                <ul>
-                  <li>map <a href="/sassbasics.html#kittn-connect-map">$kittn-connect-map</a>
-                  </li>
-                  <li>mixin <a href="#mixin-connect-gen">connect-gen()</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>@param {Map} $map ($kittn-connect-map) - Connect Map</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>// Map Example
-// File: src/sass/maps/connectmap.scss
-$kittn-connect-map: (
-  size: (
-    height: 20px,
-    line-height: 20px
-  ),
-  connect: (
-    color: #fff,
-    background-color: #000
-  )
-);</code></pre>
-                <pre class="language-scss"><code>@include connect-yield();
-</code></pre>
-                <pre class="language-css"><code>%test {
-  height: 20px;
-  line-height: 20px;
-}
-
-%connect {
-  color: #fff;
-  background-color: #000;
-}</code></pre>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">connect</h4>
-            </header>
-            <div class="method__text">
-              <p>With the Connect Mixin existing elements with the placeholder can be either connected, or the style can be integrated directly into the element.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--requires">
-                <ul>
-                  <li>map <a href="/sassbasics.html#kittn-connect-map">$kittn-connect-map</a>
-                  </li>
-                  <li>mixin <a href="#mixin-connect-gen">connect-gen()</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{list} $key - Tageted Styles, can be more than one</li>
-                  <li>{bool} $extend (true) - On false the Style will be directly yielded in the selector.</li>
-                  <li>{map} $map ($kittn-connect-map) - Connect Map</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>.one-connect {
-  @include connect(size);
-}
-.two-connect {
-  @include connect(size connect);
-}
-.direct-yield {
-  @include connect(size connect, false);
-}
-</code></pre>
-                <pre class="language-css"><code>.one-connect, .two-connect {
-  height: 20px;
-  line-height: 20px;
-}
-.two-connect {
-  color: #fff;
-  background-color: #000;
-}
-.direct-yield {
-  height: 20px;
-  line-height: 20px;
-  color: #fff;
-  background-color: #000;
-}</code></pre>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <hr>
           <h3 id="fonts">Fonts</h3>
           <div class="filebox">scr/sass/framework/helper/_fonts.scss</div>
           <p>Some Functions for Fontstyles and Stacks.</p>
@@ -796,7 +667,7 @@ $width: 23;
           </section>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">cp</h4>
+              <h4 class="method__title">c</h4>
             </header>
             <div class="method__text">
               <p>The Color Picker is connected to the Color Map (<code>$kittn-color-map</code>) and brings with it the corresponding color values​​.</p>
@@ -816,8 +687,8 @@ $width: 23;
               <div class="method__api--returns">{Color}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>.color {
-  color: cp('primary');
-  background-color: cp('black');
+  color: c('primary');
+  background-color: c('black');
 }
 </code></pre>
                 <pre class="language-css"><code>.color {
@@ -885,7 +756,7 @@ $width: 23;
           </section>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">spacer</h4>
+              <h4 class="method__title">s</h4>
             </header>
             <div class="method__text">
               <p>The spacer Mixin generated using the Global-spacing-unit sizes</p>
@@ -902,9 +773,9 @@ $width: 23;
               </div>
               <div class="method__code">
                 <pre class="language-scss"><code>.box {
-  height: spacer(2);
-  width: spacer(1);
-  margin-top: spacer(.25, true);
+  height: s(2);
+  width: s(1);
+  margin-top: s(.25, true);
 }</code></pre>
                 <pre class="language-css"><code>.color {
   height: 40px;
@@ -917,7 +788,7 @@ $width: 23;
           </section>
           <section class="method">
             <header class="method__head--f">
-              <h4 class="method__title">s</h4>
+              <h4 class="method__title">gap</h4>
             </header>
             <div class="method__text">
               <p>The same as above, this feature by default integrated with the difference no units. Often used for internal mixins.</p>
@@ -936,10 +807,10 @@ $width: 23;
               <div class="method__api--returns">{Number}</div>
               <div class="method__code">
                 <pre class="language-scss"><code>.box {
-  height: s(2, $u: r);
-  width: s(1, $u: p);
-  margin-top: s(.25, true, p);
-  padding-left: s(10) + 0px;
+  height: gap(2, $u: r);
+  width: gap(1, $u: p);
+  margin-top: gap(.25, true, p);
+  padding-left: gap(10) + 0px;
 }
 </code></pre>
                 <pre class="language-css"><code>.box {

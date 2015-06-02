@@ -1120,6 +1120,50 @@ $kittn-color-map: (
           </section>
           <section class="method">
             <header class="method__head--m">
+              <h4 class="method__title">rescale</h4>
+            </header>
+            <div class="method__text">
+              <p>Rescale a container with Aspect Ratio</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--param">
+                <ul>
+                  <li>{list} $dimension The actual size from the container</li>
+                  <li>{bool|number} $rescale: 1 The Rescale Factor</li>
+                  <li>{bool|list} $resize: false Triggers with &#39;w&#39; (width) or &#39;h&#39;, than the new size. E.g. w 200 =&gt; new width with 200px</li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.no-rescale {
+  @include rescale(50 100);
+}
+
+.scale-up-simple {
+  @include rescale(50 100, $rescale: 10);
+}
+
+.scale-up-resize {
+  // New Target Width 300px
+  @include rescale(50 100, false, $resize: w 300)
+}
+</code></pre>
+                <pre class="language-css"><code>.no-rescale {
+  width: 50px;
+  height: 100px; }
+  
+.scale-up-simple {
+  width: 500px;
+  height: 1000px; }
+  
+.scale-up-resize {
+  width: 300px;
+  height: 600px; }</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
               <h4 class="method__title">tighten-up</h4>
             </header>
             <div class="method__text">
@@ -2338,7 +2382,7 @@ $kittn-font-icons: (
                 <pre class="language-css"><code>[class^="f-icon__"]:before,
 [class*=" f-icon__"]:before,
 [data-icon]:before,
-%iconfontface:before {
+%iconfont:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -2489,242 +2533,105 @@ $kittn-font-icons: (
           <hr>
           <h3 id="images">Images</h3>
           <div class="filebox">scr/sass/framework/modules/_images.scss</div>
+          <p>Kittn v.2 have new methods to include Images and Sprites. Kittn makes a difference between Bitmap and Vector Images for single usage. Same for Sprites, we have Bitmap and Vector Sprites. Retina Sprites are dopped, because SVG is a better solution.</p>
+
+          <p>When you include new Images, drop it in the Image Folders in <code>src/stash/images/</code>. <code>gulp rebuild-images</code> Build new Sprites, Maps and Copy the Image Files in the Distribution Folder.</p>
+
+          <p>Dropped Mixins: <code>_getImageDimensions</code>, <code>image</code>, <code>texture</code>, <code>svgpng</code>, <code>svg</code>, <code>sprite-generator</code>
+          </p>
           <section class="method">
             <header class="method__head--m">
-              <h4 id="mixin-getImageDimensions" class="method__title">_getImageDimensions</h4>
+              <h4 class="method__title">bitmap</h4>
             </header>
             <div class="method__text">
-              <p>Used for internal calculation of the image data.</p>
+              <p>Include Bitmap Images that used outside from Sprites.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--access">private</div>
               <div class="method__api--param">
                 <ul>
-                  <li>{*} $width - The Width of the Image</li>
-                  <li>{*} $height - The Height of the Image</li>
-                  <li>{*} $option - &#39;both&#39;: height &amp; width, &#39;width&#39;: width, &#39;height&#39; = height</li>
-                </ul>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">image</h4>
-            </header>
-            <div class="method__text">
-              <p>Adds a single image. The data required is thus written on the <code>Gulp</code> tasks in the respective image map.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--requires">
-                <ul>
-                  <li>map <a href="/sassbasics.html#kittn-directorys">$kittn-directorys</a>
+                  <li>@param {*} $name - Name of the Image</li>
+                  <li>@map {*} $options
+                    <ul>
+                      <li>dimensions[both] : &#39;both&#39; = height &amp; width, &#39;width&#39; = width, &#39;height&#39; = height</li>
+                      <li>offset[false] : The Image Position - can be &#39;false&#39;</li>
+                      <li>repeat[false] : Image Repeat - native CSS Declaration</li>
+                      <li>scale[1] : Resize factor [1], Single Value (h &amp; w), Two Values (w h)</li>
+                      <li>filetype[&#39;png&#39;] : Image Filetype [&#39;png&#39;]</li>
+                    </ul>
                   </li>
-                  <li>map <a href="/sassbasics.html#map-images">$map-images</a>
-                  </li>
-                  <li>mixin <a href="#mixin-getImageDimensions">_getImageDimensions()</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{*} $image - Name of the Image</li>
-                  <li>{*} $dimensions (both) - &#39;both&#39;: height &amp; width, &#39;width&#39;: width, &#39;height&#39;: height</li>
-                  <li>{*} $pos (false) - Image Position - can be &#39;false&#39;</li>
-                  <li>{Bool} $retina (false) - With set on &#39;true&#39; the retina fallback will be included</li>
                 </ul>
               </div>
               <div class="method__code">
-                <pre class="language-scss"><code>.box {
-  @include image(blue);
+                <pre class="language-scss"><code>.bitmap {
+  @include bitmap(cat);
 }
-.box-2 {
-  @include image(icon, width);
-}</code></pre>
-                <pre class="language-css"><code>.box {
-  background-image: url("/assets/img/single/blue.png");
+
+.bitmap-downscaled {
+  @include bitmap(cat,(
+    scale: .5
+  ));
+}
+</code></pre>
+                <pre class="language-css"><code>.bitmap {
+  background-image: url("../img/bitmaps/cat.png");
   background-repeat: no-repeat;
-  width: 184px;
-  height: 176px;
-}
-.box-2 {
-  background-image: url("/assets/img/single/icon.png");
+  width: 157px;
+  height: 76px; }
+  
+.bitmap-downscaled {
+  background-image: url("../img/bitmaps/cat.png");
   background-repeat: no-repeat;
-  width: 281px;
-}</code></pre>
+  width: 78.5px;
+  height: 38px;
+  background-size: 78.5px 38px; }</code></pre>
               </div>
             </div>
-            <a class="method__toggle"></a>
+            <a class="method__togglex"></a>
           </section>
           <section class="method">
             <header class="method__head--m">
-              <h4 class="method__title">texture</h4>
+              <h4 class="method__title">vector</h4>
             </header>
             <div class="method__text">
-              <p>Add textures images</p>
+              <p>Include Vector (SVG) Images that used outside from Sprites.</p>
             </div>
             <div class="method__details">
-              <div class="method__api--requires">
-                <ul>
-                  <li>map <a href="/sassbasics.html#kittn-directorys">$kittn-directorys</a>
-                  </li>
-                  <li>map <a href="/sassbasics.html#map-images">$map-images</a>
-                  </li>
-                </ul>
-              </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{*} $image - Name of the Image</li>
-                  <li>{*} $repeat (d) - How the Image would be repeated. &#39;x&#39;: repeat-x, &#39;y&#39;: repeat-y</li>
-                  <li>{List|Bool} $pos (false) - The Image Position - can be &#39;false&#39;</li>
-                  <li>{Bool} $retina (false) - With set on &#39;true&#39; the retina fallback will be included</li>
+                  <li>@param {*} $name - Name of the Image</li>
+                  <li>@map {*} $options
+                    <ul>
+                      <li>dimensions[both] : &#39;both&#39; = height &amp; width, &#39;width&#39; = width, &#39;height&#39; = height</li>
+                      <li>offset[false] : The Image Position - can be &#39;false&#39;</li>
+                      <li>repeat[false] : Image Repeat - native CSS Declaration</li>
+                      <li>scale[1] : Resize factor [1], Single Value (h &amp; w), Two Values (w h)</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               <div class="method__code">
-                <pre class="language-scss"><code>.texture {
-  @include texture(pattern);
+                <pre class="language-scss"><code>.bitmap {
+  @include vector(cat);
 }
-.texture-2 {
-  @include texture(pattern, $repeat: x);
+
+.bitmap-upscale {
+  @include vector(cat,(
+    scale: 10
+  ));
 }
-.texture-3 {
-  @include texture(pattern, $repeat: y);
-}</code></pre>
-                <pre class="language-css"><code>.texture {
-  background-image: url("/assets/img/textures/pattern.png");
-}
-.texture-2 {
-  background-image: url("/assets/img/textures/pattern.png");
-  background-repeat: repeat-x;
-  height: 393px;
-}
-.texture-3 {
-  background-image: url("/assets/img/textures/pattern.png");
-  background-repeat: repeat-y;
-  width: 373px;
-}</code></pre>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">svgpng</h4>
-            </header>
-            <div class="method__text">
-              <p>Add SVG Images and integrate the PNG Fallback for old Browsers.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--requires">
-                <ul>
-                  <li>map <a href="/sassbasics.html#kittn-directorys">$kittn-directorys</a>
-                  </li>
-                  <li>map <a href="/sassbasics.html#map-images">$map-images</a>
-                  </li>
-                  <li>mixin <a href="#mixin-getImageDimensions">_getImageDimensions()</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{*} $image - Name of the Image - the SVG File must be in the Same directory</li>
-                  <li>{*} $dimensions (both) - &#39;both&#39;: height &amp; width, &#39;width&#39;: width, &#39;height&#39;: height</li>
-                  <li>{List} $pos (false) - Image Position - can be &#39;false&#39;</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>.image {
-  @include svgpng(illu);
-}</code></pre>
-                <pre class="language-css"><code>.image {
-  background-image: url("/assets/img/svg/illu.png");
-  background-repeat: no-repeat;
-  width: 1019px;
-  height: 357px;
-}
-.svg .image {
-  background-image: url("/assets/img/svg/illu.svg");
-  background-size: 1019px 357px;
-}</code></pre>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 class="method__title">svg</h4>
-            </header>
-            <div class="method__text">
-              <p>Add SVG image without any fallback image.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--requires">
-                <ul>
-                  <li>map <a href="/sassbasics.html#kittn-directorys">$kittn-directorys</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="method__api--param">
-                <ul>
-                  <li>{*} $image - The Name of the SVG Image</li>
-                  <li>{List} $dimensions (100) - The Dimensions of the Image Container - can be 100%</li>
-                  <li>{List} $pos (false) - Native CSS Image Positions</li>
-                  <li>{Bool} $repeat (false) - Image Repeat - native CSS Declaration</li>
-                </ul>
-              </div>
-              <div class="method__code">
-                <pre class="language-scss"><code>.vector {
-  @include svg(illu)
-}
-.repeat-vector {
-  @include svg(illu, $repeat: repeat-x);
-}
-.resize-vector {
-  @include svg(illu, $dimensions: 40px 30px);
-}</code></pre>
+</code></pre>
                 <pre class="language-css"><code>.vector {
-  background-image: url("/assets/img/svgonly/illu.svg");
+  background-image: url("../img/svgfiles/bigcat.svg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 100%;
-  height: 100%;
-}
-
-.repeat-vector {
-  background-image: url("/assets/img/svgonly/illu.svg");
-  background-repeat: repeat-x;
-  background-size: 100% 100%;
-  width: 100%;
-  height: 100%;
-}
-
-.resize-vector {
-  background-image: url("/assets/img/svgonly/illu.svg");
+  width: 1112px;
+  height: 479px; }
+  
+.vector-downscaled {
+  background-image: url("../img/svgfiles/bigcat.svg");
   background-repeat: no-repeat;
-  background-size: 40px 30px;
-  width: 40px;
-  height: 30px;
-}</code></pre>
-              </div>
-            </div>
-            <a class="method__toggle"></a>
-          </section>
-          <section class="method">
-            <header class="method__head--m">
-              <h4 id="mixin-sprite-generator" class="method__title">sprite-generator</h4>
-            </header>
-            <div class="method__text">
-              <p>Generate the Spritemap container. Will be turned automatically.</p>
-            </div>
-            <div class="method__details">
-              <div class="method__api--access">private</div>
-              <div class="method__api--requires">
-                <ul>
-                  <li>map <a href="/sassbasics.html#kittn-directorys">$kittn-directorys</a>
-                  </li>
-                  <li>map <a href="/sassbasics.html#kittn-sprite">$kittn-sprite</a>
-                  </li>
-                </ul>
+  width: 11120px;
+  height: 4790px;
+  background-size: 11120px 4790px; }</code></pre>
               </div>
             </div>
             <a class="method__toggle"></a>
@@ -2734,57 +2641,121 @@ $kittn-font-icons: (
               <h4 class="method__title">sprite</h4>
             </header>
             <div class="method__text">
-              <p>Add the selected sprite.</p>
+              <p>Add the selected bitmap sprite.</p>
             </div>
             <div class="method__details">
               <div class="method__api--requires">
                 <ul>
-                  <li>mixin <a href="#mixin-sprite-generator">sprite-generator()</a>
-                  </li>
-                  <li>mixin <a href="#mixin-getImageDimensions">_getImageDimensions()</a>
-                  </li>
-                  <li>map <a href="/sassbasics.html#map-sprites">$map-sprites</a>
-                  </li>
-                  <li>map <a href="/sassbasics.html#map-sprites">$map-sprites-retina</a>
+                  <li>map <a href="/sassbasics.html#map-sprites">$bitmapsprites</a>
                   </li>
                 </ul>
               </div>
               <div class="method__api--param">
                 <ul>
-                  <li>{*} $name - Name of the Sprite</li>
-                  <li>{Bool} $retina (false) - With set on &#39;true&#39; the retina fallback will be included</li>
-                  <li>{*} $dimensions (both) - &#39;both&#39;: height &amp; width, &#39;width&#39;: width, &#39;height&#39;: height</li>
-                  <li>{Number} $offset-x (0) - Offset the Background Position on the x axis</li>
-                  <li>{Number} $offset-y (0) - Offset the Background Position on the y axis</li>
-                  <li>{*} $display (inline) - Display mode</li>
+                  <li>@param {string} $name Name from the Sprite Image in the Map</li>
+                  <li>@param {string} $name Name from the Sprite Image in the Map</li>
+                  <li>@map {*} $options
+                    <ul>
+                      <li>dimensions[both] : &#39;both&#39; = height &amp; width, &#39;width&#39; = width, &#39;height&#39; = height</li>
+                      <li>scale : Scale the Image</li>
+                      <li>repeat[false] : Image Repeat - native CSS Declaration</li>
+                      <li>substract[1] : Substract Size factor [1], Single Value (h &amp; w), Two Values (w h)</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               <div class="method__code">
                 <pre class="language-scss"><code>.sprite {
-  @include sprite(cross);
-}
-.sprite-and-retina {
-  @include sprite(cross, $retina: true);
-}</code></pre>
-                <pre class="language-css"><code>.sprite {
-  background-position: 0px 0px;
-  width: 590px;
-  height: 466px;
-  display: inline-block;
+  @include sprite(red-circle-forward);
 }
 
-.sprite-and-retina {
-  background-position: 0px 0px;
-  width: 590px;
-  height: 466px;
-  display: inline-block;
-}
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .sprite-and-retina {
-    background-position: 0px 0px;
-    background-size: 590px 466px;
-  }
+.sprite-downscaled {
+  @include sprite(red-circle-forward,(
+    scale: .5
+  ));
 }</code></pre>
+                <pre class="language-css"><code>.sprite, .sprite-downscaled {
+  background: url("../img/sprite.png") no-repeat; }
+  
+.sprite {
+  background-position: -61px 0px;
+  height: 60px;
+  width: 61px; }
+  
+.sprite-downscaled {
+  background-position: -30.5px 0px;
+  background-size: 80.5px 60px;
+  height: 30px;
+  width: 30.5px; }</code></pre>
+              </div>
+            </div>
+            <a class="method__toggle"></a>
+          </section>
+          <section class="method">
+            <header class="method__head--m">
+              <h4 class="method__title">vsprite</h4>
+            </header>
+            <div class="method__text">
+              <p>Add the selected vector sprite.</p>
+            </div>
+            <div class="method__details">
+              <div class="method__api--requires">
+                <ul>
+                  <li>map <a href="/sassbasics.html#map-sprites">$svgsprites</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__api--param">
+                <ul>
+                  <li>@param {string} $name Name from the Sprite Image in the Map</li>
+                  <li>@param {string} $name Name from the Sprite Image in the Map</li>
+                  <li>@map {*} $options
+                    <ul>
+                      <li>dimensions[both] : &#39;both&#39; = height &amp; width, &#39;width&#39; = width, &#39;height&#39; = height</li>
+                      <li>scale : Scale the Image</li>
+                      <li>repeat[false] : Image Repeat - native CSS Declaration</li>
+                      <li>substract[1] : Substract Size factor [1], Single Value (h &amp; w), Two Values (w h)</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="method__code">
+                <pre class="language-scss"><code>.vectorsprite {
+  @include vsprite(test);
+}
+
+.vectorsprite-upscaled {
+  @include vsprite(test,(
+    scale: 20
+  ));
+}
+.vectorsprite-upscaled-newcontainersize {
+  @include vsprite(test,(
+    scale: 20,
+    substract: 300 400
+  ));
+}
+
+</code></pre>
+                <pre class="language-css"><code>.vectorsprite, .vectorsprite-upscaled, .vectorsprite-upscaled-newcontainersize {
+  background: url("../img/vector-sprite.svg") no-repeat; }
+  
+.vectorsprite {
+  background-position: 0px 0px;
+  height: 12.92px;
+  width: 30px; }
+  
+.vectorsprite-upscaled {
+  background-position: 0px 0px;
+  background-size: 600px 260px;
+  height: 258.4px;
+  width: 600px; }
+  
+.vectorsprite-upscaled-newcontainersize {
+  background-position: -150px -200px;
+  background-size: 600px 260px;
+  height: -141.6px;
+  width: 300px; }</code></pre>
               </div>
             </div>
             <a class="method__toggle"></a>

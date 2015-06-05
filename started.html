@@ -278,6 +278,8 @@
           </div>
           <p>The project data is prepared for production. CSS, JS and image data are compressed.
             <code>package.json</code> and <code>bower.json</code> are bumped to a new Patch Version Number. You can Bump to Higher Versions with Environment vars.</p>
+
+          <p>Every Publish Task will generate a Styleguide (on &#39;./styleguide&#39;), when you dont need it you can disable it also with an Enviroment Var (<code>--guide=no</code>).</p>
           <div class="method">
             <div class="method__code">
               <pre class="language-bash"><code>gulp publish
@@ -286,6 +288,8 @@ gulp publish --type=major
 gulp publish --type=minor
 gulp publish --type=patch
 gulp publish --version=1.2.3
+
+gulp publish --guide=no
 </code></pre>
             </div>
           </div>
